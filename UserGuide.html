@@ -14,19 +14,34 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#adding-a-patient-code-add-patient-code">3.2. Adding a patient: <code>add-patient</code></a></li>
+<li><a href="#listing-all-patients-code-list-patient-code">3.3. Listing all patients : <code>list-patient</code></a></li>
+<li><a href="#editing-a-patient-code-edit-patient-code">3.4. Editing a patient : <code>edit-patient</code></a></li>
+<li><a href="#locating-patient-by-name-code-search-patient-code">3.5. Locating patient by name: <code>search-patient</code></a></li>
+<li><a href="#deleting-an-existing-patient-code-delete-patient-code">3.6. Deleting an existing patient : <code>delete-patient</code></a></li>
+<li><a href="#adding-a-doctor-code-add-doctor-code">3.7. Adding a doctor: <code>add-doctor</code></a></li>
+<li><a href="#listing-all-doctors-code-list-doctor-code">3.8. Listing all doctors : <code>list-doctor</code></a></li>
+<li><a href="#editing-a-doctor-code-edit-doctor-code">3.9. Editing a doctor : <code>edit-doctor</code></a></li>
+<li><a href="#locating-doctor-by-name-code-search-doctor-code">3.10. Locating doctor by name: <code>search-doctor</code></a></li>
+<li><a href="#deleting-an-existing-doctor-code-delete-doctor-code">3.11. Deleting an existing doctor : <code>delete-doctor</code></a></li>
+<li><a href="#adding-a-medical-history-code-add-med-hist-code">3.12. Adding a medical history: <code>add-med-hist</code></a></li>
+<li><a href="#listing-all-medical-history-of-specified-patient-code-list-med-hist-code">3.13. Listing all medical history of specified patient : <code>list-med-hist</code></a></li>
+<li><a href="#editing-a-medical-history-code-edit-med-hist-code">3.14. Editing a medical history : <code>edit-med-hist</code></a></li>
+<li><a href="#viewing-medical-history-of-a-patient-code-view-med-hist-code">3.15. Viewing medical history of a patient: <code>view-med-hist</code></a></li>
+<li><a href="#locating-medical-history-code-search-med-hist-code">3.16. Locating medical history : <code>search-med-hist</code></a></li>
+<li><a href="#adding-an-appointment-code-add-appt-code">3.17. Adding an appointment: <code>add-appt</code></a></li>
+<li><a href="#completing-an-appointment-code-complete-appt-code">3.18. Completing an appointment : <code>complete-appt</code></a></li>
+<li><a href="#cancelling-an-appointment-code-cancel-appt-code">3.19. Cancelling an appointment : <code>cancel-appt</code></a></li>
+<li><a href="#listing-appointments-of-a-doctor-code-list-appt-code">3.20. Listing appointments of a doctor : <code>list-appt</code></a></li>
+<li><a href="#listing-available-timings-of-a-doctor-code-list-doc-time-code">3.21. Listing available timings of a doctor : <code>list-doc-time</code></a></li>
+<li><a href="#listing-available-timings-of-all-doctors-code-list-time-code">3.22. Listing available timings of all doctors : <code>list-time</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.23. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.24. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.25. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.26. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.28. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.29. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -127,22 +142,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="adding-a-patient-code-add-patient-code"><a class="link" href="#adding-a-patient-code-add-patient-code">3.2. Adding a patient: <code>add-patient</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
+<p>Adds a patient to docX<br>
+Format: <code>add-patient n/NAME g/GENDER a/AGE p/PHONE_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -150,33 +153,33 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add-patient n/John Doe g/Male a/21 p/98765432</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add-patient n/Betsy Crowe g/Female p/1234567 a/32</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="listing-all-patients-code-list-patient-code"><a class="link" href="#listing-all-patients-code-list-patient-code">3.3. Listing all patients : <code>list-patient</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>Shows a list of all patients in docX.<br>
+Format: <code>list-patient</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-a-patient-code-edit-patient-code"><a class="link" href="#editing-a-patient-code-edit-patient-code">3.4. Editing a patient : <code>edit-patient</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Edits an existing patient in the address book.<br>
+Format: <code>edit-patient INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the patient at the specified <code>INDEX</code>. The index refers to the identification number (ID) of the patient. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -184,12 +187,6 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <li>
 <p>Existing values will be updated to the input values.</p>
 </li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
 </ul>
 </div>
 </div>
@@ -200,21 +197,21 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit-patient 1 p/91234567</code><br>
+Edits the phone number of the patient with ID of '1' to be <code>91234567</code>.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>edit-patient 2 n/Betsy Crower p/45678901</code><br>
+Edits the name and phone number of the patient with ID of '2' to be <code>Betsy Crower</code> and '45678901' respectively.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-patient-by-name-code-search-patient-code"><a class="link" href="#locating-patient-by-name-code-search-patient-code">3.5. Locating patient by name: <code>search-patient</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds patient(s) whose names contain any of the given keywords.<br>
+Format: <code>search-patient NAME [PHONE_NUMBER]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -245,31 +242,31 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
+<p><code>search-patient John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>search-patient Betsy Tim John</code><br>
+Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-an-existing-patient-code-delete-patient-code"><a class="link" href="#deleting-an-existing-patient-code-delete-patient-code">3.6. Deleting an existing patient : <code>delete-patient</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Deletes the specified patient from the address book.<br>
+Format: <code>delete-patient INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the patient of the specified <code>INDEX</code> in docX.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the identification number (ID) of the patient.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -284,36 +281,29 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+<p><code>list-patient</code><br>
+<code>delete-patient 3</code><br>
+Deletes the patient with ID of '3' in the address book.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>delete-patient 2</code><br>
+Deletes the patient with ID of '2' in the address book.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="adding-a-doctor-code-add-doctor-code"><a class="link" href="#adding-a-doctor-code-add-doctor-code">3.7. Adding a doctor: <code>add-doctor</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the displayed person list.<br>
-Format: <code>select INDEX</code></p>
+<p>Adds a doctor to docX<br>
+Format: <code>add-doctor n/NAME g/GENDER a/AGE p/PHONE_NUMBER s/SPECIALISATION</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>A doctor must have at least 1 specialisation.</p>
 </li>
 </ul>
 </div>
@@ -325,20 +315,548 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
+<p><code>add-doctor n/John Doe g/Male a/21 p/98765432</code></p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
+<p><code>add-doctor n/Betsy Crowe g/Female p/1234567 a/32 s/GENERAL PRACTITIONER</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-all-doctors-code-list-doctor-code"><a class="link" href="#listing-all-doctors-code-list-doctor-code">3.8. Listing all doctors : <code>list-doctor</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all doctors in docX.<br>
+Format: <code>list-doctor</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-doctor-code-edit-doctor-code"><a class="link" href="#editing-a-doctor-code-edit-doctor-code">3.9. Editing a doctor : <code>edit-doctor</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing doctor in the address book.<br>
+Format: <code>edit-doctor INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [s/SPECIALISATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the doctor at the specified <code>INDEX</code>. The index refers to the identification number (ID) of the doctor. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing specialisation, the existing specialisations of the doctor will be removed i.e adding of specialisation(s) is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the doctor&#8217;s specialisations by typing <code>s/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit-doctor 1 p/91234567</code><br>
+Edits the phone number of the doctor with ID of '1' to be <code>91234567</code>.</p>
+</li>
+<li>
+<p><code>edit-doctor 2 n/Betsy Crower p/45678901</code><br>
+Edits the name and phone number of the doctor with ID of '2' to be <code>Betsy Crower</code> and '45678901' respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-doctor-by-name-code-search-doctor-code"><a class="link" href="#locating-doctor-by-name-code-search-doctor-code">3.10. Locating doctor by name: <code>search-doctor</code></a></h3>
+<div class="paragraph">
+<p>Finds doctor(s) whose names contain any of the given keywords.<br>
+Format: <code>search-doctor NAME [PHONE_NUMBER]</code> or <code>search-doctor SPECIALISATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Doctors matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+<li>
+<p>Each specialisation is to be quoted in quotation marks.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>search-doctor John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>search-doctor 'general practitioner' 'acupuncture'</code><br>
+Returns any doctor having either 'general practitioner' or 'acupuncture' or both.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-existing-doctor-code-delete-doctor-code"><a class="link" href="#deleting-an-existing-doctor-code-delete-doctor-code">3.11. Deleting an existing doctor : <code>delete-doctor</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified doctor from the address book.<br>
+Format: <code>delete-doctor INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the doctor of the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the identification number (ID) of the doctor.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-doctor</code><br>
+<code>delete-doctor 1</code><br>
+Deletes the doctor with ID of '1' in the address book.</p>
+</li>
+<li>
+<p><code>delete-doctor 2</code><br>
+Deletes the doctor with ID of '2' in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-medical-history-code-add-med-hist-code"><a class="link" href="#adding-a-medical-history-code-add-med-hist-code">3.12. Adding a medical history: <code>add-med-hist</code></a></h3>
+<div class="paragraph">
+<p>Adds a medical history to the patient<br>
+Format: <code>add-med-hist p/PATIENT_NAME [pid/PATIENT_ID] d/DOCTOR_NAME [did/DOCTOR_ID] w/SHORT_WRITEUP</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Medical history and the attending doctor will be added under the patient of <code>PATIENT_NAME</code>.</p>
+</li>
+<li>
+<p>Date of visit (same as entry date) will be added to the medical history.</p>
+</li>
+<li>
+<p>If there are common names (patient/doctor) found, the system will stop the information from being added and prompt the user to insert the command with the specific ID of the patient/doctor.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-med-hist p/John pid/1 d/Amy Lim w/Came down with a stomach flu, possibly due to eating expired food</code></p>
+</li>
+<li>
+<p><code>add-med-hist p/John Doe did/3 d/Amy w/Had a fever with sorethroat. Sleeps late.</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-medical-history-of-specified-patient-code-list-med-hist-code"><a class="link" href="#listing-all-medical-history-of-specified-patient-code-list-med-hist-code">3.13. Listing all medical history of specified patient : <code>list-med-hist</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all medical history of the specified patient.<br>
+Format: <code>list-med-hist PATIENT_ID</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-medical-history-code-edit-med-hist-code"><a class="link" href="#editing-a-medical-history-code-edit-med-hist-code">3.14. Editing a medical history : <code>edit-med-hist</code></a></h3>
+<div class="paragraph">
+<p>Edits a specified medical history of a specified patient.<br>
+Format: <code>edit-med-hist pid/PATIENT_ID mhid/MED_HIST_ID [d/DATE_OF_VISIT] [w/SHORT_WRITEUP]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the medical history of the specified <code>MED_HIST_ID</code> of the specified patient <code>PATIENT_ID</code>. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>DATE_OF_VISIT</code> must be in the format <code>DDMMYYYY</code>.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit-med-hist pid/1 mhid/2 d/10022019</code><br>
+Edits the date of the medical history entry with ID of '2' under patient with ID of '1' to be <code>10022019</code>.</p>
+</li>
+<li>
+<p><code>edit-med-hist pid/4 mhid/1 w/Came down with a stomach flu, possibly due to eating expired canned food</code><br>
+Edits the short write up of the medical history with ID of '1' under patient with ID of '2' to be <code>Came down with a stomach flu, possibly due to eating expired food</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-medical-history-of-a-patient-code-view-med-hist-code"><a class="link" href="#viewing-medical-history-of-a-patient-code-view-med-hist-code">3.15. Viewing medical history of a patient: <code>view-med-hist</code></a></h3>
+<div class="paragraph">
+<p>View the full specified medical history of the specified patient.<br>
+Format: <code>view-med-hist n/PATIENT_NAME [pid/PATIENT_ID] mhid/MED_HIST_ID</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Display the full medical history of the specified <code>MED_HIST_ID</code> of the specified patient <code>PATIENT_ID</code>. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>If there are common names of patients found, the system will stop the information from being added and prompt the user to insert the command with the specific ID of the patient.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view-med-hist n/JOHN DOE mhid/1</code><br>
+Returns full write up of the medical history with ID of '1' of the patient with name of 'John Doe'</p>
+</li>
+<li>
+<p><code>view-med-hist n/Amy pid/2 mhid/4</code><br>
+Returns full write up of the medical history with ID of '4' of the patient with name of 'Amy' and ID of '2'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-medical-history-code-search-med-hist-code"><a class="link" href="#locating-medical-history-code-search-med-hist-code">3.16. Locating medical history : <code>search-med-hist</code></a></h3>
+<div class="paragraph">
+<p>Finds medical history(ies) whose write up contain any of the given keywords.<br>
+Format: <code>search-med-hist KEYWORD</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Write ups of the medical history matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+<li>
+<p>Each keyword is to be quoted in quotation marks.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>search-med-hist 'flu'</code><br>
+Returns all medical history with the write up containing the keyword <code>flu</code></p>
+</li>
+<li>
+<p><code>search-med-hist 'stomach flu' 'sorethroat'</code><br>
+Returns all medical history with the write up containing either 'stomach flu' or 'sorethroat' or both keywords.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-appointment-code-add-appt-code"><a class="link" href="#adding-an-appointment-code-add-appt-code">3.17. Adding an appointment: <code>add-appt</code></a></h3>
+<div class="paragraph">
+<p>Adds an appointment under the doctor and patient.<br>
+Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Doctors are assumed to be free from 9am to 12pm and 1pm to 5pm.</p>
+</li>
+<li>
+<p>Appointments are in 1-hour blocks.</p>
+</li>
+<li>
+<p>Returns invalid if the doctor is not available during the specified block.</p>
+</li>
+<li>
+<p><code>DATE_OF_APPT</code> must be in the format <code>DDMMYYYY</code></p>
+</li>
+<li>
+<p><code>START_TIME</code> must be in the 24-hour format <code>HH</code> as timing for appointment is hourly, starting from 9am.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-appt pid/1 did/1 d/25032019 t/09</code><br>
+Adds an appointment under patient with ID of '1' and doctor with ID of '1' on 25th March 2019 at 9am.</p>
+</li>
+<li>
+<p><code>add-appt pid/3 did/2 d/25042019 t/13</code><br>
+Adds an appointment under patient with ID of '3' and doctor with ID of '2' on 25th April 2019 at 1pm.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="completing-an-appointment-code-complete-appt-code"><a class="link" href="#completing-an-appointment-code-complete-appt-code">3.18. Completing an appointment : <code>complete-appt</code></a></h3>
+<div class="paragraph">
+<p>Complete the appointment when the patient and doctor finishes the appointment<br>
+Format: <code>complete-appt INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Complete the appointment of the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the identification number (ID) of the appointment.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Only appointments on the actual day or future dates can be completed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>complete-appt 1</code><br>
+Completes the appointment with ID of '1' in docX.</p>
+</li>
+<li>
+<p><code>complete-appt 3</code><br>
+Completes the appointment with ID of '3' in docX.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cancelling-an-appointment-code-cancel-appt-code"><a class="link" href="#cancelling-an-appointment-code-cancel-appt-code">3.19. Cancelling an appointment : <code>cancel-appt</code></a></h3>
+<div class="paragraph">
+<p>Cancel the appointment when the patient or doctor cannot attend the appointment<br>
+Format: <code>cancel-appt INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Cancel and delete the appointment of the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the identification number (ID) of the appointment.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Only appointments on the actual day or future dates can be cancelled.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cancel-appt 1</code><br>
+Cancels and deletes the appointment with ID of '1' in docX.</p>
+</li>
+<li>
+<p><code>complete-appt 3</code><br>
+Cancels and delete the appointment with ID of '3' in docX.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-appointments-of-a-doctor-code-list-appt-code"><a class="link" href="#listing-appointments-of-a-doctor-code-list-appt-code">3.20. Listing appointments of a doctor : <code>list-appt</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all incomplete appointments of a doctor in docX within a specified time period.<br>
+Format: <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The start and end date specified are both inclusive in the search results.</p>
+</li>
+<li>
+<p>Completed or cancelled appointments will not be displayed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>list-appt did/3 sd/30032019 ed/30042019<br>
+Lists all appointments of the doctor with ID of '3' from 30th March 2019 to 30th April 2019.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-available-timings-of-a-doctor-code-list-doc-time-code"><a class="link" href="#listing-available-timings-of-a-doctor-code-list-doc-time-code">3.21. Listing available timings of a doctor : <code>list-doc-time</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all available blocks of timing of the specified doctor.<br>
+Format: <code>list-doc-time did/DOCTOR_ID d/DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>DATE</code> must be in the format <code>DDMMYYYY</code></p>
+</li>
+<li>
+<p>Acceptable dates include the date today and future dates.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>list-doc-time did/3 d/05032019<br>
+Lists all available blocks of timing of the doctor with ID of '3' on 5th March 2019.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-available-timings-of-all-doctors-code-list-time-code"><a class="link" href="#listing-available-timings-of-all-doctors-code-list-time-code">3.22. Listing available timings of all doctors : <code>list-time</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all available blocks of timings of all doctors on the specified date.<br>
+Format: <code>list-time DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>DATE</code> must be in the format <code>DDMMYYYY</code></p>
+</li>
+<li>
+<p>Acceptable dates include the date today and future dates.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>list-time 26022019<br>
+Lists all doctors' available blocks of timing for each 1-hour time slot on 26th February 2019.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.23. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -359,7 +877,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.24. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -404,7 +922,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.25. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -436,28 +954,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.26. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.28. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.29. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -519,4 +1037,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-24 09:02:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-26 05:48:53 UTC</div></div></div></body></html>
