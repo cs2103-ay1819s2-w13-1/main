@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>docX - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>docX - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -27,8 +27,8 @@
 <li><a href="#adding-a-medical-history-code-add-med-hist-code">3.12. Adding a medical history: <code>add-med-hist</code></a></li>
 <li><a href="#listing-all-medical-history-of-specified-patient-code-list-med-hist-code">3.13. Listing all medical history of specified patient : <code>list-med-hist</code></a></li>
 <li><a href="#editing-a-medical-history-code-edit-med-hist-code">3.14. Editing a medical history : <code>edit-med-hist</code></a></li>
-<li><a href="#viewing-medical-history-of-a-patient-code-view-med-hist-code">3.15. Viewing medical history of a patient: <code>view-med-hist</code></a></li>
-<li><a href="#locating-medical-history-code-search-med-hist-code">3.16. Locating medical history : <code>search-med-hist</code></a></li>
+<li><a href="#locating-medical-history-code-search-med-hist-code">3.15. Locating medical history : <code>search-med-hist</code></a></li>
+<li><a href="#viewing-medical-history-of-a-patient-code-view-med-hist-code">3.16. Viewing medical history of a patient: <code>view-med-hist</code></a></li>
 <li><a href="#adding-an-appointment-code-add-appt-code">3.17. Adding an appointment: <code>add-appt</code></a></li>
 <li><a href="#completing-an-appointment-code-complete-appt-code">3.18. Completing an appointment : <code>complete-appt</code></a></li>
 <li><a href="#cancelling-an-appointment-code-cancel-appt-code">3.19. Cancelling an appointment : <code>cancel-appt</code></a></li>
@@ -53,7 +53,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>docX is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, docX is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, docX can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -69,7 +69,7 @@
 <p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your docX.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -91,10 +91,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add-patient</code></strong><code>n/John Doe p/98765432 a/22 g/M ` : adds a patient named `John Doe</code> to docX.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>delete-doctor</code></strong><code>3</code> : deletes the 3rd doctor shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -126,7 +126,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[s/SPECIALISATION]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>s/acupuncture</code>, <code>s/acupuncture s/general</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
@@ -145,7 +145,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-patient-code-add-patient-code"><a class="link" href="#adding-a-patient-code-add-patient-code">3.2. Adding a patient: <code>add-patient</code></a></h3>
 <div class="paragraph">
 <p>Adds a patient to docX<br>
-Format: <code>add-patient n/NAME g/GENDER a/AGE p/PHONE_NUMBER</code></p>
+Format: <code>add-patient n/NAME g/GENDER [a/AGE] p/PHONE_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -171,7 +171,7 @@ Format: <code>list-patient</code></p>
 <div class="sect2">
 <h3 id="editing-a-patient-code-edit-patient-code"><a class="link" href="#editing-a-patient-code-edit-patient-code">3.4. Editing a patient : <code>edit-patient</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing patient in the address book.<br>
+<p>Edits an existing patient in docX.<br>
 Format: <code>edit-patient INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE]</code></p>
 </div>
 <div class="sidebarblock">
@@ -255,7 +255,7 @@ Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>
 <div class="sect2">
 <h3 id="deleting-an-existing-patient-code-delete-patient-code"><a class="link" href="#deleting-an-existing-patient-code-delete-patient-code">3.6. Deleting an existing patient : <code>delete-patient</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified patient from the address book.<br>
+<p>Deletes the specified patient from docX.<br>
 Format: <code>delete-patient INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -315,10 +315,10 @@ Format: <code>add-doctor n/NAME g/GENDER a/AGE p/PHONE_NUMBER s/SPECIALISATION</
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-doctor n/John Doe g/Male a/21 p/98765432</code></p>
+<p><code>add-doctor n/John Doe g/Male a/21 p/98765432 s/`acupuncture' 'general'</code></p>
 </li>
 <li>
-<p><code>add-doctor n/Betsy Crowe g/Female p/1234567 a/32 s/GENERAL PRACTITIONER</code></p>
+<p><code>add-doctor n/Betsy Crowe g/Female p/1234567 a/32 s/'general'</code></p>
 </li>
 </ul>
 </div>
@@ -333,7 +333,7 @@ Format: <code>list-doctor</code></p>
 <div class="sect2">
 <h3 id="editing-a-doctor-code-edit-doctor-code"><a class="link" href="#editing-a-doctor-code-edit-doctor-code">3.9. Editing a doctor : <code>edit-doctor</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing doctor in the address book.<br>
+<p>Edits an existing doctor in docX.<br>
 Format: <code>edit-doctor INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [s/SPECIALISATION]</code></p>
 </div>
 <div class="sidebarblock">
@@ -353,7 +353,7 @@ Format: <code>edit-doctor INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [s/SPECIAL
 <p>When editing specialisation, the existing specialisations of the doctor will be removed i.e adding of specialisation(s) is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the doctor&#8217;s specialisations by typing <code>s/</code> without specifying any tags after it.</p>
+<p>You can remove all the doctor&#8217;s specialisations by typing <code>s/</code> without specifying any specialisation after it.</p>
 </li>
 </ul>
 </div>
@@ -423,7 +423,7 @@ Returns any doctor having either 'general practitioner' or 'acupuncture' or both
 <div class="sect2">
 <h3 id="deleting-an-existing-doctor-code-delete-doctor-code"><a class="link" href="#deleting-an-existing-doctor-code-delete-doctor-code">3.11. Deleting an existing doctor : <code>delete-doctor</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified doctor from the address book.<br>
+<p>Deletes the specified doctor from docX.<br>
 Format: <code>delete-doctor INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -451,11 +451,11 @@ Format: <code>delete-doctor INDEX</code></p>
 <li>
 <p><code>list-doctor</code><br>
 <code>delete-doctor 1</code><br>
-Deletes the doctor with ID of '1' in the address book.</p>
+Deletes the doctor with ID of '1' in docX.</p>
 </li>
 <li>
 <p><code>delete-doctor 2</code><br>
-Deletes the doctor with ID of '2' in the address book.</p>
+Deletes the doctor with ID of '2' in docX.</p>
 </li>
 </ul>
 </div>
@@ -547,46 +547,7 @@ Edits the short write up of the medical history with ID of '1' under patient wit
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-medical-history-of-a-patient-code-view-med-hist-code"><a class="link" href="#viewing-medical-history-of-a-patient-code-view-med-hist-code">3.15. Viewing medical history of a patient: <code>view-med-hist</code></a></h3>
-<div class="paragraph">
-<p>View the full specified medical history of the specified patient.<br>
-Format: <code>view-med-hist n/PATIENT_NAME [pid/PATIENT_ID] mhid/MED_HIST_ID</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Display the full medical history of the specified <code>MED_HIST_ID</code> of the specified patient <code>PATIENT_ID</code>. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>If there are common names of patients found, the system will stop the information from being added and prompt the user to insert the command with the specific ID of the patient.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>view-med-hist n/JOHN DOE mhid/1</code><br>
-Returns full write up of the medical history with ID of '1' of the patient with name of 'John Doe'</p>
-</li>
-<li>
-<p><code>view-med-hist n/Amy pid/2 mhid/4</code><br>
-Returns full write up of the medical history with ID of '4' of the patient with name of 'Amy' and ID of '2'</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-medical-history-code-search-med-hist-code"><a class="link" href="#locating-medical-history-code-search-med-hist-code">3.16. Locating medical history : <code>search-med-hist</code></a></h3>
+<h3 id="locating-medical-history-code-search-med-hist-code"><a class="link" href="#locating-medical-history-code-search-med-hist-code">3.15. Locating medical history : <code>search-med-hist</code></a></h3>
 <div class="paragraph">
 <p>Finds medical history(ies) whose write up contain any of the given keywords.<br>
 Format: <code>search-med-hist KEYWORD</code></p>
@@ -631,9 +592,48 @@ Returns all medical history with the write up containing either 'stomach flu' or
 </div>
 </div>
 <div class="sect2">
+<h3 id="viewing-medical-history-of-a-patient-code-view-med-hist-code"><a class="link" href="#viewing-medical-history-of-a-patient-code-view-med-hist-code">3.16. Viewing medical history of a patient: <code>view-med-hist</code></a></h3>
+<div class="paragraph">
+<p>View the full specified medical history of the specified patient.<br>
+Format: <code>view-med-hist n/PATIENT_NAME [pid/PATIENT_ID] mhid/MED_HIST_ID</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Display the full medical history of the specified <code>MED_HIST_ID</code> of the specified patient <code>PATIENT_ID</code>. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>If there are common names of patients found, the system will stop the information from being added and prompt the user to insert the command with the specific ID of the patient.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view-med-hist n/JOHN DOE mhid/1</code><br>
+Returns full write up of the medical history with ID of '1' of the patient with name of 'John Doe'</p>
+</li>
+<li>
+<p><code>view-med-hist n/Amy pid/2 mhid/4</code><br>
+Returns full write up of the medical history with ID of '4' of the patient with name of 'Amy' and ID of '2'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="adding-an-appointment-code-add-appt-code"><a class="link" href="#adding-an-appointment-code-add-appt-code">3.17. Adding an appointment: <code>add-appt</code></a></h3>
 <div class="paragraph">
-<p>Adds an appointment under the doctor and patient.<br>
+<p>Adds an appointment under the doctor and patient involved.<br>
 Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code></p>
 </div>
 <div class="sidebarblock">
@@ -678,7 +678,7 @@ Adds an appointment under patient with ID of '3' and doctor with ID of '2' on 25
 <div class="sect2">
 <h3 id="completing-an-appointment-code-complete-appt-code"><a class="link" href="#completing-an-appointment-code-complete-appt-code">3.18. Completing an appointment : <code>complete-appt</code></a></h3>
 <div class="paragraph">
-<p>Complete the appointment when the patient and doctor finishes the appointment<br>
+<p>Complete the appointment when the patient and doctor finishes the appointment.<br>
 Format: <code>complete-appt INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -720,7 +720,7 @@ Completes the appointment with ID of '3' in docX.</p>
 <div class="sect2">
 <h3 id="cancelling-an-appointment-code-cancel-appt-code"><a class="link" href="#cancelling-an-appointment-code-cancel-appt-code">3.19. Cancelling an appointment : <code>cancel-appt</code></a></h3>
 <div class="paragraph">
-<p>Cancel the appointment when the patient or doctor cannot attend the appointment<br>
+<p>Cancel the appointment when the patient or doctor cannot attend the appointment.<br>
 Format: <code>cancel-appt INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -785,7 +785,7 @@ Format: <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>list-appt did/3 sd/30032019 ed/30042019<br>
+<p><code>list-appt did/3 sd/30032019 ed/30042019</code><br>
 Lists all appointments of the doctor with ID of '3' from 30th March 2019 to 30th April 2019.</p>
 </li>
 </ul>
@@ -817,7 +817,7 @@ Format: <code>list-doc-time did/DOCTOR_ID d/DATE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>list-doc-time did/3 d/05032019<br>
+<p><code>list-doc-time did/3 d/05032019</code><br>
 Lists all available blocks of timing of the doctor with ID of '3' on 5th March 2019.</p>
 </li>
 </ul>
@@ -849,7 +849,7 @@ Format: <code>list-time DATE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>list-time 26022019<br>
+<p><code>list-time 26022019</code><br>
 Lists all doctors' available blocks of timing for each 1-hour time slot on 26th February 2019.</p>
 </li>
 </ul>
@@ -956,7 +956,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.26. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
+<p>Clears all entries from docX.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
@@ -970,7 +970,7 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.28. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>docX data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
@@ -994,36 +994,128 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>PATIENT COMMANDS</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add a new patient</strong> <code>add-patient n/NAME g/GENDER a/AGE p/PHONE_NUMBER</code><br>
+e.g. <code>add-patient n/Betsy Crowe g/Female p/1234567 a/32</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>List existing patients</strong> : <code>list-patient</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Delete patient</strong> : <code>delete-patient INDEX</code><br>
+e.g. <code>delete-patient 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Edit an existing patient</strong> : <code>edit-patient INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE]</code><br>
+e.g. <code>edit-patient 2 n/Betsy Crower p/45678901</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Locating a patient</strong> : <code>search-patient NAME [PHONE_NUMBER]</code><br>
+e.g. <code>search-patient John</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Delete an existing patient</strong> : <code>delete-patient INDEX</code><br>
+eg. <code>delete-patient 2</code></p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DOCTOR COMMANDS</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add a new doctor</strong> <code>add-doctor n/NAME g/GENDER a/AGE p/PHONE_NUMBER s/SPECIALISATION</code><br>
+e.g. <code>add-doctor n/John Doe g/Male a/21 p/98765432 s/`acupuncture' 'general'</code></p>
+</li>
+<li>
+<p><strong>List existing doctors</strong> : <code>list-doctor</code></p>
+</li>
+<li>
+<p><strong>Delete doctor</strong> : <code>delete-doctor INDEX</code><br>
+e.g. <code>delete-doctor 3</code></p>
+</li>
+<li>
+<p><strong>Edit an existing doctor</strong> : <code>edit-doctor INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [s/SPECIALISATION]</code><br>
+e.g. <code>edit-doctor 2 n/Betsy Crower p/45678901</code></p>
+</li>
+<li>
+<p><strong>Locating a doctor</strong> : <code>search-patient NAME [PHONE_NUMBER]</code><br>
+e.g. <code>search-doctor 'general practitioner' 'acupuncture'</code></p>
+</li>
+<li>
+<p><strong>Delete an existing doctor</strong> : <code>delete-doctor INDEX</code><br>
+eg. <code>delete-doctor 2</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>MEDICAL HISTORY COMMANDS</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add a new medical history</strong> <code>add-med-hist p/PATIENT_NAME [pid/PATIENT_ID] d/DOCTOR_NAME [did/DOCTOR_ID] w/SHORT_WRITEUP</code><br>
+e.g. <code>add-med-hist p/John Doe did/3 d/Amy w/Had a fever with sorethroat. Sleeps late.</code></p>
+</li>
+<li>
+<p><strong>List medical histories of a patient</strong> : <code>list-med-hist PATIENT_ID</code></p>
+</li>
+<li>
+<p><strong>Edit an existing medical history of a patient</strong> : <code>edit-med-hist pid/PATIENT_ID mhid/MED_HIST_ID [d/DATE_OF_VISIT] [w/SHORT_WRITEUP]</code><br>
+e.g. <code>edit-med-hist pid/1 mhid/2 d/10022019</code></p>
+</li>
+<li>
+<p><strong>Locating a medical history</strong> : <code>search-med-hist KEYWORD</code><br>
+e.g. <code>search-med-hist 'flu'</code></p>
+</li>
+<li>
+<p><strong>View a medical history</strong> : <code>view-med-hist n/PATIENT_NAME [pid/PATIENT_ID] mhid/MED_HIST_ID</code><br>
+e.g. <code>view-med-hist n/JOHN DOE mhid/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>APPOINTMENT COMMANDS</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add a new appointment</strong> <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code><br>
+e.g. <code>add-appt pid/1 did/1 d/25032019 t/09</code></p>
+</li>
+<li>
+<p><strong>Completing an appointment</strong> : <code>complete-appt INDEX</code></p>
+</li>
+<li>
+<p><strong>Cancelling an appointment</strong> : <code>cancel-appt INDEX</code></p>
+</li>
+<li>
+<p><strong>List upcoming appointments of a doctor</strong> : <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code>
+e.g. <code>list-appt did/3 sd/30032019 ed/30042019</code></p>
+</li>
+<li>
+<p><strong>List available timings of a doctor</strong> : <code>list-doc-time did/DOCTOR_ID d/DATE</code>
+e.g. <code>list-doc-time did/3 d/05032019</code></p>
+</li>
+<li>
+<p><strong>List available doctors during the specified time</strong> : <code>list-time DATE</code>
+e.g. <code>list-time 26022019</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>GENERAL COMMANDS</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code></p>
@@ -1037,4 +1129,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 05:39:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 08:12:47 UTC</div></div></div></body></html>
