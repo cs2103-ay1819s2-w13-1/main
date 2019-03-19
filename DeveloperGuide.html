@@ -33,7 +33,9 @@
 <li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
-<li><a href="#medical-history-of-patients">3.5. Medical History of patients</a></li>
+<li><a href="#crud-of-patients">3.5. CRUD of patients</a></li>
+<li><a href="#medical-history-of-patients">3.6. Medical History of patients</a></li>
+<li><a href="#appointments">3.7. Appointments</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -820,20 +822,100 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="medical-history-of-patients"><a class="link" href="#medical-history-of-patients">3.5. Medical History of patients</a></h3>
+<h3 id="crud-of-patients"><a class="link" href="#crud-of-patients">3.5. CRUD of patients</a></h3>
 <div class="paragraph">
-<p>Medical History is used to track a patient&#8217;s history of coming to the clinic and seeing doctors.
+<p>Patients is one of the two valid types of Persons to store in the docX record.
 The following features are implemented or will be implemented for users of docX:
-* Add medical history of patient: the medical history contains information of patient, doctor, time and a prescription
-* List all medical history of a specified patient
-* Edit medical history
-* Search medical history by keywords
-* View a specified medical history</p>
+* Add patient
+* List all patients
+* Edit existing patient entries
+* Search patients by keywords
+* Delete existing patient entries</p>
 </div>
 <div class="sect3">
-<h4 id="add-medical-history-feature"><a class="link" href="#add-medical-history-feature">3.5.1. Add Medical History feature</a></h4>
+<h4 id="crud-patient-features"><a class="link" href="#crud-patient-features">3.5.1. CRUD Patient features</a></h4>
 <div class="sect4">
 <h5 id="current-proposed-implementation"><a class="link" href="#current-proposed-implementation">Current(Proposed) Implementation</a></h5>
+<div class="paragraph">
+<p>When a user executes 'add-patient n/John Doe g/Male a/21 p/98765432'</p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("add") in AddressBookParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, AddressBookParser builds a new AddCommandParser() and call function parse(arguments) of AddCommandParser;</p>
+</div>
+<div class="paragraph">
+<p>Step3. AddCommandParser parses the argument and get patient name, patient gender, age, phone and an optional tag. AddCommandParser calls constructors of Age, Gender, Phone and Tag and then calls the constructor of Patient. Then, AddCommandParser calls AddCommand(Patient).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of AddtCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls hasPatient() of Model. If patient does not exist, call addPatient() of Model.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-patient-feature"><a class="link" href="#list-patient-feature">3.5.2. List Patient feature</a></h4>
+<div class="paragraph">
+<p>{Explain here how list will be implemented}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-patient-feature"><a class="link" href="#edit-patient-feature">3.5.3. Edit Patient feature</a></h4>
+<div class="paragraph">
+<p>{Explain here how edit will be implemented}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="search-patient-feature"><a class="link" href="#search-patient-feature">3.5.4. Search Patient feature</a></h4>
+<div class="paragraph">
+<p>{Explain here how search will be implemented}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-patient-feature"><a class="link" href="#delete-patient-feature">3.5.5. Delete Patient feature</a></h4>
+<div class="paragraph">
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete")</code> API call.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="700">
+</div>
+<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>delete</code> Command</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="medical-history-of-patients"><a class="link" href="#medical-history-of-patients">3.6. Medical History of patients</a></h3>
+<div class="paragraph">
+<p>Medical History is used to track a patient&#8217;s history of coming to the clinic and seeing doctors.
+The following features are implemented or will be implemented for users of docX:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add medical history of patient: the medical history contains information of patient, doctor, time and a prescription</p>
+</li>
+<li>
+<p>List all medical history of a specified patient</p>
+</li>
+<li>
+<p>Edit medical history</p>
+</li>
+<li>
+<p>Search medical history by keywords</p>
+</li>
+<li>
+<p>View a specified medical history</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="add-medical-history-feature"><a class="link" href="#add-medical-history-feature">3.6.1. Add Medical History feature</a></h4>
+<div class="sect4">
+<h5 id="current-proposed-implementation-2"><a class="link" href="#current-proposed-implementation-2">Current(Proposed) Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes 'add-med-hist n/patientName n/doctorName sw/shortWriteUp'</p>
 </div>
@@ -855,27 +937,109 @@ The following features are implemented or will be implemented for users of docX:
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-medical-history-feature"><a class="link" href="#list-medical-history-feature">3.5.2. List Medical History feature</a></h4>
+<h4 id="list-medical-history-feature"><a class="link" href="#list-medical-history-feature">3.6.2. List Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how list medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-medical-history-feature"><a class="link" href="#edit-medical-history-feature">3.5.3. Edit Medical History feature</a></h4>
+<h4 id="edit-medical-history-feature"><a class="link" href="#edit-medical-history-feature">3.6.3. Edit Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how edit medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-medical-history-feature"><a class="link" href="#search-medical-history-feature">3.5.4. Search Medical History feature</a></h4>
+<h4 id="search-medical-history-feature"><a class="link" href="#search-medical-history-feature">3.6.4. Search Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how search medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-medical-history-feature"><a class="link" href="#view-medical-history-feature">3.5.5. View Medical History feature</a></h4>
+<h4 id="view-medical-history-feature"><a class="link" href="#view-medical-history-feature">3.6.5. View Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how view medical history will be implemented}</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="appointments"><a class="link" href="#appointments">3.7. Appointments</a></h3>
+<div class="paragraph">
+<p>Appointments are created to facilitate future appointments between patients and doctors. A patient can have none or multiple appointments, a doctor can have none or multiple appointments. An appointment cannot overlap with a patient&#8217;s or doctor&#8217;s existing appointments. This is determined if the date and time overlaps. An appointment must specify a date, time, patient, doctor, and short write-up.</p>
+</div>
+<div class="paragraph">
+<p>The following features are implemented or will be implemented:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add appointment</p>
+</li>
+<li>
+<p>Complete appointment</p>
+</li>
+<li>
+<p>Cancel appointment</p>
+</li>
+<li>
+<p>List all appointments of a doctor</p>
+</li>
+<li>
+<p>List available timings of a doctor</p>
+</li>
+<li>
+<p>List available appointments of all doctors</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="add-appointment"><a class="link" href="#add-appointment">3.7.1. Add Appointment</a></h4>
+<div class="sect4">
+<h5 id="current-partial-implementation"><a class="link" href="#current-partial-implementation">Current (partial) Implementation</a></h5>
+<div class="paragraph">
+<p>The user types 'add-appt p/patientID d/doctorID t/dateAndTime /w writeUp'</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The command is parsed by AddAppointmentCommandParser and a AddAppointmentCommand is returned.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The AddAppointmentCommand contains an appointment object. The appointment object is an entity object that holds the details for that particular appointment. i.e. patient, doctor, dateAndTime, writeUp.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Within execute(), the actual logic of the AddAppointment operation is being performed. Firstly, it will retrieve the list of existing appointments of the patient and the doctor. Secondly, it will create a new appointment object, check if the dateAndTime overlaps with the patient&#8217;s existing appointments, and check if the dateAndTime overlaps with the doctor&#8217;s existing appointments. If the appointment is not overlapping, the appointment object will be added to the list of appointments in both the patient and doctor object.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Once the above logic is successfully executed, the UI is updated by the UI layer and the save file is updated by the Storage layer. The storage layer will convert the appointments in the patient and doctor objects into JSON and saves it to file. (to be further explained when implemented)</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="complete-appointment"><a class="link" href="#complete-appointment">3.7.2. Complete Appointment</a></h4>
+<div class="paragraph">
+<p>{todo}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cancel-appointment"><a class="link" href="#cancel-appointment">3.7.3. Cancel Appointment</a></h4>
+<div class="paragraph">
+<p>{todo}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-all-appointments-of-a-doctor"><a class="link" href="#list-all-appointments-of-a-doctor">3.7.4. List all appointments of a doctor</a></h4>
+<div class="paragraph">
+<p>{todo}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-available-timings-of-a-doctor"><a class="link" href="#list-available-timings-of-a-doctor">3.7.5. List available timings of a doctor</a></h4>
+<div class="paragraph">
+<p>{todo}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-available-appointments-of-all-doctors"><a class="link" href="#list-available-appointments-of-all-doctors">3.7.6. List available appointments of all doctors</a></h4>
+<div class="paragraph">
+<p>{todo}</p>
 </div>
 </div>
 </div>
@@ -940,7 +1104,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3280,4 +3444,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 15:34:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 15:50:20 UTC</div></div></div></body></html>
