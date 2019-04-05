@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>docX - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>W13-1 and Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -29,8 +29,30 @@
 <li><a href="#listing-all-medical-history-of-specified-patient-code-list-med-hist-code">3.14. Listing all medical history of specified patient : <code>list-med-hist</code></a></li>
 <li><a href="#locating-medical-history-code-search-med-hist-code">3.15. Locating medical history : <code>search-med-hist</code></a></li>
 <li><a href="#viewing-a-certain-medical-history-code-select-med-hist-code">3.16. Viewing a certain medical history: <code>select-med-hist</code></a></li>
+<li><a href="#adding-an-appointment-code-add-appt-code">3.17. Adding an appointment: <code>add-appt</code></a></li>
+<li><a href="#listing-of-appointments-code-list-appt-code">3.18. Listing of appointments : <code>list-appt</code></a></li>
+<li><a href="#completing-an-appointment-code-complete-appt-code">3.19. Completing an appointment : <code>complete-appt</code></a></li>
+<li><a href="#cancelling-an-appointment-code-cancel-appt-code">3.20. Cancelling an appointment : <code>cancel-appt</code></a></li>
+<li><a href="#listing-appointments-of-a-doctor-code-list-appt-code">3.21. Listing appointments of a doctor : <code>list-appt</code></a></li>
+<li><a href="#listing-available-timings-of-a-doctor-code-list-doc-time-code">3.22. Listing available timings of a doctor : <code>list-doc-time</code></a></li>
+<li><a href="#listing-available-timings-of-all-doctors-code-list-time-code">3.23. Listing available timings of all doctors : <code>list-time</code></a></li>
+<li><a href="#adding-a-medicine-code-add-med-code">3.24. Adding a medicine: <code>add-med</code></a></li>
+<li><a href="#listing-all-medicines-code-list-med-code">3.25. Listing all medicines : <code>list-med</code></a></li>
+<li><a href="#adding-a-prescription-code-add-presc-code">3.26. Adding a prescription: <code>add-presc</code></a></li>
+<li><a href="#listing-all-prescriptions-of-a-patient-code-list-presc-code">3.27. Listing all prescriptions of a patient : <code>list-presc</code></a></li>
+<li><a href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.28. Viewing a prescription of a patient: <code>view-presc</code></a></li>
+<li><a href="#locating-prescription-code-search-presc-code">3.29. Locating prescription : <code>search-presc</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.30. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.31. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.32. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.33. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.34. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.35. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.36. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -51,7 +73,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/cs2103-ay1819s2-w13-1/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your docX.</p>
@@ -590,6 +612,8 @@ Format: <code>select-med-hist index</code></p>
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -601,15 +625,16 @@ Returns full write up of the medical history with index 1.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Adding an appointment: <code>add-appt</code></p>
 </div>
+<div class="sect2">
+<h3 id="adding-an-appointment-code-add-appt-code"><a class="link" href="#adding-an-appointment-code-add-appt-code">3.17. Adding an appointment: <code>add-appt</code></a></h3>
 <div class="paragraph">
-<p>Adds an appointment under the doctor and patient involved.<br>
+<p>{Validation of data input not completed yet}<br>
+Adds an appointment under the doctor and patient involved.<br>
 Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -622,39 +647,69 @@ Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME<
 <p>Returns invalid if the doctor is not available during the specified block.</p>
 </li>
 <li>
-<p><code>DATE_OF_APPT</code> must be in the format <code>DDMMYYYY</code></p>
+<p><code>DATE_OF_APPT</code> must be in the format <code>YYYY-MM-DD</code></p>
 </li>
 <li>
 <p><code>START_TIME</code> must be in the 24-hour format <code>HH</code> as timing for appointment is hourly, starting from 9am.</p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-appt pid/1 did/1 d/25032019 t/09</code><br>
-Adds an appointment under patient with ID of '1' and doctor with ID of '1' on 25th March 2019 at 9am.</p>
+<p><code>add-appt pid/1 did/1 d/2019-06-01 t/09:00</code><br>
+Adds an appointment under patient with ID of '1' and doctor with ID of '1' on 1st June 2019 at 9am.</p>
 </li>
 <li>
-<p><code>add-appt pid/3 did/2 d/25042019 t/13</code><br>
-Adds an appointment under patient with ID of '3' and doctor with ID of '2' on 25th April 2019 at 1pm.</p>
+<p><code>add-appt pid/3 did/2 d/2019-06-01 t/13:00</code><br>
+Adds an appointment under patient with ID of '3' and doctor with ID of '2' on 1st June 2019 at 1pm.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="listing-of-appointments-code-list-appt-code"><a class="link" href="#listing-of-appointments-code-list-appt-code">3.18. Listing of appointments : <code>list-appt</code></a></h3>
 <div class="paragraph">
-<p>=== Completing an appointment : <code>complete-appt</code></p>
+<p>Shows a list of all appointments in the system.<br>
+Format: <code>list-appt</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Completed or cancelled appointments will not be displayed.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Complete the appointment when the patient and doctor finishes the appointment.<br>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-appt</code><br>
+Lists all appointments.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="completing-an-appointment-code-complete-appt-code"><a class="link" href="#completing-an-appointment-code-complete-appt-code">3.19. Completing an appointment : <code>complete-appt</code></a></h3>
+<div class="paragraph">
+<p>{Not available yet}<br>
+Complete the appointment when the patient and doctor finishes the appointment.<br>
 Format: <code>complete-appt INDEX</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -671,8 +726,8 @@ Format: <code>complete-appt INDEX</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -688,15 +743,16 @@ Completes the appointment with ID of '3' in docX.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Cancelling an appointment : <code>cancel-appt</code></p>
 </div>
+<div class="sect2">
+<h3 id="cancelling-an-appointment-code-cancel-appt-code"><a class="link" href="#cancelling-an-appointment-code-cancel-appt-code">3.20. Cancelling an appointment : <code>cancel-appt</code></a></h3>
 <div class="paragraph">
-<p>Cancel the appointment when the patient or doctor cannot attend the appointment.<br>
+<p>{Not available yet}<br>
+Cancel the appointment when the patient or doctor cannot attend the appointment.<br>
 Format: <code>cancel-appt INDEX</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -713,8 +769,8 @@ Format: <code>cancel-appt INDEX</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -730,15 +786,16 @@ Cancels and delete the appointment with ID of '3' in docX.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Listing appointments of a doctor : <code>list-appt</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-appointments-of-a-doctor-code-list-appt-code"><a class="link" href="#listing-appointments-of-a-doctor-code-list-appt-code">3.21. Listing appointments of a doctor : <code>list-appt</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all incomplete appointments of a doctor in docX within a specified time period.<br>
+<p>{Not available yet}<br>
+Shows a list of all incomplete appointments of a doctor in docX within a specified time period.<br>
 Format: <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -749,8 +806,8 @@ Format: <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -762,15 +819,16 @@ Lists all appointments of the doctor with ID of '3' from 30th March 2019 to 30th
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Listing available timings of a doctor : <code>list-doc-time</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-available-timings-of-a-doctor-code-list-doc-time-code"><a class="link" href="#listing-available-timings-of-a-doctor-code-list-doc-time-code">3.22. Listing available timings of a doctor : <code>list-doc-time</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all available blocks of timing of the specified doctor.<br>
+<p>{Not available yet}<br>
+Shows a list of all available blocks of timing of the specified doctor.<br>
 Format: <code>list-doc-time did/DOCTOR_ID d/DATE</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -781,8 +839,8 @@ Format: <code>list-doc-time did/DOCTOR_ID d/DATE</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -794,15 +852,16 @@ Lists all available blocks of timing of the doctor with ID of '3' on 5th March 2
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Listing available timings of all doctors : <code>list-time</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-available-timings-of-all-doctors-code-list-time-code"><a class="link" href="#listing-available-timings-of-all-doctors-code-list-time-code">3.23. Listing available timings of all doctors : <code>list-time</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all available blocks of timings of all doctors on the specified date.<br>
+<p>{Not available yet}<br>
+Shows a list of all available blocks of timings of all doctors on the specified date.<br>
 Format: <code>list-time DATE</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -813,8 +872,8 @@ Format: <code>list-time DATE</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -826,15 +885,15 @@ Lists all doctors' available blocks of timing for each 1-hour time slot on 26th 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Adding a medicine: <code>add-med</code></p>
 </div>
+<div class="sect2">
+<h3 id="adding-a-medicine-code-add-med-code"><a class="link" href="#adding-a-medicine-code-add-med-code">3.24. Adding a medicine: <code>add-med</code></a></h3>
 <div class="paragraph">
 <p>Adds a medicine in docX database.<br>
 Format: <code>add-med MEDICINE</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -848,8 +907,8 @@ Format: <code>add-med MEDICINE</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:
 * <code>add-med 'coughing tablets'</code><br>
@@ -857,22 +916,22 @@ Adds 'coughing syrup' into docX&#8217;s available lists of medicines.
 * <code>add-med 'muscle patch'</code><br>
 Adds 'muscle patch' into docX&#8217;s available lists of medicines.</p>
 </div>
-<div class="paragraph">
-<p>=== Listing all medicines : <code>list-med</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-all-medicines-code-list-med-code"><a class="link" href="#listing-all-medicines-code-list-med-code">3.25. Listing all medicines : <code>list-med</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all medicines in docX.<br>
 Format: <code>list-med</code></p>
 </div>
-<div class="paragraph">
-<p>=== Adding a prescription: <code>add-presc</code></p>
 </div>
+<div class="sect2">
+<h3 id="adding-a-prescription-code-add-presc-code"><a class="link" href="#adding-a-prescription-code-add-presc-code">3.26. Adding a prescription: <code>add-presc</code></a></h3>
 <div class="paragraph">
 <p>Adds a prescription and the prescribing doctor under the patient involved.<br>
 Format: <code>add-presc pid/PATIENT_ID did/DOCTOR_ID rid/MED_ID w/SHORT_WRITEUP</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -880,8 +939,8 @@ Format: <code>add-presc pid/PATIENT_ID did/DOCTOR_ID rid/MED_ID w/SHORT_WRITEUP<
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -899,15 +958,15 @@ and a short write up of 'constipation for 3 days' under the patient with ID of '
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Listing all prescriptions of a patient : <code>list-presc</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-all-prescriptions-of-a-patient-code-list-presc-code"><a class="link" href="#listing-all-prescriptions-of-a-patient-code-list-presc-code">3.27. Listing all prescriptions of a patient : <code>list-presc</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all past prescriptions under the patient involved.<br>
 Format: <code>list-presc PATIENT_ID</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -915,8 +974,8 @@ Format: <code>list-presc PATIENT_ID</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -928,15 +987,15 @@ Lists all past prescriptions under the patient with ID of '3'.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Viewing a prescription of a patient: <code>view-presc</code></p>
 </div>
+<div class="sect2">
+<h3 id="viewing-a-prescription-of-a-patient-code-view-presc-code"><a class="link" href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.28. Viewing a prescription of a patient: <code>view-presc</code></a></h3>
 <div class="paragraph">
 <p>View the full specified prescription of the specified patient.<br>
 Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -944,8 +1003,8 @@ Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -957,15 +1016,15 @@ Returns full write up of the prescription with ID of '2' of the patient with ID 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Locating prescription : <code>search-presc</code></p>
 </div>
+<div class="sect2">
+<h3 id="locating-prescription-code-search-presc-code"><a class="link" href="#locating-prescription-code-search-presc-code">3.29. Locating prescription : <code>search-presc</code></a></h3>
 <div class="paragraph">
 <p>Finds prescription(s) whose write up contain any of the given keywords.<br>
 Format: <code>search-presc KEYWORD</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -985,8 +1044,8 @@ Format: <code>search-presc KEYWORD</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1002,9 +1061,9 @@ Returns all prescriptions with the write up containing either 'stomach flu' or '
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Listing entered commands : <code>history</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.30. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -1023,9 +1082,9 @@ Format: <code>history</code></p>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>=== Undoing previous command : <code>undo</code></p>
 </div>
+<div class="sect2">
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.31. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -1068,9 +1127,9 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Redoing the previously undone command : <code>redo</code></p>
 </div>
+<div class="sect2">
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.32. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -1100,43 +1159,48 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Clearing all entries : <code>clear</code></p>
 </div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.33. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from docX.<br>
 Format: <code>clear</code></p>
 </div>
-<div class="paragraph">
-<p>=== Exiting the program : <code>exit</code></p>
 </div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.34. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
-<div class="paragraph">
-<p>=== Saving the data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.35. Saving the data</a></h3>
 <div class="paragraph">
 <p>docX data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-<div class="paragraph">
-<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.36. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>PATIENT COMMANDS</p>
 </div>
@@ -1230,7 +1294,7 @@ e.g. <code>view-med-hist n/JOHN DOE mhid/1</code></p>
 <ul>
 <li>
 <p><strong>Add a new appointment</strong> <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code><br>
-e.g. <code>add-appt pid/1 did/1 d/25032019 t/09</code></p>
+e.g. <code>add-appt pid/1 did/1 d/2019-06-01 t/09:00</code></p>
 </li>
 <li>
 <p><strong>Completing an appointment</strong> : <code>complete-appt INDEX</code></p>
@@ -1301,7 +1365,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 02:43:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 04:30:57 UTC</div></div></div></body></html>
