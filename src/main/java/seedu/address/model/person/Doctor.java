@@ -12,9 +12,14 @@ import seedu.address.model.tag.Specialisation;
  * Represents a Doctor in docX.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Doctor extends Person {
+public class Doctor {
+
+    // Identity fields
+    private final Name name;
+    private final Phone phone;
 
     // Data fields
+    private final Gender gender;
     private final Year year;
     private final Set<Specialisation> specList = new HashSet<>();
 
@@ -22,9 +27,23 @@ public class Doctor extends Person {
      * Every field must be present and not null.
      */
     public Doctor(Name name, Phone phone, Gender gender, Year year, Set<Specialisation> specList) {
-        super(name, phone, gender);
+        this.name = name;
+        this.gender = gender;
         this.year = year;
+        this.phone = phone;
         this.specList.addAll(specList);
+    }
+
+    public Name getName() {
+        return this.name;
+    }
+
+    public Phone getPhone() {
+        return this.phone;
+    }
+
+    public Gender getGender() {
+        return this.gender;
     }
 
     public Year getYear() {
@@ -78,7 +97,7 @@ public class Doctor extends Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(year, specList);
+        return Objects.hash(name, phone, year, gender, specList);
     }
 
     @Override
