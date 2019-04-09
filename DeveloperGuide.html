@@ -36,7 +36,8 @@
 <li><a href="#prescriptions">3.5. Prescriptions</a></li>
 <li><a href="#crud-of-patients">3.6. CRUD of patients</a></li>
 <li><a href="#medical-history-of-patients">3.7. Medical History of patients</a></li>
-<li><a href="#appointments">3.8. Appointments</a></li>
+<li><a href="#crud-doctor-features">3.8. CRUD Doctor features</a></li>
+<li><a href="#appointments">3.9. Appointments</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1016,8 +1017,9 @@ The following features are implemented or will be implemented for users of docX:
 <p>{Explain here how view medical history will be implemented}</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="crud-doctor-features"><a class="link" href="#crud-doctor-features">3.7.6. CRUD Doctor features</a></h4>
+</div>
+<div class="sect2">
+<h3 id="crud-doctor-features"><a class="link" href="#crud-doctor-features">3.8. CRUD Doctor features</a></h3>
 <div class="paragraph">
 <p>Doctor is one of the two valid types of Persons to be stored in the docX record.
 The following features are implemented or will be implemented for doctors of docX:
@@ -1027,19 +1029,19 @@ The following features are implemented or will be implemented for doctors of doc
 * Search doctors by keywords
 * Delete existing doctors</p>
 </div>
-<div class="sect4">
-<h5 id="current-proposed-implementation-3"><a class="link" href="#current-proposed-implementation-3">Current(Proposed) Implementation</a></h5>
+<div class="sect3">
+<h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">3.8.1. Add Doctor feature</a></h4>
 <div class="paragraph">
-<p>When a user executes 'add-doctor n/John Doe g/M p/98765432 a/32 s/'acupuncture''</p>
+<p>When a user executes <code>add-doctor n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
 </div>
 <div class="paragraph">
-<p>Step1. LogicManager calls parseCommand("add-doctor") in AddressBookParser.</p>
+<p>Step1. LogicManager calls parseCommand("add-doctor") in docXParser.</p>
 </div>
 <div class="paragraph">
-<p>Step2. Based on the COMMAND_WORD, AddressBookParser builds a new AddDoctorCommandParser() and call function parse(arguments) of AddDoctorCommandParser;</p>
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new AddDoctorCommandParser() and call function parse(arguments) of AddDoctorCommandParser;</p>
 </div>
 <div class="paragraph">
-<p>Step3. AddDoctorCommandParser parses the argument and get doctor&#8217;s name, gender, age, phone and his/her specialisations. AddDoctorCommandParser calls constructors of Age, Gender, Phone, Specialisation and then calls the constructor of Doctor.
+<p>Step3. AddDoctorCommandParser parses the argument and get doctor&#8217;s name, gender, year of experience, phone and his/her specialisations. AddDoctorCommandParser calls constructors of Name, Year, Gender, Phone, Specialisation and then calls the constructor of Doctor.
 	   Then, AddDoctorCommandParser calls AddDoctorCommand(Doctor).</p>
 </div>
 <div class="paragraph">
@@ -1049,34 +1051,46 @@ The following features are implemented or will be implemented for doctors of doc
 <p>Step5. execute() calls hasDoctor() of Model. If doctor does not exist, call addDoctor() of Model.</p>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">3.7.7. List Doctor feature</a></h4>
+<h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">3.8.2. List Doctor feature</a></h4>
 <div class="paragraph">
-<p>list-doctor</p>
+<p>list-doctor
+When a user executes <code>list-doctor</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("list-doctor") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new ListDoctorCommand() and calls execute() of ListDoctorCommand().</p>
+</div>
+<div class="paragraph">
+<p>Step3. execute() calls Model Manager to update filtered doctor list to show all existing doctors in docX.</p>
+</div>
+<div class="paragraph">
+<p>Step4. // to continue</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-doctor-feature"><a class="link" href="#edit-doctor-feature">3.7.8. Edit Doctor feature</a></h4>
+<h4 id="edit-doctor-feature"><a class="link" href="#edit-doctor-feature">3.8.3. Edit Doctor feature</a></h4>
 <div class="paragraph">
 <p>edit-doctor</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-doctor-feature"><a class="link" href="#search-doctor-feature">3.7.9. Search Doctor feature</a></h4>
+<h4 id="search-doctor-feature"><a class="link" href="#search-doctor-feature">3.8.4. Search Doctor feature</a></h4>
 <div class="paragraph">
 <p>search-doctor</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">3.7.10. Delete Doctor feature</a></h4>
+<h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">3.8.5. Delete Doctor feature</a></h4>
 <div class="paragraph">
 <p>delete-doctor</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="appointments"><a class="link" href="#appointments">3.8. Appointments</a></h3>
+<h3 id="appointments"><a class="link" href="#appointments">3.9. Appointments</a></h3>
 <div class="paragraph">
 <p>Appointments are created to facilitate future appointments between patients and doctors. A patient can have none or multiple appointments, a doctor can have none or multiple appointments. An appointment cannot overlap with a patient&#8217;s or doctor&#8217;s existing appointments. This is determined if the date and time overlaps. An appointment must specify a date, time, patient, doctor, and short write-up.</p>
 </div>
@@ -1106,7 +1120,7 @@ The following features are implemented or will be implemented for doctors of doc
 </ul>
 </div>
 <div class="sect3">
-<h4 id="add-appointment"><a class="link" href="#add-appointment">3.8.1. Add Appointment</a></h4>
+<h4 id="add-appointment"><a class="link" href="#add-appointment">3.9.1. Add Appointment</a></h4>
 <div class="sect4">
 <h5 id="current-partial-implementation"><a class="link" href="#current-partial-implementation">Current (partial) Implementation</a></h5>
 <div class="paragraph">
@@ -1127,31 +1141,31 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect3">
-<h4 id="complete-appointment"><a class="link" href="#complete-appointment">3.8.2. Complete Appointment</a></h4>
+<h4 id="complete-appointment"><a class="link" href="#complete-appointment">3.9.2. Complete Appointment</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="cancel-appointment"><a class="link" href="#cancel-appointment">3.8.3. Cancel Appointment</a></h4>
+<h4 id="cancel-appointment"><a class="link" href="#cancel-appointment">3.9.3. Cancel Appointment</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-all-appointments-of-a-doctor"><a class="link" href="#list-all-appointments-of-a-doctor">3.8.4. List all appointments of a doctor</a></h4>
+<h4 id="list-all-appointments-of-a-doctor"><a class="link" href="#list-all-appointments-of-a-doctor">3.9.4. List all appointments of a doctor</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-available-timings-of-a-doctor"><a class="link" href="#list-available-timings-of-a-doctor">3.8.5. List available timings of a doctor</a></h4>
+<h4 id="list-available-timings-of-a-doctor"><a class="link" href="#list-available-timings-of-a-doctor">3.9.5. List available timings of a doctor</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-available-appointments-of-all-doctors"><a class="link" href="#list-available-appointments-of-all-doctors">3.8.6. List available appointments of all doctors</a></h4>
+<h4 id="list-available-appointments-of-all-doctors"><a class="link" href="#list-available-appointments-of-all-doctors">3.9.6. List available appointments of all doctors</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
@@ -3558,4 +3572,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 12:30:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 16:29:38 UTC</div></div></div></body></html>
