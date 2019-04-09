@@ -14,16 +14,16 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-patient-code-add-patient-code">3.2. Adding a patient: <code>add-patient</code></a></li>
-<li><a href="#listing-all-patients-code-list-patient-code">3.3. Listing all patients : <code>list-patient</code></a></li>
-<li><a href="#editing-a-patient-code-edit-patient-code">3.4. Editing a patient : <code>edit-patient</code></a></li>
-<li><a href="#search-patient-by-name-code-search-patient-code">3.5. Search patient by name: <code>search-patient</code></a></li>
+<li><a href="#adding-a-patient-code-add-p-code">3.2. Adding a patient: <code>add-p</code></a></li>
+<li><a href="#listing-all-patients-code-list-p-code">3.3. Listing all patients : <code>list-p</code></a></li>
+<li><a href="#editing-a-patient-code-edit-p-code">3.4. Editing a patient : <code>edit-p</code></a></li>
+<li><a href="#search-patient-by-name-code-search-p-code">3.5. Search patient by name: <code>search-p</code></a></li>
 <li><a href="#search-patient-by-pid-code-search-pid-code">3.6. Search patient by pid: <code>search-pid</code></a></li>
-<li><a href="#search-patient-by-tags-code-search-tag-code">3.7. Search patient by tags: <code>search-tag</code></a></li>
-<li><a href="#search-patient-by-appt-status-code-search-appt-status-code">3.8. Search patient by appt status: <code>search-appt-status</code></a></li>
-<li><a href="#advanced-search-patient-by-any-info-code-search-advanced-code">3.9. Advanced search patient by any info: <code>search-advanced</code></a></li>
-<li><a href="#selecting-an-existing-patient-code-select-patient-code">3.10. Selecting an existing patient : <code>select-patient</code></a></li>
-<li><a href="#deleting-an-existing-patient-code-delete-patient-code">3.11. Deleting an existing patient : <code>delete-patient</code></a></li>
+<li><a href="#search-patient-by-tags-code-search-p-tag-code">3.7. Search patient by tags: <code>search-p-tag</code></a></li>
+<li><a href="#search-patient-by-appt-status-code-search-p-status-code">3.8. Search patient by appt status: <code>search-p-status</code></a></li>
+<li><a href="#advanced-search-patient-by-any-info-code-search-p-advanced-code">3.9. Advanced search patient by any info: <code>search-p-advanced</code></a></li>
+<li><a href="#selecting-an-existing-patient-code-select-p-code">3.10. Selecting an existing patient : <code>select-p</code></a></li>
+<li><a href="#deleting-an-existing-patient-code-delete-p-code">3.11. Deleting an existing patient : <code>delete-p</code></a></li>
 <li><a href="#listing-all-doctors-code-list-doctor-code">3.12. Listing all doctors : <code>list-doctor</code></a></li>
 <li><a href="#selecting-a-doctor-code-select-doctor-code">3.13. Selecting a doctor : <code>select-doctor</code></a></li>
 <li><a href="#editing-a-doctor-code-edit-doctor-code">3.14. Editing a doctor : <code>edit-doctor</code></a></li>
@@ -158,10 +158,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-patient-code-add-patient-code"><a class="link" href="#adding-a-patient-code-add-patient-code">3.2. Adding a patient: <code>add-patient</code></a></h3>
+<h3 id="adding-a-patient-code-add-p-code"><a class="link" href="#adding-a-patient-code-add-p-code">3.2. Adding a patient: <code>add-p</code></a></h3>
 <div class="paragraph">
 <p>Adds a patient to docX<br>
-Format: <code>add-patient [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [t/TAG]</code></p>
+Format: <code>add-p [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [t/TAG]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -183,10 +183,10 @@ Format: <code>add-patient [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDR
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-patient n/John Doe g/M a/21 p/98765432 adr/Utown College 2</code></p>
+<p><code>add-p n/John Doe g/M a/21 p/98765432 adr/Utown College 2</code></p>
 </li>
 <li>
-<p><code>add-patient n/Betsy Crowe g/F p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
+<p><code>add-p n/Betsy Crowe g/F p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
 </li>
 </ul>
 </div>
@@ -204,17 +204,17 @@ For constraints of name, gender, age, phone, address and tags, please refer to t
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-patients-code-list-patient-code"><a class="link" href="#listing-all-patients-code-list-patient-code">3.3. Listing all patients : <code>list-patient</code></a></h3>
+<h3 id="listing-all-patients-code-list-p-code"><a class="link" href="#listing-all-patients-code-list-p-code">3.3. Listing all patients : <code>list-p</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all patients in docX.<br>
-Format: <code>list-patient</code></p>
+Format: <code>list-p</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-patient-code-edit-patient-code"><a class="link" href="#editing-a-patient-code-edit-patient-code">3.4. Editing a patient : <code>edit-patient</code></a></h3>
+<h3 id="editing-a-patient-code-edit-p-code"><a class="link" href="#editing-a-patient-code-edit-p-code">3.4. Editing a patient : <code>edit-p</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing patient in docX.<br>
-Format: <code>edit-patient [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS]</code></p>
+Format: <code>edit-p [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -251,7 +251,7 @@ Edits the name and phone number of the patient with ID of '2' to be <code>Betsy 
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-patient-by-name-code-search-patient-code"><a class="link" href="#search-patient-by-name-code-search-patient-code">3.5. Search patient by name: <code>search-patient</code></a></h3>
+<h3 id="search-patient-by-name-code-search-p-code"><a class="link" href="#search-patient-by-name-code-search-p-code">3.5. Search patient by name: <code>search-p</code></a></h3>
 <div class="paragraph">
 <p>Search and return patient(s) whose names contain any of the given keywords.<br>
 Format: <code>search-patient [NAME]</code></p>
@@ -288,11 +288,11 @@ e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</c
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-patient John</code><br>
+<p><code>search-p John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>search-patient Betsy Tim John</code><br>
+<p><code>search-p Betsy Tim John</code><br>
 Returns any patient having names containing <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 </ul>
@@ -301,15 +301,15 @@ Returns any patient having names containing <code>Betsy</code>, <code>Tim</code>
 <div class="sect2">
 <h3 id="search-patient-by-pid-code-search-pid-code"><a class="link" href="#search-patient-by-pid-code-search-pid-code">3.6. Search patient by pid: <code>search-pid</code></a></h3>
 <div class="paragraph">
-<p>Search and return patient(s) whose pid contain any of the given keywords.<br>
-Format: <code>search-patient [pid1] [pid2]&#8230;&#8203;</code></p>
+<p>Search and return patient(s) whose pid matches the input pid.<br>
+Format: <code>search-pid [pid]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Only the pid is searched.</p>
+<p>Only one pid can be entered and searched.</p>
 </li>
 <li>
 <p>Only full pid will be matched e.g. <code>12</code> will not match <code>120</code></p>
@@ -324,17 +324,17 @@ Format: <code>search-patient [pid1] [pid2]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-pid 12 1</code><br>
-Returns <code>John Doe</code> and <code>Tom Darl</code> who has pid of <code>1</code> and <code>12</code> respectively.</p>
+<p><code>search-pid 1</code><br>
+Returns <code>John Doe</code> who has pid of <code>1</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-patient-by-tags-code-search-tag-code"><a class="link" href="#search-patient-by-tags-code-search-tag-code">3.7. Search patient by tags: <code>search-tag</code></a></h3>
+<h3 id="search-patient-by-tags-code-search-p-tag-code"><a class="link" href="#search-patient-by-tags-code-search-p-tag-code">3.7. Search patient by tags: <code>search-p-tag</code></a></h3>
 <div class="paragraph">
 <p>Search and return patient(s) whose tags contain any of the given keywords.<br>
-Format: <code>search-patient [tagName1] [tagName2]&#8230;&#8203;</code></p>
+Format: <code>search-p-tag [tagName1] [tagName2]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -366,21 +366,21 @@ e.g. <code>diabetic</code> will return all patients with <code>diabetic</code> a
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-tag diabetic</code><br>
+<p><code>search-p-tag diabetic</code><br>
 Returns <code>John Doe</code> who has both <code>diabetic</code> and <code>stroke</code> tags</p>
 </li>
 <li>
-<p><code>search-tag diabetic stroke</code><br>
+<p><code>search-p-tag diabetic stroke</code><br>
 Returns <code>Tim Muller</code> who has only <code>diabetic</code> tag</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-patient-by-appt-status-code-search-appt-status-code"><a class="link" href="#search-patient-by-appt-status-code-search-appt-status-code">3.8. Search patient by appt status: <code>search-appt-status</code></a></h3>
+<h3 id="search-patient-by-appt-status-code-search-p-status-code"><a class="link" href="#search-patient-by-appt-status-code-search-p-status-code">3.8. Search patient by appt status: <code>search-p-status</code></a></h3>
 <div class="paragraph">
 <p>Search and return patient(s) whose appointment status matches the specified keyword.<br>
-Format: <code>search-patient [STATUS]</code></p>
+Format: <code>search-p-status [STATUS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -406,20 +406,20 @@ ACTIVE, ONGOING, COMPLETED, MISSED</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-appt-status ACTIVE</code><br>
+<p><code>search-p-status ACTIVE</code><br>
 Returns <code>John Doe</code> and <code>Tom Darl</code> who has appointment status of <code>ACTIVE</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="advanced-search-patient-by-any-info-code-search-advanced-code"><a class="link" href="#advanced-search-patient-by-any-info-code-search-advanced-code">3.9. Advanced search patient by any info: <code>search-advanced</code></a></h3>
+<h3 id="advanced-search-patient-by-any-info-code-search-p-advanced-code"><a class="link" href="#advanced-search-patient-by-any-info-code-search-p-advanced-code">3.9. Advanced search patient by any info: <code>search-p-advanced</code></a></h3>
 <div class="paragraph">
 <p>Search and return patient(s) whose info contain any of the given keywords,
 even if the keyword is only a substring of one of the patient&#8217;s info<br>
 Use a quoted keyword to search when one of the patient&#8217;s info
 must match exactly the keyword
-Format: <code>search-advanced [keyword] ["quoted_keyword"]&#8230;&#8203;</code></p>
+Format: <code>search-p-advanced [keyword] ["quoted_keyword"]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -467,7 +467,7 @@ A patient&#8217;s info does not include his pid and appointment status
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-advanced blood "Doe"</code><br>
+<p><code>search&#8212;&#8203;padvanced blood "Doe"</code><br>
 Returns <code>John Doe</code> who has a <code>highbloodpressure</code> tag</p>
 </li>
 <li>
@@ -478,11 +478,11 @@ Will not return <code>John Doeing</code> who has a <code>highbloodpressure</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-an-existing-patient-code-select-patient-code"><a class="link" href="#selecting-an-existing-patient-code-select-patient-code">3.10. Selecting an existing patient : <code>select-patient</code></a></h3>
+<h3 id="selecting-an-existing-patient-code-select-p-code"><a class="link" href="#selecting-an-existing-patient-code-select-p-code">3.10. Selecting an existing patient : <code>select-p</code></a></h3>
 <div class="paragraph">
 <p>Select the specified patient from docX.<br>
 Displays his/her full information on the browser panel.
-Format: <code>select-patient [INDEX]</code></p>
+Format: <code>select-p [INDEX]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -507,21 +507,21 @@ Format: <code>select-patient [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list-patient</code><br></p>
+<p><code>list-p</code><br></p>
 </li>
 <li>
-<p><code>select-patient 3</code><br>
+<p><code>select-p 3</code><br>
 Selects the patient with current list ID of '3' in the docX<br>
-The patient&#8217;s full info can be easily viewd in the browser panel.</p>
+The patient&#8217;s full info can be easily viewed in the browser panel.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-existing-patient-code-delete-patient-code"><a class="link" href="#deleting-an-existing-patient-code-delete-patient-code">3.11. Deleting an existing patient : <code>delete-patient</code></a></h3>
+<h3 id="deleting-an-existing-patient-code-delete-p-code"><a class="link" href="#deleting-an-existing-patient-code-delete-p-code">3.11. Deleting an existing patient : <code>delete-p</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified patient from docX.<br>
-Format: <code>delete-patient [INDEX]</code></p>
+Format: <code>delete-p [INDEX]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -546,12 +546,12 @@ Format: <code>delete-patient [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list-patient</code><br>
-<code>delete-patient 3</code><br>
+<p><code>list-p</code><br>
+<code>delete-p 3</code><br>
 Deletes the patient with current list ID of '3' in the docX.</p>
 </li>
 <li>
-<p><code>delete-patient 2</code><br>
+<p><code>delete-p 2</code><br>
 Deletes the patient with current list ID of '2' in the docX.</p>
 </li>
 </ul>
@@ -1586,29 +1586,32 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add a new patient</strong> <code>add-patient [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [t/TAG]</code><br></p>
+<p><strong>Add a new patient</strong> <code>add-p [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [t/TAG]</code><br></p>
 </li>
 <li>
-<p><strong>List existing patients</strong> : <code>list-patient</code></p>
+<p><strong>List existing patients</strong> : <code>list-p</code></p>
 </li>
 <li>
-<p><strong>Delete an existing patient</strong> : <code>delete-patient [INDEX]</code><br>
+<p><strong>Delete an existing patient</strong> : <code>delete-p [INDEX]</code><br>
 e.g. <code>delete-patient 3</code></p>
 </li>
 <li>
-<p><strong>Edit an existing patient</strong> : <code>edit-patient [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS] [t/TAG]</code><br></p>
+<p><strong>Edit an existing patient</strong> : <code>edit-p [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS] [t/TAG]</code><br></p>
 </li>
 <li>
-<p><strong>Searching a patient by name</strong> : <code>search-patient [NAME]</code><br></p>
+<p><strong>Searching a patient by name</strong> : <code>search-p [NAME]</code><br></p>
 </li>
 <li>
-<p><strong>Searching a patient by tags</strong> : <code>search-tag [TAG]</code><br></p>
+<p><strong>Searching a patient by tags</strong> : <code>search-p-tag [TAG]</code><br></p>
+</li>
+<li>
+<p><strong>Searching a patient by appt status</strong> : <code>search-p-status [STATUS]</code><br></p>
 </li>
 <li>
 <p><strong>Searching a patient by pid</strong> : <code>search-pid [pid]</code><br></p>
 </li>
 <li>
-<p><strong>Searching a patient (advanced)</strong> : <code>search-advanced [KEYWORD] ["QUOTED_KEYWORD"]</code><br></p>
+<p><strong>Searching a patient (advanced)</strong> : <code>search-p-ad [KEYWORD] ["QUOTED_KEYWORD"]</code><br></p>
 </li>
 </ul>
 </div>
@@ -1759,4 +1762,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 18:17:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 21:57:47 UTC</div></div></div></body></html>
