@@ -49,12 +49,10 @@
 <li><a href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.34. Viewing a prescription of a patient: <code>view-presc</code></a></li>
 <li><a href="#locating-prescription-code-search-presc-code">3.35. Locating prescription : <code>search-presc</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.36. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.37. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.38. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.39. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.40. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.41. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.42. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.37. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.38. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.39. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.40. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -796,6 +794,9 @@ Format: <code>list-med-hist [pid/PATIENT_ID] [did/DOCTOR_ID] [d/DATE]</code></p>
 <li>
 <p>Write up of medical history will not be shown in the list. Can view all details of one medical history by "select-med-hist" command.</p>
 </li>
+<li>
+<p>If medical histories in the list have deleted patient or deleted doctor, patient or doctor field will show "Patient Deleted" or "Doctor Deleted".</p>
+</li>
 </ul>
 </div>
 </div>
@@ -824,6 +825,9 @@ Format: <code>edit-med-hist INDEX sw/EDITED_WRITEUP</code></p>
 <div class="content">
 <div class="ulist">
 <ul>
+<li>
+<p>Execute "list-med-hist" first to check the index of the medical history you want to edit before execute "edit-med-hist" command.</p>
+</li>
 <li>
 <p>Can only edit write up of medical history. Patient id, doctor id and date are immutable.</p>
 </li>
@@ -1422,105 +1426,28 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.37. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.38. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.39. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.37. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from docX.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.40. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.38. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.41. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.39. Saving the data</a></h3>
 <div class="paragraph">
 <p>docX data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.42. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.40. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1607,23 +1534,28 @@ eg. <code>delete-doctor 2</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add a new medical history</strong> <code>add-med-hist p/PATIENT_NAME [pid/PATIENT_ID] d/DOCTOR_NAME [did/DOCTOR_ID] w/SHORT_WRITEUP</code><br>
-e.g. <code>add-med-hist p/John Doe did/3 d/Amy w/Had a fever with sorethroat. Sleeps late.</code></p>
+<p><strong>Add a new medical history</strong> <code>add-med-hist pid/PATIENT_ID did/DOCTOR_ID d/DATE sw/SHORT_WRITEUP</code><br>
+e.g. <code>add-med-hist pid/1 did/7 d/2019-03-03 sw/Had a fever with sorethroat. Sleeps late.</code></p>
 </li>
 <li>
-<p><strong>List medical histories of a patient</strong> : <code>list-med-hist PATIENT_ID</code></p>
+<p>*List medical histories : <code>list-med-hist [pid/PATIENT_ID] [did/DOCTOR_ID] [d/DATE]</code><br>
+e.g. <code>list-med-hist d/2019-03-03</code></p>
 </li>
 <li>
-<p><strong>Edit an existing medical history of a patient</strong> : <code>edit-med-hist pid/PATIENT_ID mhid/MED_HIST_ID [d/DATE_OF_VISIT] [w/SHORT_WRITEUP]</code><br>
-e.g. <code>edit-med-hist pid/1 mhid/2 d/10022019</code></p>
+<p><strong>Edit write up of an existing medical history</strong> : <code>edit-med-hist INDEX sw/EDITED_WRITEUP</code><br>
+e.g. <code>edit-med-hist 1 sw/The patient came this morning with high fever. In the afternoon, he came with higher fever.</code></p>
 </li>
 <li>
-<p><strong>Locating a medical history</strong> : <code>search-med-hist KEYWORD</code><br>
-e.g. <code>search-med-hist 'flu'</code></p>
+<p>*Sort medical histories by date : <code>sort-med-hist [ASC/DESC]</code>+
+e.g. <code>sort-med-hist DESC</code></p>
 </li>
 <li>
-<p><strong>View a medical history</strong> : <code>view-med-hist n/PATIENT_NAME [pid/PATIENT_ID] mhid/MED_HIST_ID</code><br>
-e.g. <code>view-med-hist n/JOHN DOE mhid/1</code></p>
+<p><strong>Search a medical history</strong> : <code>search-med-hist KEYWORD</code><br>
+e.g. <code>search-med-hist fever</code></p>
+</li>
+<li>
+<p><strong>Select a medical history</strong> : <code>select-med-hist INDEX `<br>
+e.g. `select-med-hist 1</code></p>
 </li>
 </ul>
 </div>
@@ -1705,4 +1637,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 11:19:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 12:30:16 UTC</div></div></div></body></html>
