@@ -161,7 +161,21 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-patient-code-add-patient-code"><a class="link" href="#adding-a-patient-code-add-patient-code">3.2. Adding a patient: <code>add-patient</code></a></h3>
 <div class="paragraph">
 <p>Adds a patient to docX<br>
-Format: <code>add-patient n/NAME g/GENDER a/AGE p/PHONE_NUMBER adr/ADDRESS t/TAG</code></p>
+Format: <code>add-patient [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [t/TAG]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A patient can have any number of tags (including 0)<br></p>
+</li>
+<li>
+<p>If there are multiple entries for each parameters input, the last input will be stored</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -169,12 +183,24 @@ Format: <code>add-patient n/NAME g/GENDER a/AGE p/PHONE_NUMBER adr/ADDRESS t/TAG
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-patient n/John Doe g/Male a/21 p/98765432 adr/Utown College 2</code></p>
+<p><code>add-patient n/John Doe g/M a/21 p/98765432 adr/Utown College 2</code></p>
 </li>
 <li>
-<p><code>add-patient n/Betsy Crowe g/Female p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
+<p><code>add-patient n/Betsy Crowe g/F p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For constraints of name, gender, age, phone, address and tags, please refer to the section below.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -188,14 +214,15 @@ Format: <code>list-patient</code></p>
 <h3 id="editing-a-patient-code-edit-patient-code"><a class="link" href="#editing-a-patient-code-edit-patient-code">3.4. Editing a patient : <code>edit-patient</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing patient in docX.<br>
-Format: <code>edit-patient INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS]</code></p>
+Format: <code>edit-patient [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the patient at the specified <code>INDEX</code>. The index refers to the identification number (ID) of the patient. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the patient at the specified <code>INDEX</code>.<br>
+The index refers to the current list index of the patient. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -266,7 +293,7 @@ Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
 <p><code>search-patient Betsy Tim John</code><br>
-Returns any patient having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+Returns any patient having names containing <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 </ul>
 </div>
@@ -340,7 +367,11 @@ e.g. <code>diabetic</code> will return all patients with <code>diabetic</code> a
 <ul>
 <li>
 <p><code>search-tag diabetic</code><br>
-Returns <code>John Doe</code> who has both <code>diabetic</code> and <code>stoke</code> tags</p>
+Returns <code>John Doe</code> who has both <code>diabetic</code> and <code>stroke</code> tags</p>
+</li>
+<li>
+<p><code>search-tag diabetic stroke</code><br>
+Returns <code>Tim Muller</code> who has only <code>diabetic</code> tag</p>
 </li>
 </ul>
 </div>
@@ -376,7 +407,7 @@ ACTIVE, ONGOING, COMPLETED, MISSED</p>
 <ul>
 <li>
 <p><code>search-appt-status ACTIVE</code><br>
-Returns <code>John Doe</code> and <code>Tom Darl</code> who has appointment status <code>ACTIVE</code>.</p>
+Returns <code>John Doe</code> and <code>Tom Darl</code> who has appointment status of <code>ACTIVE</code>.</p>
 </li>
 </ul>
 </div>
@@ -388,7 +419,7 @@ Returns <code>John Doe</code> and <code>Tom Darl</code> who has appointment stat
 even if the keyword is only a substring of one of the patient&#8217;s info<br>
 Use a quoted keyword to search when one of the patient&#8217;s info
 must match exactly the keyword
-Format: <code>search-advanced [keyword] ["quoted keyword"]&#8230;&#8203;</code></p>
+Format: <code>search-advanced [keyword] ["quoted_keyword"]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -401,19 +432,34 @@ Format: <code>search-advanced [keyword] ["quoted keyword"]&#8230;&#8203;</code><
 <p>The order of the keywords does not matter. e.g. <code>stroke cancer</code> will match <code>cancer stroke</code></p>
 </li>
 <li>
-<p>With unquoted keyword, partial words will be matched<br>
-e.g. <code>Alex</code> will match <code>Alexander</code></p>
+<p>With "unquoted_keyword", partial words will be matched<br>
+e.g. <code>blood</code> will match <code>highbloodpressure</code></p>
 </li>
 <li>
-<p>With quoted keyword, only full word will be matched<br>
-e.g. <code>"high"</code> will not match <code>highbloodpressure</code></p>
+<p>With quoted keyword, only the full word will be matched<br>
+e.g. <code>"blood"</code> will not match <code>highbloodpressure</code></p>
 </li>
 <li>
-<p>All the keywords must match a patient&#8217;s full info to be true.</p>
+<p>"quoted_keyword" must be one word and contains no spaces</p>
+</li>
+<li>
+<p>All the keywords input must be present in a patient&#8217;s info to be true.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A patient&#8217;s info does not include his pid and appointment status
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1499,27 +1545,29 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add a new patient</strong> <code>add-patient n/NAME g/GENDER a/AGE p/PHONE_NUMBER</code><br>
-e.g. <code>add-patient n/Betsy Crowe g/Female p/1234567 a/32</code></p>
+<p><strong>Add a new patient</strong> <code>add-patient [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [t/TAG]</code><br></p>
 </li>
 <li>
 <p><strong>List existing patients</strong> : <code>list-patient</code></p>
 </li>
 <li>
-<p><strong>Delete patient</strong> : <code>delete-patient INDEX</code><br>
+<p><strong>Delete an existing patient</strong> : <code>delete-patient [INDEX]</code><br>
 e.g. <code>delete-patient 3</code></p>
 </li>
 <li>
-<p><strong>Edit an existing patient</strong> : <code>edit-patient INDEX [n/NAME] [g/GENDER] [a/AGE] [p/PHONE]</code><br>
-e.g. <code>edit-patient 2 n/Betsy Crower p/45678901</code></p>
+<p><strong>Edit an existing patient</strong> : <code>edit-patient [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS] [t/TAG]</code><br></p>
 </li>
 <li>
-<p><strong>Locating a patient</strong> : <code>search-patient NAME [PHONE_NUMBER]</code><br>
-e.g. <code>search-patient John</code></p>
+<p><strong>Searching a patient by name</strong> : <code>search-patient [NAME]</code><br></p>
 </li>
 <li>
-<p><strong>Delete an existing patient</strong> : <code>delete-patient INDEX</code><br>
-eg. <code>delete-patient 2</code></p>
+<p><strong>Searching a patient by tags</strong> : <code>search-tag [TAG]</code><br></p>
+</li>
+<li>
+<p><strong>Searching a patient by pid</strong> : <code>search-pid [pid]</code><br></p>
+</li>
+<li>
+<p><strong>Searching a patient (advanced)</strong> : <code>search-advanced [KEYWORD] ["QUOTED_KEYWORD"]</code><br></p>
 </li>
 </ul>
 </div>
@@ -1657,4 +1705,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 10:46:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 11:19:50 UTC</div></div></div></body></html>
