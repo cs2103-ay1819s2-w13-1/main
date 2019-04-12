@@ -37,23 +37,19 @@
 <li><a href="#searching-medical-history-code-search-med-hist-code">3.22. Searching medical history : <code>search-med-hist</code></a></li>
 <li><a href="#viewing-a-certain-medical-history-code-select-med-hist-code">3.23. Viewing a certain medical history: <code>select-med-hist</code></a></li>
 <li><a href="#adding-an-appointment-code-add-appt-code">3.24. Adding an appointment: <code>add-appt</code></a></li>
-<li><a href="#listing-of-appointments-code-list-appt-code">3.25. Listing of appointments : <code>list-appt</code></a></li>
-<li><a href="#completing-an-appointment-code-complete-appt-code">3.26. Completing an appointment : <code>complete-appt</code></a></li>
-<li><a href="#cancelling-an-appointment-code-cancel-appt-code">3.27. Cancelling an appointment : <code>cancel-appt</code></a></li>
-<li><a href="#listing-appointments-of-a-doctor-code-list-appt-code">3.28. Listing appointments of a doctor : <code>list-appt</code></a></li>
-<li><a href="#listing-available-timings-of-a-doctor-code-list-doc-time-code">3.29. Listing available timings of a doctor : <code>list-doc-time</code></a></li>
-<li><a href="#listing-available-timings-of-all-doctors-code-list-time-code">3.30. Listing available timings of all doctors : <code>list-time</code></a></li>
-<li><a href="#adding-a-medicine-code-add-med-code">3.31. Adding a medicine: <code>add-med</code></a></li>
-<li><a href="#listing-all-medicines-code-list-med-code">3.32. Listing all medicines : <code>list-med</code></a></li>
-<li><a href="#adding-a-prescription-code-add-presc-code">3.33. Adding a prescription: <code>add-presc</code></a></li>
-<li><a href="#listing-all-prescriptions-of-a-patient-code-list-presc-code">3.34. Listing all prescriptions of a patient : <code>list-presc</code></a></li>
-<li><a href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.35. Viewing a prescription of a patient: <code>view-presc</code></a></li>
-<li><a href="#locating-prescription-code-search-presc-code">3.36. Locating prescription : <code>search-presc</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.37. Listing entered commands : <code>history</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.38. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.39. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.40. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.41. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#listing-appointments-code-list-appt-code">3.25. Listing appointments : <code>list-appt</code></a></li>
+<li><a href="#changing-an-appointment-status-code-mark-appt-code">3.26. Changing an appointment status : <code>mark-appt</code></a></li>
+<li><a href="#adding-a-medicine-code-add-med-code">3.27. Adding a medicine: <code>add-med</code></a></li>
+<li><a href="#listing-all-medicines-code-list-med-code">3.28. Listing all medicines : <code>list-med</code></a></li>
+<li><a href="#adding-a-prescription-code-add-presc-code">3.29. Adding a prescription: <code>add-presc</code></a></li>
+<li><a href="#listing-all-prescriptions-of-a-patient-code-list-presc-code">3.30. Listing all prescriptions of a patient : <code>list-presc</code></a></li>
+<li><a href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.31. Viewing a prescription of a patient: <code>view-presc</code></a></li>
+<li><a href="#locating-prescription-code-search-presc-code">3.32. Locating prescription : <code>search-presc</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.33. Listing entered commands : <code>history</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.34. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.35. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.36. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.37. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -1048,8 +1044,7 @@ Returns full write up of the medical history with index 1 in medical history lis
 <div class="sect2">
 <h3 id="adding-an-appointment-code-add-appt-code"><a class="link" href="#adding-an-appointment-code-add-appt-code">3.24. Adding an appointment: <code>add-appt</code></a></h3>
 <div class="paragraph">
-<p>{Validation of data input not completed yet}<br>
-Adds an appointment under the doctor and patient involved.<br>
+<p>Adds an appointment between a patient and a doctor<br>
 Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code></p>
 </div>
 <div class="sidebarblock">
@@ -1057,19 +1052,29 @@ Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME<
 <div class="ulist">
 <ul>
 <li>
-<p>Doctors are assumed to be free from 9am to 12pm and 1pm to 5pm.</p>
+<p>All of the fields must be provided.</p>
+</li>
+<li>
+<p>Appointments can only be made in the future, as determined by system time.</p>
+</li>
+<li>
+<p>New appointments default to the ACTIVE status. Appointments cannot be deleted once created,
+only marked as CANCELLED if required.</p>
+</li>
+<li>
+<p>Doctors are free during office hours from 9am to 12pm and 1pm to 5pm. (12pm to 1pm not availabe)</p>
 </li>
 <li>
 <p>Appointments are in 1-hour blocks.</p>
 </li>
 <li>
-<p>Returns invalid if the doctor is not available during the specified block.</p>
+<p>User is notified if the doctor is not available during the specified time.</p>
 </li>
 <li>
 <p><code>DATE_OF_APPT</code> must be in the format <code>YYYY-MM-DD</code></p>
 </li>
 <li>
-<p><code>START_TIME</code> must be in the 24-hour format <code>HH</code> as timing for appointment is hourly, starting from 9am.</p>
+<p><code>START_TIME</code> must be in the 24-hour format HH:00 with no minutes specified as each appointment is 1 hour long.</p>
 </li>
 </ul>
 </div>
@@ -1081,28 +1086,35 @@ Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME<
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-appt pid/1 did/1 d/2019-06-01 t/09:00</code><br>
-Adds an appointment under patient with ID of '1' and doctor with ID of '1' on 1st June 2019 at 9am.</p>
+<p><code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code><br>
+Adds an appointment with patient ID '1' and doctor ID '7' on 1st June 2019 at 9am.</p>
 </li>
 <li>
-<p><code>add-appt pid/3 did/2 d/2019-06-01 t/13:00</code><br>
-Adds an appointment under patient with ID of '3' and doctor with ID of '2' on 1st June 2019 at 1pm.</p>
+<p><code>add-appt pid/3 did/9 d/2019-06-01 t/13:00</code><br>
+Adds an appointment with patient ID '3' and doctor ID '9' on 1st June 2019 at 1pm.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-of-appointments-code-list-appt-code"><a class="link" href="#listing-of-appointments-code-list-appt-code">3.25. Listing of appointments : <code>list-appt</code></a></h3>
+<h3 id="listing-appointments-code-list-appt-code"><a class="link" href="#listing-appointments-code-list-appt-code">3.25. Listing appointments : <code>list-appt</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all appointments in the system.<br>
-Format: <code>list-appt</code></p>
+<p>Shows a list of appointments in the system. Can be used with or without optional keywords to filter the result.<br>
+Format: <code>list-appt [pid/PATIENT_ID] [did/DOCTOR_ID] [d/DATE_OF_APPT] [t/START_TIME]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Completed or cancelled appointments will not be displayed.</p>
+<p>If none of the optional fields are provided, all appointments are shown.</p>
+</li>
+<li>
+<p>Appointments are filtered by patient ID, doctor ID, date of appointment, start time,
+and appointment status respectively.</p>
+</li>
+<li>
+<p>All the optional filters can be mixed and matched independently to obtain the required output.</p>
 </li>
 </ul>
 </div>
@@ -1117,31 +1129,55 @@ Format: <code>list-appt</code></p>
 <p><code>list-appt</code><br>
 Lists all appointments.</p>
 </li>
+<li>
+<p><code>list-appt pid/1</code><br>
+Lists all appointments with patient ID 1.</p>
+</li>
+<li>
+<p><code>list-appt pid/1 did/7</code><br>
+Lists all appointments with patient ID 1 and doctor ID 7.</p>
+</li>
+<li>
+<p>`list-appt d/2018-06-01 t/09:00 `<br>
+Lists all appointments with date 2018-06-01 and time 09:00.</p>
+</li>
+<li>
+<p><code>list-appt s/ACTIVE</code><br>
+Lists all appointments that are marked as ACTIVE.</p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="completing-an-appointment-code-complete-appt-code"><a class="link" href="#completing-an-appointment-code-complete-appt-code">3.26. Completing an appointment : <code>complete-appt</code></a></h3>
+<h3 id="changing-an-appointment-status-code-mark-appt-code"><a class="link" href="#changing-an-appointment-status-code-mark-appt-code">3.26. Changing an appointment status : <code>mark-appt</code></a></h3>
 <div class="paragraph">
-<p>{Not available yet}<br>
-Complete the appointment when the patient and doctor finishes the appointment.<br>
-Format: <code>complete-appt INDEX</code></p>
+<p>Mark an appointment as ACTIVE, CANCELLED, MISSED or COMPLETED<br>
+Format: <code>mark-appt INDEX s/NEW_STATUS</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Complete the appointment of the specified <code>INDEX</code>.</p>
+<p>All of the fields must be provided.</p>
 </li>
 <li>
-<p>The index refers to the identification number (ID) of the appointment.</p>
+<p>Appointment status is not cases sensitive. i.e. both ACTIVE and active is allowed.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Change appointment status of the appointment at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>Only appointments on the actual day or future dates can be completed.</p>
+<p>The index refers to the index number shown in the displayed appointment list.
+The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>Status meaning: ACTIVE - The appointment is scheduled and active. CANCELLED - The appointment has been cancelled.
+MISSED - The appointment was missed by the patient. COMPLETED - The patient successfully completed the appointment.</p>
+</li>
+<li>
+<p>Only appointments in the past can be marked as MISSED or COMPLETED. Appointments in the future can only be marked
+ACTIVE or CANCELLED.</p>
 </li>
 </ul>
 </div>
@@ -1153,160 +1189,18 @@ Format: <code>complete-appt INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>complete-appt 1</code><br>
-Completes the appointment with ID of '1' in docX.</p>
+<p><code>mark-appt 1 s/CANCELLED</code><br>
+The appointment with INDEX 1 is cancelled.</p>
 </li>
 <li>
-<p><code>complete-appt 3</code><br>
-Completes the appointment with ID of '3' in docX.</p>
+<p><code>mark-appt 3 s/MISSED</code><br>
+The appointment with INDEX 3 was missed. Note that this can only be done to elapsed appointments.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cancelling-an-appointment-code-cancel-appt-code"><a class="link" href="#cancelling-an-appointment-code-cancel-appt-code">3.27. Cancelling an appointment : <code>cancel-appt</code></a></h3>
-<div class="paragraph">
-<p>{Not available yet}<br>
-Cancel the appointment when the patient or doctor cannot attend the appointment.<br>
-Format: <code>cancel-appt INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Cancel and delete the appointment of the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the identification number (ID) of the appointment.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>Only appointments on the actual day or future dates can be cancelled.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cancel-appt 1</code><br>
-Cancels and deletes the appointment with ID of '1' in docX.</p>
-</li>
-<li>
-<p><code>complete-appt 3</code><br>
-Cancels and delete the appointment with ID of '3' in docX.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-appointments-of-a-doctor-code-list-appt-code"><a class="link" href="#listing-appointments-of-a-doctor-code-list-appt-code">3.28. Listing appointments of a doctor : <code>list-appt</code></a></h3>
-<div class="paragraph">
-<p>{Not available yet}<br>
-Shows a list of all incomplete appointments of a doctor in docX within a specified time period.<br>
-Format: <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The start and end date specified are both inclusive in the search results.</p>
-</li>
-<li>
-<p>Completed or cancelled appointments will not be displayed.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list-appt did/3 sd/30032019 ed/30042019</code><br>
-Lists all appointments of the doctor with ID of '3' from 30th March 2019 to 30th April 2019.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-available-timings-of-a-doctor-code-list-doc-time-code"><a class="link" href="#listing-available-timings-of-a-doctor-code-list-doc-time-code">3.29. Listing available timings of a doctor : <code>list-doc-time</code></a></h3>
-<div class="paragraph">
-<p>{Not available yet}<br>
-Shows a list of all available blocks of timing of the specified doctor.<br>
-Format: <code>list-doc-time did/DOCTOR_ID d/DATE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>DATE</code> must be in the format <code>DDMMYYYY</code></p>
-</li>
-<li>
-<p>Acceptable dates include the date today and future dates.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list-doc-time did/3 d/05032019</code><br>
-Lists all available blocks of timing of the doctor with ID of '3' on 5th March 2019.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-available-timings-of-all-doctors-code-list-time-code"><a class="link" href="#listing-available-timings-of-all-doctors-code-list-time-code">3.30. Listing available timings of all doctors : <code>list-time</code></a></h3>
-<div class="paragraph">
-<p>{Not available yet}<br>
-Shows a list of all available blocks of timings of all doctors on the specified date.<br>
-Format: <code>list-time DATE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>DATE</code> must be in the format <code>DDMMYYYY</code></p>
-</li>
-<li>
-<p>Acceptable dates include the date today and future dates.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list-time 26022019</code><br>
-Lists all doctors' available blocks of timing for each 1-hour time slot on 26th February 2019.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-medicine-code-add-med-code"><a class="link" href="#adding-a-medicine-code-add-med-code">3.31. Adding a medicine: <code>add-med</code></a></h3>
+<h3 id="adding-a-medicine-code-add-med-code"><a class="link" href="#adding-a-medicine-code-add-med-code">3.27. Adding a medicine: <code>add-med</code></a></h3>
 <div class="paragraph">
 <p>Adds a medicine in docX database.<br>
 Format: <code>add-med MEDICINE</code></p>
@@ -1337,14 +1231,14 @@ Adds 'muscle patch' into docX&#8217;s available lists of medicines.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-medicines-code-list-med-code"><a class="link" href="#listing-all-medicines-code-list-med-code">3.32. Listing all medicines : <code>list-med</code></a></h3>
+<h3 id="listing-all-medicines-code-list-med-code"><a class="link" href="#listing-all-medicines-code-list-med-code">3.28. Listing all medicines : <code>list-med</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all medicines in docX.<br>
 Format: <code>list-med</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-prescription-code-add-presc-code"><a class="link" href="#adding-a-prescription-code-add-presc-code">3.33. Adding a prescription: <code>add-presc</code></a></h3>
+<h3 id="adding-a-prescription-code-add-presc-code"><a class="link" href="#adding-a-prescription-code-add-presc-code">3.29. Adding a prescription: <code>add-presc</code></a></h3>
 <div class="paragraph">
 <p>Adds a prescription and the prescribing doctor under the patient involved.<br>
 Format: <code>add-presc pid/PATIENT_ID did/DOCTOR_ID rid/MED_ID w/SHORT_WRITEUP</code></p>
@@ -1379,7 +1273,7 @@ and a short write up of 'constipation for 3 days' under the patient with ID of '
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-prescriptions-of-a-patient-code-list-presc-code"><a class="link" href="#listing-all-prescriptions-of-a-patient-code-list-presc-code">3.34. Listing all prescriptions of a patient : <code>list-presc</code></a></h3>
+<h3 id="listing-all-prescriptions-of-a-patient-code-list-presc-code"><a class="link" href="#listing-all-prescriptions-of-a-patient-code-list-presc-code">3.30. Listing all prescriptions of a patient : <code>list-presc</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all past prescriptions under the patient involved.<br>
 Format: <code>list-presc PATIENT_ID</code></p>
@@ -1408,7 +1302,7 @@ Lists all past prescriptions under the patient with ID of '3'.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-prescription-of-a-patient-code-view-presc-code"><a class="link" href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.35. Viewing a prescription of a patient: <code>view-presc</code></a></h3>
+<h3 id="viewing-a-prescription-of-a-patient-code-view-presc-code"><a class="link" href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.31. Viewing a prescription of a patient: <code>view-presc</code></a></h3>
 <div class="paragraph">
 <p>View the full specified prescription of the specified patient.<br>
 Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
@@ -1437,7 +1331,7 @@ Returns full write up of the prescription with ID of '2' of the patient with ID 
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-prescription-code-search-presc-code"><a class="link" href="#locating-prescription-code-search-presc-code">3.36. Locating prescription : <code>search-presc</code></a></h3>
+<h3 id="locating-prescription-code-search-presc-code"><a class="link" href="#locating-prescription-code-search-presc-code">3.32. Locating prescription : <code>search-presc</code></a></h3>
 <div class="paragraph">
 <p>Finds prescription(s) whose write up contain any of the given keywords.<br>
 Format: <code>search-presc KEYWORD</code></p>
@@ -1482,7 +1376,7 @@ Returns all prescriptions with the write up containing either 'stomach flu' or '
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.37. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.33. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -1503,28 +1397,28 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.38. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.34. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from docX.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.39. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.35. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.40. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.36. Saving the data</a></h3>
 <div class="paragraph">
 <p>docX data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.41. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.37. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1536,7 +1430,7 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous DocX folder.</p>
 </div>
 </div>
 </div>
@@ -1653,22 +1547,12 @@ e.g. `select-med-hist 1</code></p>
 e.g. <code>add-appt pid/1 did/1 d/2019-06-01 t/09:00</code></p>
 </li>
 <li>
-<p><strong>Completing an appointment</strong> : <code>complete-appt INDEX</code></p>
+<p><strong>Listing appointments</strong> <code>list-appt [pid/PATIENT_ID] [did/DOCTOR_ID] [d/DATE_OF_APPT] [t/START_TIME]</code><br>
+e.g. <code>list-appt</code></p>
 </li>
 <li>
-<p><strong>Cancelling an appointment</strong> : <code>cancel-appt INDEX</code></p>
-</li>
-<li>
-<p><strong>List upcoming appointments of a doctor</strong> : <code>list-appt did/DOCTOR_ID sd/START_DATE ed/END_DATE</code>
-e.g. <code>list-appt did/3 sd/30032019 ed/30042019</code></p>
-</li>
-<li>
-<p><strong>List available timings of a doctor</strong> : <code>list-doc-time did/DOCTOR_ID d/DATE</code>
-e.g. <code>list-doc-time did/3 d/05032019</code></p>
-</li>
-<li>
-<p><strong>List available doctors during the specified time</strong> : <code>list-time DATE</code>
-e.g. <code>list-time 26022019</code></p>
+<p><strong>Changing an appointment status</strong> : <code>mark-appt INDEX s/NEW_STATUS</code>
+e.g. <code>mark-appt 1 s/CANCELLED</code></p>
 </li>
 </ul>
 </div>
@@ -1721,4 +1605,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 08:57:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 11:31:20 UTC</div></div></div></body></html>
