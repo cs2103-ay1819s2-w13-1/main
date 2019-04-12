@@ -43,8 +43,17 @@
 <li><a href="#listing-all-medicines-code-list-med-code">3.28. Listing all medicines : <code>list-med</code></a></li>
 <li><a href="#adding-a-prescription-code-add-presc-code">3.29. Adding a prescription: <code>add-presc</code></a></li>
 <li><a href="#listing-prescriptions-code-list-presc-code">3.30. Listing prescriptions: <code>list-presc</code></a></li>
+<li><a href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.31. Viewing a prescription of a patient: <code>view-presc</code></a></li>
+<li><a href="#locating-prescription-code-search-presc-code">3.32. Locating prescription : <code>search-presc</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.33. Listing entered commands : <code>history</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.34. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.35. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.36. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.37. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -1293,6 +1302,8 @@ Format: <code>list-presc [pid/PATIENT_ID] [did/DOCTOR_ID]</code></p>
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1312,15 +1323,15 @@ Lists all past prescriptions whose patient id is '3' and doctor id is '5'.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Viewing a prescription of a patient: <code>view-presc</code></p>
 </div>
+<div class="sect2">
+<h3 id="viewing-a-prescription-of-a-patient-code-view-presc-code"><a class="link" href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.31. Viewing a prescription of a patient: <code>view-presc</code></a></h3>
 <div class="paragraph">
 <p>View the full specified prescription of the specified patient.<br>
 Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1328,8 +1339,8 @@ Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1341,15 +1352,15 @@ Returns full write up of the prescription with ID of '2' of the patient with ID 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Locating prescription : <code>search-presc</code></p>
 </div>
+<div class="sect2">
+<h3 id="locating-prescription-code-search-presc-code"><a class="link" href="#locating-prescription-code-search-presc-code">3.32. Locating prescription : <code>search-presc</code></a></h3>
 <div class="paragraph">
 <p>Finds prescription(s) whose write up contain any of the given keywords.<br>
 Format: <code>search-presc KEYWORD</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1369,8 +1380,8 @@ Format: <code>search-presc KEYWORD</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1386,9 +1397,9 @@ Returns all prescriptions with the write up containing either 'stomach flu' or '
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Listing entered commands : <code>history</code></p>
 </div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.33. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -1407,43 +1418,48 @@ Format: <code>history</code></p>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>=== Clearing all entries : <code>clear</code></p>
 </div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.34. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from docX.<br>
 Format: <code>clear</code></p>
 </div>
-<div class="paragraph">
-<p>=== Exiting the program : <code>exit</code></p>
 </div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.35. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
-<div class="paragraph">
-<p>=== Saving the data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.36. Saving the data</a></h3>
 <div class="paragraph">
 <p>docX data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-<div class="paragraph">
-<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.37. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous DocX folder.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>PATIENT COMMANDS</p>
 </div>
@@ -1612,7 +1628,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 12:00:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 17:14:16 UTC</div></div></div></body></html>
