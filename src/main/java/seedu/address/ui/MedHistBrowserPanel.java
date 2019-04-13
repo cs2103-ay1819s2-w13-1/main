@@ -17,10 +17,8 @@ import seedu.address.model.medicalhistory.MedicalHistory;
  */
 
 public class MedHistBrowserPanel extends UiPart<Region> {
-    public static final String DEFAULT_MED_HIST_PAGE = "";
 
-    public static final String MESSAGE_PATIENT_DELETED = "Patient Deleted.";
-    public static final String MESSAGE_DOCTOR_DELETED = "Doctor Deleted.";
+    public static final String DEFAULT_MED_HIST_PAGE = "";
 
     private static final String FXML = "MedHistBrowserPanel.fxml";
 
@@ -77,9 +75,9 @@ public class MedHistBrowserPanel extends UiPart<Region> {
         medHistId.setText("Medical History ID: " + medHist.getMedHistId());
 
         if (medHist.getPatient() == null) {
-            patientId.setText("Patient ID: " + MESSAGE_PATIENT_DELETED);
-            patientName.setText("Patient Name: " + MESSAGE_PATIENT_DELETED);
-            patientPhone.setText("Patient Phone: " + MESSAGE_PATIENT_DELETED);
+            patientId.setText("Patient ID: Patient Deleted");
+            patientName.setText("Patient Name: Patient Deleted");
+            patientPhone.setText("Patient Phone: Patient Deleted");
         } else {
             patientId.setText("Patient ID: " + medHist.getPatientId());
             patientName.setText("Patient Name: " + medHist.getPatient().getName());
@@ -87,9 +85,9 @@ public class MedHistBrowserPanel extends UiPart<Region> {
         }
 
         if (medHist.getDoctor() == null) {
-            doctorId.setText("Doctor ID: " + MESSAGE_DOCTOR_DELETED);
-            doctorName.setText("Doctor Name: " + MESSAGE_DOCTOR_DELETED);
-            doctorPhone.setText("Doctor Phone: " + MESSAGE_DOCTOR_DELETED);
+            doctorId.setText("Doctor ID: Doctor Deleted");
+            doctorName.setText("Doctor Name: Doctor Deleted");
+            doctorPhone.setText("Doctor Phone: Doctor Deleted");
         } else {
             doctorId.setText("Doctor ID: " + medHist.getDoctorId());
             doctorName.setText("Doctor Name: " + medHist.getDoctor().getName());

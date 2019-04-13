@@ -1,4 +1,3 @@
-//@@author Liuyy99
 package seedu.address.model.medicalhistory;
 
 import static java.util.Objects.requireNonNull;
