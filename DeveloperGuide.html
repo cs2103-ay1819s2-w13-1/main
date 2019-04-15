@@ -806,12 +806,26 @@ AddPrescriptionCommandParser will invoke AddPrescriptionCommand with the newly c
 <h3 id="crud-of-patients"><a class="link" href="#crud-of-patients">3.7. CRUD of patients</a></h3>
 <div class="paragraph">
 <p>Patients is one of the two valid types of Persons to be stored in the docX record.
-The following features are implemented or will be implemented for patients of docX:
-* Add patient
-* List all patients
-* Edit existing patients
-* Search patients by keywords
-* Delete existing patients</p>
+The following features are implemented or will be implemented for patients of docX:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add patient</p>
+</li>
+<li>
+<p>List all patients</p>
+</li>
+<li>
+<p>Edit existing patients</p>
+</li>
+<li>
+<p>Search patients by keywords</p>
+</li>
+<li>
+<p>Delete existing patients</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="crud-patient-features"><a class="link" href="#crud-patient-features">3.7.1. CRUD Patient features</a></h4>
@@ -947,23 +961,40 @@ The following features are implemented or will be implemented for users of docX:
 <h3 id="crud-doctor-features"><a class="link" href="#crud-doctor-features">3.9. CRUD Doctor features</a></h3>
 <div class="paragraph">
 <p>Doctor is one of the two valid types of Persons to be stored in the docX record.
-The following features are implemented or will be implemented for doctors of docX:
-* Add doctor
-* List all doctors
-* Edit existing doctors
-* Search doctors by keywords
-* Delete existing doctors</p>
+The following features are implemented or will be implemented for doctors of docX:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add doctor <code>add-d</code></p>
+</li>
+<li>
+<p>List all doctors and search for doctors by keywords <code>list-d</code></p>
+</li>
+<li>
+<p>Edit existing doctors <code>edit-d</code></p>
+</li>
+<li>
+<p>Select a doctor to display the full details <code>select-d</code></p>
+</li>
+<li>
+<p>Delete existing doctors <code>delete-d</code></p>
+</li>
+<li>
+<p>Finding relevant and available doctors for upcoming appointments <code>match-d</code></p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">3.9.1. Add Doctor feature</a></h4>
 <div class="paragraph">
-<p>When a user executes <code>add-doctor n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
+<p>When a user executes <code>add-d n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
 </div>
 <div class="paragraph">
-<p>Step1. LogicManager calls parseCommand("add-doctor") in docXParser.</p>
+<p>Step1. LogicManager calls parseCommand("add-d") in docXParser.</p>
 </div>
 <div class="paragraph">
-<p>Step2. Based on the COMMAND_WORD, docXParser builds a new AddDoctorCommandParser() and call function parse(arguments) of AddDoctorCommandParser;</p>
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new AddDoctorCommandParser() and calls function parse(arguments) of AddDoctorCommandParser.</p>
 </div>
 <div class="paragraph">
 <p>Step3. AddDoctorCommandParser parses the argument and get doctor&#8217;s name, gender, year of experience, phone and his/her specialisations. AddDoctorCommandParser calls constructors of Name, Year, Gender, Phone, Specialisation and then calls the constructor of Doctor.
@@ -979,38 +1010,125 @@ The following features are implemented or will be implemented for doctors of doc
 <div class="sect3">
 <h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">3.9.2. List Doctor feature</a></h4>
 <div class="paragraph">
-<p>list-doctor
-When a user executes <code>list-doctor</code></p>
+<p>When a user executes <code>list-doctor acupu</code></p>
 </div>
 <div class="paragraph">
-<p>Step1. LogicManager calls parseCommand("list-doctor") in docXParser.</p>
+<p>Step1. LogicManager calls parseCommand("list-d") in docXParser.</p>
 </div>
 <div class="paragraph">
-<p>Step2. Based on the COMMAND_WORD, docXParser builds a new ListDoctorCommand() and calls execute() of ListDoctorCommand().</p>
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new ListDoctorCommandParser() and calls function parse(arguments) of ListDoctorCommandParser.</p>
 </div>
 <div class="paragraph">
-<p>Step3. execute() calls Model Manager to update filtered doctor list to show all existing doctors in docX.</p>
+<p>Step3. ListDoctorCommandParser parses the argument. If no argument is present, then ListDoctorCommandParser calls ListDoctorCommand(). If there are argument(s) present, DoctorContainsKeywordsPredicate("acupu") will be created.
+        Then, ListDoctorCommandParser calls ListDoctorCommand(DoctorContainsKeywordsPredicate).</p>
 </div>
 <div class="paragraph">
-<p>Step4. // to continue</p>
+<p>Step4. LogicManager calls execute() of ListDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() checks if the DoctorContainsPredicate equals to null. If it equals to null, it calls updateFilteredDoctorList() of Model to show all doctors.
+        If it is not null, it calls updateFilteredDoctorList() of ModelManager.</p>
+</div>
+<div class="paragraph">
+<p>Step6. test(Doctor) of DoctorContainsKeywordsPredicate will be called. It will check if any of the field matches "acupu" in full or part. If it matches, the doctor will be shown.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="edit-doctor-feature"><a class="link" href="#edit-doctor-feature">3.9.3. Edit Doctor feature</a></h4>
 <div class="paragraph">
-<p>edit-doctor</p>
+<p>When a user executes <code>edit-d 1 n/Betty Veronica</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("edit-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new EditDoctorCommandParser() and calls function parse(arguments) of EditDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. EditDoctorCommandParser parses the argument and get the relative index of the doctor to be changed and the respective field(s) to be changed.
+        It will call EditDoctorDescriptor() and change the field(s) accordingly.
+        Then, EditDoctorCommandParser calls EditDoctorCommand(index, EditDoctorDescriptor).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of EditDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be edited. After creating the edited doctor, EditDoctorCommand calls setDoctor(DoctorToEdit, EditedDoctor) of ModelManager.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-doctor-feature"><a class="link" href="#search-doctor-feature">3.9.4. Search Doctor feature</a></h4>
+<h4 id="select-doctor-feature"><a class="link" href="#select-doctor-feature">3.9.4. Select Doctor feature</a></h4>
 <div class="paragraph">
-<p>search-doctor</p>
+<p>When a user executes <code>select-d 1</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("select-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new SelectDoctorCommandParser() and calls function parse("1") of SelectDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. SelectDoctorCommandParser parses the argument and get the relative index of the doctor to be selected.
+        Then SelectDoctorCommandParser calls SelectDoctorCommand(index).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of SelectDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be selected.
+        SelectDoctorCommand calls setSelectedDoctor(selectedDoctor) and calls DOCTOR_BROWSER to be showed in the browser panel in the UI with the CommandResult.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">3.9.5. Delete Doctor feature</a></h4>
 <div class="paragraph">
-<p>delete-doctor</p>
+<p>When a user executes <code>delete-d 1</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("delete-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new DeleteDoctorCommandParser() and call function parse("1") of DeleteDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. DeleteDoctorCommandParser parses the argument and get the relative index of the doctor to be deleted.
+        Then, DeleteDoctorCommandParser calls DeleteDoctorCommand(index).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of DeleteDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be deleted. DeleteDoctorCommand calls deleteDoctor(doctorToDelete) of ModelManager.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="doctor-match-feature"><a class="link" href="#doctor-match-feature">3.9.6. Doctor Match feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>match-d s/general d/2019-06-20 t/09:00</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("match-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new DoctorMatchCommandParser() and call function parse(arguments) of DoctorMatchCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. DoctorMatchCommandParser parses the argument and get the desired specialisation, date and time of the appointment. DoctorMatchCommandParser calls constructors of Specialisation, AppointmentDate, AppointmentTime and then calls the constructor of DoctorMatch.
+        Then, DoctorSpecialisationMatchesPredicate(DoctorMatch) will be created.</p>
+</div>
+<div class="paragraph">
+<p>Step4. Then, DoctorMatchCommandParser calls DoctorMatchCommand(DoctorSpecialisationMatchesPredicate).</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls updateFilteredDoctorList(DoctorSpecialisationMatchesPredicate) of ModelManager to filter the list of doctors whose specialisation matches the user&#8217;s input.</p>
+</div>
+<div class="paragraph">
+<p>Step6. Then, execute() will call the constructor of DoctorsMatch with the filtered list of doctors, the desired appointment date and time. AppointmentContainsDoctorPredicate(DoctorsMatch) will be created.
+        execute() calls updateAppointmentList(AppointmentContainsDoctorPredicate) of ModelManager to filter the list of appointments who are occupied during the desired date and time of appointment.</p>
+</div>
+<div class="paragraph">
+<p>Step7. Then, execute() will get the filtered list of appointments and the desired specialisation. DoctorHasAppointmentPredicate will be created.
+        execute() calls updateFilteredDoctorList(DoctorHasAppointmentPredicate) to filter the list of doctors whose specialisation matches and are available on the date and timing inputted.</p>
 </div>
 </div>
 </div>
@@ -3508,4 +3626,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 06:11:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:02:39 UTC</div></div></div></body></html>
