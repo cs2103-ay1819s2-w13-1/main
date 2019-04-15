@@ -177,10 +177,10 @@ Format: <code>add-p [n/NAME] [g/GENDER] [a/AGE] [p/PHONE_NUMBER] [adr/ADDRESS] [
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-p n/John Doe g/M a/21 p/98765432 adr/Utown College 2</code></p>
+<p><code>add-p n/Tom Hiddleston g/M a/21 p/98765432 adr/Utown College 2</code></p>
 </li>
 <li>
-<p><code>add-p n/Betsy Crowe g/F p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
+<p><code>add-p n/Bettany Sim g/F p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
 </li>
 </ul>
 </div>
@@ -215,8 +215,7 @@ Format: <code>edit-p [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS]
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the patient at the specified <code>INDEX</code>.<br>
-The index refers to the current list index of the patient. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the patient at the specified list index.<br></p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -235,15 +234,19 @@ The index refers to the current list index of the patient. The index <strong>mus
 <ul>
 <li>
 <p><code>edit-p 1 p/91234567</code><br>
-Edits the phone number of the patient with ID of '1' to be <code>91234567</code>.</p>
+Edits the phone number of the patient with current list index '1' to be <code>91234567</code>.</p>
 </li>
 <li>
-<p><code>edit-p 2 n/Betsy Crower p/95678901</code><br>
-Edits the name and phone number of the patient with ID of '2' to be <code>Betsy Crower</code> and '95678901' respectively.</p>
+<p><code>edit-p 2 n/Alex Martin p/95678901</code><br>
+Edits the name and phone number of the patient with current list index of '2' to be <code>Alex Martin</code> and '95678901' respectively.</p>
+</li>
+<li>
+<p><code>edit-p 1 n/Alex n/Martin</code><br>
+Having 2 input of the same field will take the last input. Edited patient name to <code>Martin</code>.</p>
 </li>
 <li>
 <p><code>edit-p 1 t/</code><br>
-An empty tag removes all the current tags of the patient with ID of '1'.</p>
+An empty tag field removes all the current tags of the patient with ID of '1'.</p>
 </li>
 </ul>
 </div>
@@ -259,22 +262,22 @@ Format: <code>search-p-name [NAME] [NAME2]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is case insensitive. e.g <code>aLeX</code> will match <code>Alex</code></p>
 </li>
 <li>
 <p>The order of the keywords does not matter<br>
-e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+e.g. <code>Alex Martin</code> will match <code>Martin Alex</code></p>
 </li>
 <li>
 <p>Only the name is searched.</p>
 </li>
 <li>
 <p>Only full words will be matched<br>
-e.g. <code>Han</code> will not match <code>Hans</code></p>
+e.g. <code>Alex</code> will not match <code>Alexander</code></p>
 </li>
 <li>
 <p>Patients matching at least one keyword will be returned<br>
-e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+e.g. <code>Alex Tom</code> will return <code>Alex Martin</code>, <code>Tom Hiddleston</code></p>
 </li>
 </ul>
 </div>
@@ -286,12 +289,12 @@ e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</c
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-p-name John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>search-p-name Alex</code><br>
+Returns <code>Alex Lim</code> and <code>Alex Martin</code></p>
 </li>
 <li>
 <p><code>search-p-name Betsy Tim John</code><br>
-Returns any patient having names containing <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+Returns all patients having names containing <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 </ul>
 </div>
@@ -323,7 +326,7 @@ Format: <code>search-pid [pid]</code></p>
 <ul>
 <li>
 <p><code>search-pid 1</code><br>
-Returns <code>John Doe</code> who has pid of <code>1</code>.</p>
+Returns <code>Alex Martin</code> who has pid of <code>1</code>.</p>
 </li>
 </ul>
 </div>
@@ -359,7 +362,7 @@ ACTIVE, ONGOING, COMPLETED, MISSED</p>
 <ul>
 <li>
 <p><code>search-p-status ACTIVE</code><br>
-Returns <code>John Doe</code> and <code>Tom Darl</code> who has appointment status of <code>ACTIVE</code>.</p>
+Returns <code>Alex Martin</code> and <code>Tom Hiddleston</code> who has appointment status of <code>ACTIVE</code>.</p>
 </li>
 </ul>
 </div>
@@ -377,7 +380,7 @@ Format: <code>search-p-advanced [keyword] ["quoted_keyword"]&#8230;&#8203;</code
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>ALeX</code> will match <code>Alex</code></p>
+<p>The search is case insensitive. e.g <code>aLeX</code> will match <code>Alex</code></p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. <code>stroke cancer</code> will match <code>cancer stroke</code></p>
@@ -418,12 +421,18 @@ A patient&#8217;s info does not include the list index and "| pid:"
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-p-advanced blood "Doe"</code><br>
-Returns <code>John Doe</code> who has a <code>highbloodpressure</code> tag</p>
+<p><code>search-p-advanced blood alex</code><br>
+Returns both <code>Alex Martin</code> who has a <code>bloodclot</code> tag and <code>Alexander Fleming</code> who has a <code>highbloodpressure</code> tag</p>
 </li>
 <li>
-<p><code>search-p-advanced blood "Doe"</code><br>
-Will not return <code>John Doeing</code> who has a <code>highbloodpressure</code> tag</p>
+<p><code>search-p-advanced blood "alex"</code><br>
+Returns <code>Alex Martin</code> who has a <code>bloodclot</code> tag.<br>
+Will not return <code>Alexander Fleming</code> who has a <code>highbloodpressure</code> tag</p>
+</li>
+<li>
+<p><code>search-p-advanced "blood" "alex"</code><br>
+Will return neither <code>Alex Martin</code> who has a <code>bloodclot</code> tag.<br>
+nor <code>Alexander Fleming</code> who has a <code>highbloodpressure</code> tag</p>
 </li>
 </ul>
 </div>
@@ -440,10 +449,7 @@ Format: <code>select-p [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the patient of the specified <code>INDEX</code> in docX.</p>
-</li>
-<li>
-<p>The index refers to the current list ID of the patient.</p>
+<p>Selects the patient of the specified list index.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -462,8 +468,8 @@ Format: <code>select-p [INDEX]</code></p>
 </li>
 <li>
 <p><code>select-p 3</code><br>
-Selects the patient with current list ID of '3' in the docX<br>
-The patient&#8217;s full info can be easily viewed in the browser panel.</p>
+Selects the patient with current list index of '3' in the docX<br>
+The patient&#8217;s full detail can be easily viewed in the browser panel.</p>
 </li>
 </ul>
 </div>
@@ -479,10 +485,7 @@ Format: <code>delete-p [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the patient of the specified <code>INDEX</code> in docX.</p>
-</li>
-<li>
-<p>The index refers to the current list ID of the patient.</p>
+<p>Deletes the patient of the specified list index.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -499,11 +502,11 @@ Format: <code>delete-p [INDEX]</code></p>
 <li>
 <p><code>list-p</code><br>
 <code>delete-p 3</code><br>
-Deletes the patient with current list ID of '3' in the docX.</p>
+Deletes the patient with current list index of '3' in the docX.</p>
 </li>
 <li>
 <p><code>delete-p 2</code><br>
-Deletes the patient with current list ID of '2' in the docX.</p>
+Deletes the patient with current list index of '2' in the docX.</p>
 </li>
 </ul>
 </div>
@@ -1618,4 +1621,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 20:44:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 05:06:37 UTC</div></div></div></body></html>
