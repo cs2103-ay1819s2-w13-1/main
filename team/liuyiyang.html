@@ -3,14 +3,23 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">DocX</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-w13-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Liu Yiyang - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-docx"><a class="link" href="#project-docx">PROJECT: docX</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="paragraph">
+<p>This portfolio serves to document my contribution in a Software Engineering team project for CS2103.
+The team comprises of 5 members and we were tasked to develop a working application within 6 weeks.</p>
+</div>
+<div class="paragraph">
+<p>To comply with the module requirements, the project builds on from an existing code base - AddressBook Level 4,
+and the user must be able to interact with the application via Command Line Interface (CLI).</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>docX is a desktop clinic management application designed for receptionists in clinic. It has a GUI but most of user interactions happen using a CLI(Command Line Interface).</p>
+<p>DocX is a desktop application designed for receptionists in clinics.
+The app provide features for patient management, doctor management, medical history management, appointment management and prescription management.
+It is targeted at clinic receptionists who are comfortable with using Command Line Interface (CLI).</p>
 </div>
 </div>
 </div>
@@ -20,92 +29,37 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major feature</strong>: added <strong>Medical History</strong> and added <strong>adding, listing, editing, sorting, searching and selecting of medical history</strong></p>
+<p><strong>Major feature</strong>: Added <strong>Medical History</strong> Management Features</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Medical History</strong>: Medical History class links Doctor and Patient. The implementation of Medical History and all commands of Medical History allows the receptionists in clinic to record medical histories, which contain information of attending patient, attending doctor, happening date and doctor&#8217;s description.</p>
+<p><strong>What it does</strong>: This feature allows receptionists in clinic to record and manage patients' medical histories of seeing doctors.
+It provides receptionists with 6 commands, which are adding, listing, sorting, editing, searching and viewing of medical histories.
+Besides, the information of visiting patient and visited doctor is stored in a medical history, and is updated in cascade with the patient and doctor.
+When patient and doctor is edited or deleted, all related medical histories will be updated automatically.</p>
 </li>
 <li>
-<p><strong>Add Medical History Command</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Records patient&#8217;s medical histories of seeing doctors. After a patient seeing a doctor, a medical history of the attending patient and doctor will be created.</p>
+<p><strong>Justification of Major Feature</strong>: In a clinic, one of the most important and most frequent event is patient visit.
+Recording medical histories is important for clinic management. Firstly, it provides doctor with patient&#8217;s information and helps doctor give proper evaluation and treatments of patient.
+Secondly, it retains documentary evidence on which the legal system depends.
+To keep a record of every patient visit, receptionists must be able to manage medical histories very efficiently. Our app provides users an easy way to manage a medical history.
+Users only need to provide patient id and doctor id, then the system will automatically find and store all information of that patient and doctor.
+To help doctor diagnosis, receptionists must be able to quickly find medical histories the doctor wants. Our app provides an easy way to do this by listing, searching or sorting command.
+To keep the whole system consistent, receptionists need to update medical histories when patient/doctor is modified. Our app can automatically update medical histories in cascade of patient and doctor, which saves users a lot of efforts.</p>
 </li>
 <li>
-<p>Added medical history contains all information of the attending patient and doctor.</p>
+<p><strong>Highlights of Major Feature</strong>: Firstly, it&#8217;s challenging to store patient and doctor information in medical history and keep them updated.
+Commands of patients and doctors may impact related medical histories. All these commands need to be followed by the updating of medical histories.
+Secondly, it&#8217;s difficult to do validation of input. Checking of the existence of input patient and doctor id must be done before adding the medical history.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>List Medical History Command</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Shows list of all medical histories recorded in docX</p>
+<p><strong>Minor enhancement</strong>: Enable the browser of UI to switch between different browsers.</p>
 </li>
 <li>
-<p>Shows filtered medical histories list that satisfies user-specified constraints. User can filter medical histories with a specified patient, a specified doctor and a specified date.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Edit Medical History Command</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Allows users to edit the write up of medical history.</p>
-</li>
-<li>
-<p>Helps users to manage multiple records of the same patient and doctor on the same day. If a patient come to a doctor more than one times on the same day, receptionists just need to edit the write up of existing medical history instead of creating a new one.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Sort Medical History Command</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Sorts medical histories in ascending order or descending order of happening date.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Search Medical History Command</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Allows users to find all medical histories related to specified keywords.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Select Medical History Command</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Shows details of a specified medical history, including patient&#8217;s information, doctor&#8217;s information, date and write up from doctor.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Justification of Major Feature</strong>: This feature improves the product significantly because medical history records the very important events happening every day in a clinic. Medical history builds relationships between patients and doctors recorded in docX.</p>
-</li>
-<li>
-<p><strong>Highlights of Major Feature</strong>: Recorded medical histories contains information of patients and doctors, and medical histories are affected by commands of patients and doctors. It&#8217;s challenging to relate Patient and Doctor class. It&#8217;s also challenging to always keep medical histories consistent with patients and doctors.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=Liuyy99&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-15&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Functional and Test Code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -116,7 +70,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Submitted documents in milestone</p>
+<p>Managed the submission of UG and DG documents in v1.3 on Luminus</p>
 </li>
 </ul>
 </div>
@@ -126,17 +80,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI to show multiple lists</p>
-</li>
-</ul>
-</div>
+<p>Remove dead code: Pull requests <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/213">#213</a></p>
 </li>
 <li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
+<p>Add test cases to improve the coverage: Pull requests <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/209">#209</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/204">#204</a></p>
+</li>
 <li>
-<p>Update User Guide and Developer Guide: <a href="https://github.com">#14</a></p>
+<p>Updated the GUI to show multiple lists: Pull request <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/108">#108</a></p>
+</li>
+<li>
+<p>Updated the GUI to switch between multiple browsers: Pull request <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/168">#168</a></p>
 </li>
 </ul>
 </div>
@@ -146,10 +99,11 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments):</p>
+<p>PRs reviewed (with non-trivial review comments)(examples: <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/237#issuecomment-483196253">1</a>)</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class</p>
+<p>Reported bugs and suggestions for other teams in the class (<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/710">#710</a>,
+<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/527">#527</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/433">#433</a>)</p>
 </li>
 </ul>
 </div>
@@ -174,6 +128,24 @@
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../UserGuide.adoc#adding-a-medical-history-add-med-hist[tag=add-med-hist]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../UserGuide.adoc#listing-medical-histories-list-med-hist[tag=list-med-hist]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../UserGuide.adoc#editing-write-up-of-medical-history-edit-med-hist[tag=edit-med-hist]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../UserGuide.adoc#sorting-medical-history-by-date-sort-med-hist[tag=sort-med-hist]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../UserGuide.adoc#searching-medical-history-search-med-hist[tag=search-med-hist]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../UserGuide.adoc#viewing-a-certain-medical-history-select-med-hist[tag=select-med-hist]</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -189,14 +161,11 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Unresolved directive in liuyiyang.adoc - include::../DeveloperGuide.adoc#Design-Storage[tag=Storage Component]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in liuyiyang.adoc - include::../DeveloperGuide.adoc#medical-history-management-features[tag=Medical History Features]</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:38:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:13:49 UTC</div></div></div></body></html>
