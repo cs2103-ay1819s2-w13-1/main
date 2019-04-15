@@ -1227,31 +1227,32 @@ prescription respectively.</p>
 <p>Current proposed implementation</p>
 </div>
 <div class="paragraph">
-<p>A user specifies the id of the patient, the id of the doctor and a description of the prescription in command line. And
+<p>A user specifies the id of the patient, the id of the doctor, the date, the name of the medicine and a description of the prescription in command line. And
 then the command processing procedure is roughly as follows:</p>
 </div>
 <div class="paragraph">
-<p>Step1. LogicManager calls parseCommand("add-prescription") in AddressBookParser.</p>
+<p>Step1. LogicManager calls parseCommand("add-prescription") in DocXParser.</p>
 </div>
 <div class="paragraph">
-<p>Step2. Based on the COMMAND_WORD, AddressBookParser builds a new AddMedHistCommandParser()
-and call function parse(arguments) of AddMedHistCommandParser;</p>
+<p>Step2. Based on the COMMAND_WORD, DocXParser builds a new AddPrescriptionCommandParser()
+and call function parse(arguments) of AddPrescriptionCommandParser;</p>
 </div>
 <div class="paragraph">
-<p>Step3. AddPrescriptionCommandParser parses patient id, doctor id as well as the description of the prescription.
-Then it searches for the corresponding patient and doctor in the database. If both exist, then we invoke the constructor
-of Patient class and Doctor Class to create the corresponding patient and doctor. Otherwise, we throw an exception indicating
-that the patient id or the doctor id is not valid here.</p>
+<p>Step3. AddPrescriptionCommandParser parses patient id, doctor id, date, medicine name as well as the description of the prescription.</p>
 </div>
 <div class="paragraph">
-<p>Step4. After the patient and doctor objects are created, the constructor of Prescription class is invoked. Then
-AddPrescriptionCommandParser will invoke AddPrescriptionCommand with the newly created prescription as the input.</p>
+<p>Step4. Constructors for patientId, doctorId, validDate, medicine and description are invoked. After this the constructor for Prescription is called to create a new prescription. Then AddPrescriptionCommandParser calls AddPrescriptionCommand(prescription).</p>
 </div>
 <div class="paragraph">
 <p>Step5. LogicManager calls execute() of AddPrescriptionCommand.</p>
 </div>
 <div class="paragraph">
-<p>Step6. execute() calls hasPrescription() of Model. If the prescription does not exist, call addPrescription() of Model</p>
+<p>Step6. execute() calls hasPrescription() of Model. If the prescription does not exist, call addPrescription() of Model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddPrescriptionSD.png" alt="AddPrescriptionSD" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3640,4 +3641,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:21:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:25:09 UTC</div></div></div></body></html>
