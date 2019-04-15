@@ -3616,7 +3616,33 @@ Expected: New patient/doctor is added to the end of the list with a unique ID ge
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Marking an appointment as "CANCELLED"</p>
+<p>Adding a new appointment</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are existing patients and doctors in the system.</p>
+</li>
+<li>
+<p>Test case: <code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code><br>
+Expected: A new appointment with the given patient, doctor, date and time is added.</p>
+</li>
+<li>
+<p>Test case: <code>add-appt</code><br>
+Expected: No appointment is added. All fields must be filled and not left empty. The correct command format is shown.</p>
+</li>
+<li>
+<p>Other incorrect add-appt commands to try: <code>add-appt pid/1 did/7</code>, <code>add-appt d/2019-06-01 t/09:00</code>.<br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>add-appt add-appt pid/1 did/7 d/2019-02-29 t/30:00</code><br>
+Expected: No appointment is added. The date and time should be in the valid format and be a valid date on the calendar.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Marking an appointment as "CANCELLED" (or back to ACTIVE)</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3637,8 +3663,42 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </li>
+<li>
+<p>Listing appointments</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are existing appointments in the system.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt</code><br>
+Expected: All appointments in the system are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt pid/1</code><br>
+Expected: Appointments made by patient ID 1 are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt did/7</code><br>
+Expected: Appointments made by doctor ID 7 are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt c/PAST</code><br>
+Expected: Only appointments in the past are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt d/2019-06-99</code><br>
+Expected: No appointments are shown. A message prompting the user to enter the correct command format is shown.</p>
+</li>
+<li>
+<p>Other incorrect list-appt commands to try: <code>list-appt t/99:00</code>, <code>list-appt s/ASDF</code>, <code>list-appt c/TOMORROW</code>.<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:25:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:41:03 UTC</div></div></div></body></html>

@@ -35,20 +35,27 @@ It is written in Java, and has about 10 kLoC.</p>
 <li>
 <p>Highlights: Appointments can be prone to many issues as it deals with date and time. Therefore, extreme care must be
 taken when handling user input to prevent any issues with invalid date and time combinations. Also there are numerous
-constraints, such as new appointments can only be created during business hours, in the future and patients can only
+constraints, such as new appointments can only be created during business hours, be in the future and patients can only
 complete their appointments after they are over.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: enhanced the user interface to include 4 sections, a section to display patients, a section to
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>UI: Enhanced the user interface to include 4 sections, a section to display patients, a section to
 display doctors, a section to display medical history, a section to display appointments. Also added the ability to
-switch an entire panel to display the current relevant content. Helped to resolve several technical issues with
-implementing a unique ID for both patients and doctors.</p>
+switch an entire panel to display the current relevant content.</p>
+</li>
+<li>
+<p>Model: Utilized the singleton design pattern is synchronize the generation of unique patient and doctor IDs across
+the entire application to ensure there are no duplicate IDs.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=amuletxheart" class="bare">https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=amuletxheart</a></p>
@@ -62,20 +69,10 @@ implementing a unique ID for both patients and doctors.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.2</code> - <code>v1.4</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on <a href="https://github.com/cs2103-ay1819s2-w13-1/main/releases">Github</a></p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Managed disputes regarding features and missed internal deadlines between teammates.</p>
 </li>
 </ul>
 </div>
@@ -85,7 +82,10 @@ implementing a unique ID for both patients and doctors.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated the AboutUs and ContactUs page with correct photos and links (<a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/6">#6</a>)</p>
+</li>
+<li>
+<p>Wrote the user stories and use case sections of the DeveloperGuide (<a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/49">#49</a>)</p>
 </li>
 </ul>
 </div>
@@ -95,29 +95,20 @@ implementing a unique ID for both patients and doctors.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed and gave suggestions to improve workflow and boost productivity
+(examples: <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/112#issuecomment-478952215">1</a>,
+<a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/212#pullrequestreview-226341679">2</a>)</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Assigned user stories and tasks to team members (<a href="https://github.com/cs2103-ay1819s2-w13-1/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Aamuletxheart">list</a>)</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class (<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/created_by/amuletxheart">list</a>)</p>
 </li>
 <li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Parts of the appointment management features I added were utilized by several teammates
+(examples: <a href="https://github.com/cs2103-ay1819s2-w13-1/main/blob/master/src/main/java/seedu/address/logic/commands/patient/SearchPatientApptStatusCommand.java">1</a>,
+<a href="https://github.com/cs2103-ay1819s2-w13-1/main/blob/master/src/main/java/seedu/address/logic/commands/doctor/DoctorMatchCommand.java">2</a>)</p>
 </li>
 </ul>
 </div>
@@ -126,9 +117,6 @@ implementing a unique ID for both patients and doctors.</p>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -145,10 +133,246 @@ implementing a unique ID for both patients and doctors.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>The user will be able to enable/disable the encryption of data files through a button in the menu bar.</p>
+<p>DocX is a desktop clinic management application designed for receptionists in small clinics.
+Even today, many receptionists in small clinics are still using pen and paper to track patients' information, which can be prone to human errors and reduced productivity if the number of patients is large. Our clinic management application is designed specifically to make this process much easier for them.</p>
+</div>
+<div class="paragraph">
+<p>The features we provide include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Record and manage patients coming to the clinic</p>
+</li>
+<li>
+<p>Record and manage doctors in the clinic</p>
+</li>
+<li>
+<p>Record and manage medical histories of patients</p>
+</li>
+<li>
+<p>Make and manage appointments for patients</p>
+</li>
+<li>
+<p>Record and manage medicines in the clinic and prescriptions given by doctors</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While it has a GUI,
+most of the user interactions happen using a CLI (Command Line Interface).
+More importantly, DocX is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI)
+while still having the benefits of a Graphical User Interface (GUI).
+No technical knowledge on programming or terminal commands is needed.
+If you can type normal words fast, DocX can get your clinic management tasks done faster than traditional GUI apps.</p>
+</div>
+<div class="paragraph">
+<p>Interested? Jump to the <a href="#Quick Start">[Quick Start]</a> to get started. Enjoy!</p>
+</div>
+<div class="sect2">
+<h3 id="adding-an-appointment-code-add-appt-code"><a class="link" href="#adding-an-appointment-code-add-appt-code">Adding an appointment: <code>add-appt</code></a></h3>
+<div class="paragraph">
+<p>Adds an appointment between a patient and a doctor<br>
+Format: <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>All of the fields must be provided.</p>
+</li>
+<li>
+<p>Appointments can only be made in the future, as determined by system time.</p>
+</li>
+<li>
+<p>New appointments default to the ACTIVE status. Appointments cannot be deleted once created,
+only marked as CANCELLED if required.</p>
+</li>
+<li>
+<p>Doctors are free during office hours from 9am to 12pm and 1pm to 5pm. (12pm to 1pm not availabe)</p>
+</li>
+<li>
+<p>Appointments are in 1-hour blocks.</p>
+</li>
+<li>
+<p>User is notified if the doctor is not available during the specified time.</p>
+</li>
+<li>
+<p><code>PATIENT_ID</code> and <code>DOCTOR_ID</code> are positive integers and must refer to existing patients and doctors in the system.</p>
+</li>
+<li>
+<p><code>DATE_OF_APPT</code> must be in the format <code>YYYY-MM-DD</code> and be a valid date on the calendar.</p>
+</li>
+<li>
+<p><code>START_TIME</code> must be in the 24-hour format HH:00 with no minutes specified as each appointment is 1 hour long.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code><br>
+Adds an appointment with patient ID '1' and doctor ID '7' on 1st June 2019 at 9am.</p>
+</li>
+<li>
+<p><code>add-appt pid/3 did/9 d/2019-06-01 t/13:00</code><br>
+Adds an appointment with patient ID '3' and doctor ID '9' on 1st June 2019 at 1pm.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-appointments-code-list-appt-code"><a class="link" href="#listing-appointments-code-list-appt-code">Listing appointments : <code>list-appt</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of appointments in the system. Can be used with or without optional keywords to filter the result.<br>
+Format: <code>list-appt [pid/PATIENT_ID] [did/DOCTOR_ID] [d/DATE_OF_APPT] [t/START_TIME] [s/STATUS] [c/CHRONOLOGY]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If none of the optional fields are provided, all appointments are shown.</p>
+</li>
+<li>
+<p>Appointments are filtered by patient ID, doctor ID, date of appointment, start time, appointment status,
+and appointment chronology respectively.</p>
+</li>
+<li>
+<p>All the optional filters can be mixed and matched independently to obtain the required output.</p>
+</li>
+<li>
+<p><code>PATIENT_ID</code> and <code>DOCTOR_ID</code> are positive integers and refer to valid patients and doctors in the system.</p>
+</li>
+<li>
+<p><code>DATE_OF_APPT</code> must be in the format YYYY-MM-DD and be a valid date on the calendar.</p>
+</li>
+<li>
+<p><code>START_TIME</code> must be in the format HH:00 and be in 1 hour blocks, i.e. 09:00, 10:00.</p>
+</li>
+<li>
+<p><code>STATUS</code> is case insensitive and must be one of the valid statuses: ACTIVE, CANCELLED, MISSED, COMPLETED.</p>
+</li>
+<li>
+<p><code>CHRONOLOGY</code> is case insensitive refers to whether an appointment is in the past or future. Can be PAST or FUTURE.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-appt</code><br>
+Lists all appointments.</p>
+</li>
+<li>
+<p><code>list-appt c/FUTURE</code><br>
+Lists all appointments that are in the future.</p>
+</li>
+<li>
+<p><code>list-appt pid/1</code><br>
+Lists all appointments with patient ID 1.</p>
+</li>
+<li>
+<p><code>list-appt pid/1 did/7</code><br>
+Lists all appointments with patient ID 1 and doctor ID 7.</p>
+</li>
+<li>
+<p><code>list-appt d/2018-06-01 t/09:00</code><br>
+Lists all appointments with date 2018-06-01 and time 09:00.</p>
+</li>
+<li>
+<p><code>list-appt s/ACTIVE</code><br>
+Lists all appointments that are marked as ACTIVE.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-an-appointment-status-code-mark-appt-code"><a class="link" href="#changing-an-appointment-status-code-mark-appt-code">Changing an appointment status : <code>mark-appt</code></a></h3>
+<div class="paragraph">
+<p>Mark an appointment as ACTIVE, CANCELLED, MISSED or COMPLETED<br>
+Format: <code>mark-appt INDEX s/NEW_STATUS</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>All of the fields must be provided.</p>
+</li>
+<li>
+<p>Appointment status is not cases sensitive. i.e. both ACTIVE and active is allowed.</p>
+</li>
+<li>
+<p>Change appointment status of the appointment at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed appointment list.
+The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>Status meaning: ACTIVE - The appointment is scheduled and active. CANCELLED - The appointment has been cancelled.
+MISSED - The appointment was missed by the patient. COMPLETED - The patient successfully completed the appointment.</p>
+</li>
+<li>
+<p>Only appointments in the past can be marked as MISSED or COMPLETED. Appointments in the future can only be marked
+ACTIVE or CANCELLED.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mark-appt 1 s/CANCELLED</code><br>
+The appointment with INDEX 1 is cancelled.</p>
+</li>
+<li>
+<p><code>mark-appt 3 s/MISSED</code><br>
+The appointment with INDEX 3 was missed. Note that this can only be done to elapsed appointments.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>APPOINTMENT COMMANDS</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add a new appointment</strong> <code>add-appt pid/PATIENT_ID did/DOCTOR_ID d/DATE_OF_APPT t/START_TIME</code><br>
+e.g. <code>add-appt pid/1 did/1 d/2019-06-01 t/09:00</code></p>
+</li>
+<li>
+<p><strong>Listing appointments</strong> <code>list-appt [pid/PATIENT_ID] [did/DOCTOR_ID] [d/DATE_OF_APPT]
+[t/START_TIME] [s/STATUS] [c/CHRONOLOGY]</code><br>
+e.g. <code>list-appt</code></p>
+</li>
+<li>
+<p><strong>Changing an appointment status</strong> : <code>mark-appt INDEX s/NEW_STATUS</code>
+e.g. <code>mark-appt 1 s/CANCELLED</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -166,22 +390,228 @@ implementing a unique ID for both patients and doctors.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="how-the-architecture-components-interact-with-each-other"><a class="link" href="#how-the-architecture-components-interact-with-each-other">How the architecture components interact with each other</a></h4>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user
+issues the command <code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicComponentSequenceDiagram-AddAppointment.png" alt="LogicComponentSequenceDiagram AddAppointment" width="800">
+</div>
+<div class="title">Figure 1. Component interactions for <code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code> command</div>
+</div>
+<div class="paragraph">
+<p>The sections below give more details of each component.</p>
+</div>
+</div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="logic-component"><a class="link" href="#logic-component">Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+</div>
+<div class="title">Figure 2. Structure of the Logic Component</div>
+</div>
 <div class="paragraph">
-<p>The data encryption feature will be implemented using the built-in JDK API javax.crypto.Cipher, without the need of
-adding any external libraries or dependencies. We will look into whether to stick to the JSON file format or
-something else.</p>
+<p><strong>API</strong> :
+<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>DocXParser</code> class to parse the user command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a new appointment).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions,
+such as displaying help to the user or showing a different panel (appointment panel).</p>
+</li>
+</ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the
+<code>execute("add-appt pid/1 did/7 d/2019-06-01 t/09:00")</code> API call. Interactions with other components such as
+UI or Model is omitted or simplified for clarity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddAppointmentSequenceDiagramForLogic.png" alt="AddAppointmentSequenceDiagramForLogic" width="800">
+</div>
+<div class="title">Figure 3. Interactions Inside the Logic Component for the <code>add-appt &#8230;&#8203;</code> Command</div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:25:09 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="add-appointment-feature"><a class="link" href="#add-appointment-feature">Add Appointment Feature</a></h3>
+<div class="paragraph">
+<p>Appointments are created to facilitate future appointments between patients and doctors.
+A patient can have none or multiple appointments, a doctor can have none or multiple appointments.
+An appointment cannot overlap with a patient&#8217;s or doctor&#8217;s existing appointments.
+This is determined if the date and time overlaps.
+An appointment must specify a patient ID, doctor ID, date and time.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The add appointment feature is enabled by the classes: <code>Appointment</code>, <code>FutureAppointment</code>,
+<code>AddAppointmentCommandParser</code>, <code>AddAppointmentCommand</code> and <code>JsonAdaptedAppointment</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Appointment</code> - This is an entity class to store information regarding an appointment, such as patient ID,
+Doctor ID, date, time and status.</p>
+</li>
+<li>
+<p><code>FutureAppointment</code> - This is an entity class that extends <code>Appointment</code>. This class ensures that a newly
+created appointment is always in the future compared to the system time. The comparison between date and time is done using <code>java.time.LocalDateTime</code>. It is not recommended to perform such checks manually, as there are many edge case in a calendar.</p>
+</li>
+<li>
+<p><code>AddAppointmentCommandParser</code> - This is a class that parses a user input string to an <code>AppointmentCommand</code> object.
+Validation for user input data that do not require access to the model is performed here.</p>
+</li>
+<li>
+<p><code>AddAppointmentCommand</code> - This is where the actual logic of the add appointment command is mainly performed.
+It will access the model to ensure there is no duplicate appointment before adding the appointment to the model.</p>
+</li>
+<li>
+<p><code>JsonAdaptedAppointment</code> - This class functions as an adapter between <code>Appointment</code> and the Storage layer.
+It specifies how to convert from Java appointment object to JSON file format and vice versa.
+This is also where validation for correct data format is performed when the save file is loaded back into memory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how add appointment works on a high level:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddAppointmentSequenceDiagram.png" alt="AddAppointmentSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When a user enters an add appointment command, the input is first validated by <code>AddAppointmentCommandParser</code>.
+Here, inputs that do not require access to the model is validated, such as ensuring patient ID, doctor ID, date and time are of the correct format, as well as ensuring the appointment is in the future.
+A new <code>AddAppointmentCommand</code> object is created.</p>
+</li>
+<li>
+<p>The Logic layer then executes the <code>AddAppointmentCommand</code>. Here, the appointment is checked against existing appointments in the model to ensure there are no duplicates.
+The appointment object is then sent to the Model layer.</p>
+</li>
+<li>
+<p>The model adds the appointment to its internal list. The internal list is a <code>javafx.collections.ObservableList</code> and the UI layer through a <code>ListChangeListener</code> is notified and updated following the observer pattern.</p>
+</li>
+<li>
+<p>The Logic layer will be notified that the model has been modified through an <code>InvalidationListener</code> and then it stores the new appointment to disk using the Storage layer.
+The Storage layer will convert the appointment Java object into the JSON file format using the format specified in <code>JsonAdaptedAppointment</code>.
+The next time the application is opened, the Storage layer will use <code>JsonAdaptedAppointment</code> again to convert appointments in the JSON file back into appointment objects.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="appointment"><a class="link" href="#appointment">Appointment</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new appointment</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are existing patients and doctors in the system.</p>
+</li>
+<li>
+<p>Test case: <code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code><br>
+Expected: A new appointment with the given patient, doctor, date and time is added.</p>
+</li>
+<li>
+<p>Test case: <code>add-appt</code><br>
+Expected: No appointment is added. All fields must be filled and not left empty. The correct command format is shown.</p>
+</li>
+<li>
+<p>Other incorrect add-appt commands to try: <code>add-appt pid/1 did/7</code>, <code>add-appt d/2019-06-01 t/09:00</code>.<br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>add-appt add-appt pid/1 did/7 d/2019-02-29 t/30:00</code><br>
+Expected: No appointment is added. The date and time should be in the valid format and be a valid date on the calendar.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Marking an appointment as "CANCELLED" (or back to ACTIVE)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all appointments using the <code>list-appt</code> command. All appointments are in the list.</p>
+</li>
+<li>
+<p>Test case: <code>mark-appt 1 s/CANCELLED</code><br>
+Expected: First appointment in the list is marked as "CANCELLED".</p>
+</li>
+<li>
+<p>Test case: <code>mark-appt 1 s/ASDF</code><br>
+Expected: No appointment is changed. A list of valid appointment status that can be input is shown.</p>
+</li>
+<li>
+<p>Other incorrect mark-appt commands to try: <code>mark-appt</code>, <code>mark-appt 1 s/123</code>.<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing appointments</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are existing appointments in the system.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt</code><br>
+Expected: All appointments in the system are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt pid/1</code><br>
+Expected: Appointments made by patient ID 1 are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt did/7</code><br>
+Expected: Appointments made by doctor ID 7 are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt c/PAST</code><br>
+Expected: Only appointments in the past are shown.</p>
+</li>
+<li>
+<p>Test case: <code>list-appt d/2019-06-99</code><br>
+Expected: No appointments are shown. A message prompting the user to enter the correct command format is shown.</p>
+</li>
+<li>
+<p>Other incorrect list-appt commands to try: <code>list-appt t/99:00</code>, <code>list-appt s/ASDF</code>, <code>list-appt c/TOMORROW</code>.<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:41:03 UTC</div></div></div></body></html>
