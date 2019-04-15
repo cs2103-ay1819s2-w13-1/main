@@ -25,20 +25,21 @@
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#proposed-data-encryption">2.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">2.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">2.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-data-encryption">3.1. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.2. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.3. Configuration</a></li>
-<li><a href="#crud-of-patients">3.4. CRUD of patients</a></li>
-<li><a href="#crud-of-doctors">3.5. CRUD of Doctors</a></li>
-<li><a href="#sort-medical-history-features">3.6. Sort Medical History Features</a></li>
-<li><a href="#medical-history-of-patients">3.7. Medical History of patients</a></li>
-<li><a href="#add-appointment-feature">3.8. Add Appointment Feature</a></li>
-<li><a href="#appointments">3.9. Appointments</a></li>
-<li><a href="#prescriptions">3.10. Prescriptions</a></li>
+<li><a href="#patient-management-features">3.1. Patient Management Features</a></li>
+<li><a href="#features">3.2. Features</a></li>
+<li><a href="#crud-of-doctors">3.3. CRUD of Doctors</a></li>
+<li><a href="#sort-medical-history-features">3.4. Sort Medical History Features</a></li>
+<li><a href="#medical-history-of-patients">3.5. Medical History of patients</a></li>
+<li><a href="#add-appointment-feature">3.6. Add Appointment Feature</a></li>
+<li><a href="#appointments">3.7. Appointments</a></li>
+<li><a href="#prescriptions">3.8. Prescriptions</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -492,9 +493,12 @@ issues the command <code>add-appt pid/1 did/7 d/2019-06-01 t/09:00</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<div class="paragraph">
+<p>Due to space constraint and aid visibility, we will only include patient and doctor to illustrate our model.</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+<img src="images/ModelClassDiagramForPatientAndDoctor.png" alt="ModelClassDiagramForPatientAndDoctor" width="800">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -566,16 +570,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
-</div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.1. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>The data encryption feature will be implemented using the built-in JDK API javax.crypto.Cipher, without the need of
 adding any external libraries or dependencies. We will look into whether to stick to the JSON file format or
@@ -583,14 +579,14 @@ something else.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">2.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.3, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -621,16 +617,24 @@ something else.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.3. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes some noteworthy details on how certain features are implemented.</p>
+</div>
 <div class="sect2">
-<h3 id="crud-of-patients"><a class="link" href="#crud-of-patients">3.4. CRUD of patients</a></h3>
+<h3 id="patient-management-features"><a class="link" href="#patient-management-features">3.1. Patient Management Features</a></h3>
 <div class="paragraph">
 <p>Patients is one of the two valid types of Persons to be stored in the docX record.
-The following features are implemented or will be implemented for patients of docX:</p>
+The following features are implemented for patients of docX:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -644,22 +648,21 @@ The following features are implemented or will be implemented for patients of do
 <p>Edit existing patients</p>
 </li>
 <li>
-<p>Search patients by keywords</p>
+<p>Various search patients by keywords</p>
 </li>
 <li>
-<p>Delete existing patients</p>
+<p>Delete patients</p>
+</li>
+<li>
+<p>Select patient</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="patient-management-features"><a class="link" href="#patient-management-features">3.4.1. Patient management features</a></h4>
-<div class="sect4">
-<h5 id="current-proposed-implementation"><a class="link" href="#current-proposed-implementation">Current(Proposed) Implementation</a></h5>
-
 </div>
-</div>
+<div class="sect2">
+<h3 id="features"><a class="link" href="#features">3.2. Features</a></h3>
 <div class="sect3">
-<h4 id="add-patient-feature"><a class="link" href="#add-patient-feature">3.4.2. Add Patient feature</a></h4>
+<h4 id="add-patient-feature"><a class="link" href="#add-patient-feature">3.2.1. Add Patient feature</a></h4>
 <div class="paragraph">
 <p>When a user executes 'add-p n/John Doe g/Male a/21 p/98765432 adr/Utown College 2'</p>
 </div>
@@ -701,13 +704,23 @@ The following features are implemented or will be implemented for patients of do
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-patient-feature"><a class="link" href="#list-patient-feature">3.4.3. List Patient feature</a></h4>
+<h4 id="list-patient-feature"><a class="link" href="#list-patient-feature">3.2.2. List Patient feature</a></h4>
 <div class="paragraph">
 <p>When a user executes 'list-p', the full patient list will be displayed.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>LogicManager</code> calls execute() of <code>ListPatientCommand</code>.</p>
+</li>
+<li>
+<p>execute() will call <code>Model</code> to <code>updateFilterPatientList</code> by setting the predicate to show all the patients in the DocX currently.</p>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="edit-patient-feature"><a class="link" href="#edit-patient-feature">3.4.4. Edit Patient feature</a></h4>
+<h4 id="edit-patient-feature"><a class="link" href="#edit-patient-feature">3.2.3. Edit Patient feature</a></h4>
 <div class="paragraph">
 <p>When a user executes edit-p 1 n/Betty Sim</p>
 </div>
@@ -745,7 +758,7 @@ and the respective field(s) to be changed. It will call <code>EditPatientDescrip
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-patient-feature"><a class="link" href="#search-patient-feature">3.4.5. Search Patient feature</a></h4>
+<h4 id="search-patient-feature"><a class="link" href="#search-patient-feature">3.2.4. Search Patient feature</a></h4>
 <div class="paragraph">
 <p>There are various search commands available for patients. The internal workings of the search commands can be described under this section.
 Search commands: <code>search-p-name, search-pid, search-p-status, search-p-advanced</code>.</p>
@@ -755,7 +768,7 @@ Search commands: <code>search-p-name, search-pid, search-p-status, search-p-adva
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-patient-feature"><a class="link" href="#delete-patient-feature">3.4.6. Delete Patient feature</a></h4>
+<h4 id="delete-patient-feature"><a class="link" href="#delete-patient-feature">3.2.5. Delete Patient feature</a></h4>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete")</code> API call.</p>
 </div>
@@ -763,12 +776,52 @@ Search commands: <code>search-p-name, search-pid, search-p-status, search-p-adva
 <div class="content">
 <img src="images/DeletePatientSdForLogic.png" alt="DeletePatientSdForLogic" width="700">
 </div>
-<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>delete-patient</code> Command</div>
+<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>delete-p</code> Command</div>
+</div>
+<div class="paragraph">
+<p>When a user executes <code>delete-p 1</code></p>
+</div>
+<div class="paragraph">
+<p>Steps:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>LogicManager calls parseCommand("delete-p") in <code>DocXParser</code>.</p>
+</li>
+<li>
+<p>Based on the COMMAND_WORD, <code>DocXParser</code> builds a new DeletePatientCommandParser() and call function parse("1") of DeletePatientCommandParser.</p>
+</li>
+<li>
+<p>DeletePatientCommandParser parses the argument and get the relative list index of the patient to be deleted.
+Then, DeletePatientCommandParser calls DeletePatientCommand(index).</p>
+</li>
+<li>
+<p>LogicManager calls execute() of DeletePatientCommand.</p>
+</li>
+<li>
+<p>execute() calls getFilteredPatientList() of <code>ModelManager</code> and gets the patient to be deleted.
+DeletePatientCommand calls deletePatient(patientToDelete) of <code>ModelManager</code>.</p>
+</li>
+<li>
+<p><code>ModelManager</code> later commitDocX and the patient is successfully deleted.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="appointment-status-display-feature"><a class="link" href="#appointment-status-display-feature">3.2.6. Appointment Status Display feature</a></h4>
+<div class="paragraph">
+<p>The patient card will show the appointment status of a patient. It will display any one of the four enum values: <code>ACTIVE, COMPLETED, CANCELLED, MISSED</code>.
+When an appointment is added, or marked, the execution of the command will cascade and alter the status display of the patient.
+It follows the following rules:
+. If the patient still has any other active appointments, a patient status will show <code>ACTIVE</code>
+. Else, a patient status will reflect the latest status change to any of his appointment.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="crud-of-doctors"><a class="link" href="#crud-of-doctors">3.5. CRUD of Doctors</a></h3>
+<h3 id="crud-of-doctors"><a class="link" href="#crud-of-doctors">3.3. CRUD of Doctors</a></h3>
 <div class="paragraph">
 <p>Doctor is one of the two valid types of Persons to be stored in the docX record.
 The following features are implemented or will be implemented for doctors of docX:</p>
@@ -796,7 +849,7 @@ The following features are implemented or will be implemented for doctors of doc
 </ul>
 </div>
 <div class="sect3">
-<h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">3.5.1. Add Doctor feature</a></h4>
+<h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">3.3.1. Add Doctor feature</a></h4>
 <div class="paragraph">
 <p>When a user executes <code>add-d n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
 </div>
@@ -818,7 +871,7 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">3.5.2. List Doctor feature</a></h4>
+<h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">3.3.2. List Doctor feature</a></h4>
 <div class="paragraph">
 <p>When a user executes <code>list-doctor acupu</code></p>
 </div>
@@ -844,7 +897,7 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-doctor-feature"><a class="link" href="#edit-doctor-feature">3.5.3. Edit Doctor feature</a></h4>
+<h4 id="edit-doctor-feature"><a class="link" href="#edit-doctor-feature">3.3.3. Edit Doctor feature</a></h4>
 <div class="paragraph">
 <p>When a user executes <code>edit-d 1 n/Betty Veronica</code></p>
 </div>
@@ -867,7 +920,7 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-doctor-feature"><a class="link" href="#select-doctor-feature">3.5.4. Select Doctor feature</a></h4>
+<h4 id="select-doctor-feature"><a class="link" href="#select-doctor-feature">3.3.4. Select Doctor feature</a></h4>
 <div class="paragraph">
 <p>When a user executes <code>select-d 1</code></p>
 </div>
@@ -890,7 +943,7 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">3.5.5. Delete Doctor feature</a></h4>
+<h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">3.3.5. Delete Doctor feature</a></h4>
 <div class="paragraph">
 <p>When a user executes <code>delete-d 1</code></p>
 </div>
@@ -912,7 +965,7 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect3">
-<h4 id="doctor-match-feature"><a class="link" href="#doctor-match-feature">3.5.6. Doctor Match feature</a></h4>
+<h4 id="doctor-match-feature"><a class="link" href="#doctor-match-feature">3.3.6. Doctor Match feature</a></h4>
 <div class="paragraph">
 <p>When a user executes <code>match-d s/general d/2019-06-20 t/09:00</code></p>
 </div>
@@ -943,9 +996,9 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-medical-history-features"><a class="link" href="#sort-medical-history-features">3.6. Sort Medical History Features</a></h3>
+<h3 id="sort-medical-history-features"><a class="link" href="#sort-medical-history-features">3.4. Sort Medical History Features</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort medical history feature is enable bt the classes: <code>MedicalHistory</code>, <code>ValidDate</code>, <code>SortMedHistCommand</code>, <code>SortMedHistCommandParser</code></p>
 </div>
@@ -999,7 +1052,7 @@ Through a <code>ListChangeListener</code>, Ui component is updated the changes o
 </div>
 </div>
 <div class="sect2">
-<h3 id="medical-history-of-patients"><a class="link" href="#medical-history-of-patients">3.7. Medical History of patients</a></h3>
+<h3 id="medical-history-of-patients"><a class="link" href="#medical-history-of-patients">3.5. Medical History of patients</a></h3>
 <div class="paragraph">
 <p>Medical History is used to track a patient&#8217;s history of coming to the clinic and seeing doctors.
 The following features are implemented or will be implemented for users of docX:</p>
@@ -1024,9 +1077,9 @@ The following features are implemented or will be implemented for users of docX:
 </ul>
 </div>
 <div class="sect3">
-<h4 id="add-medical-history-feature"><a class="link" href="#add-medical-history-feature">3.7.1. Add Medical History feature</a></h4>
+<h4 id="add-medical-history-feature"><a class="link" href="#add-medical-history-feature">3.5.1. Add Medical History feature</a></h4>
 <div class="sect4">
-<h5 id="current-proposed-implementation-2"><a class="link" href="#current-proposed-implementation-2">Current(Proposed) Implementation</a></h5>
+<h5 id="current-proposed-implementation"><a class="link" href="#current-proposed-implementation">Current(Proposed) Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes 'add-med-hist n/patientName n/doctorName sw/shortWriteUp'</p>
 </div>
@@ -1048,31 +1101,31 @@ The following features are implemented or will be implemented for users of docX:
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-medical-history-feature"><a class="link" href="#list-medical-history-feature">3.7.2. List Medical History feature</a></h4>
+<h4 id="list-medical-history-feature"><a class="link" href="#list-medical-history-feature">3.5.2. List Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how list medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-medical-history-feature"><a class="link" href="#edit-medical-history-feature">3.7.3. Edit Medical History feature</a></h4>
+<h4 id="edit-medical-history-feature"><a class="link" href="#edit-medical-history-feature">3.5.3. Edit Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how edit medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-medical-history-feature"><a class="link" href="#search-medical-history-feature">3.7.4. Search Medical History feature</a></h4>
+<h4 id="search-medical-history-feature"><a class="link" href="#search-medical-history-feature">3.5.4. Search Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how search medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-medical-history-feature"><a class="link" href="#view-medical-history-feature">3.7.5. View Medical History feature</a></h4>
+<h4 id="view-medical-history-feature"><a class="link" href="#view-medical-history-feature">3.5.5. View Medical History feature</a></h4>
 <div class="paragraph">
 <p>{Explain here how view medical history will be implemented}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="appointment-status-display-feature"><a class="link" href="#appointment-status-display-feature">3.7.6. Appointment Status Display feature</a></h4>
+<h4 id="appointment-status-display-feature-2"><a class="link" href="#appointment-status-display-feature-2">3.5.6. Appointment Status Display feature</a></h4>
 <div class="paragraph">
 <p>The patient card will show the appointment status of a patient. It will display any one of the four enum values: <code>ACTIVE, COMPLETED, CANCELLED, MISSED</code>.
 When an appointment is added, or marked, the execution of the command will cascade and alter the status display of the patient.
@@ -1086,7 +1139,7 @@ It follows the following rules:
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-appointment-feature"><a class="link" href="#add-appointment-feature">3.8. Add Appointment Feature</a></h3>
+<h3 id="add-appointment-feature"><a class="link" href="#add-appointment-feature">3.6. Add Appointment Feature</a></h3>
 <div class="paragraph">
 <p>Appointments are created to facilitate future appointments between patients and doctors.
 A patient can have none or multiple appointments, a doctor can have none or multiple appointments.
@@ -1156,7 +1209,7 @@ The next time the application is opened, the Storage layer will use <code>JsonAd
 </div>
 </div>
 <div class="sect2">
-<h3 id="appointments"><a class="link" href="#appointments">3.9. Appointments</a></h3>
+<h3 id="appointments"><a class="link" href="#appointments">3.7. Appointments</a></h3>
 <div class="paragraph">
 <p>Appointments are created to facilitate future appointments between patients and doctors. A patient can have none or multiple appointments, a doctor can have none or multiple appointments. An appointment cannot overlap with a patient&#8217;s or doctor&#8217;s existing appointments. This is determined if the date and time overlaps. An appointment must specify a date, time, patient, doctor, and short write-up.</p>
 </div>
@@ -1186,7 +1239,7 @@ The next time the application is opened, the Storage layer will use <code>JsonAd
 </ul>
 </div>
 <div class="sect3">
-<h4 id="add-appointment"><a class="link" href="#add-appointment">3.9.1. Add Appointment</a></h4>
+<h4 id="add-appointment"><a class="link" href="#add-appointment">3.7.1. Add Appointment</a></h4>
 <div class="sect4">
 <h5 id="current-partial-implementation"><a class="link" href="#current-partial-implementation">Current (partial) Implementation</a></h5>
 <div class="paragraph">
@@ -1207,38 +1260,38 @@ The next time the application is opened, the Storage layer will use <code>JsonAd
 </div>
 </div>
 <div class="sect3">
-<h4 id="complete-appointment"><a class="link" href="#complete-appointment">3.9.2. Complete Appointment</a></h4>
+<h4 id="complete-appointment"><a class="link" href="#complete-appointment">3.7.2. Complete Appointment</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="cancel-appointment"><a class="link" href="#cancel-appointment">3.9.3. Cancel Appointment</a></h4>
+<h4 id="cancel-appointment"><a class="link" href="#cancel-appointment">3.7.3. Cancel Appointment</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-all-appointments-of-a-doctor"><a class="link" href="#list-all-appointments-of-a-doctor">3.9.4. List all appointments of a doctor</a></h4>
+<h4 id="list-all-appointments-of-a-doctor"><a class="link" href="#list-all-appointments-of-a-doctor">3.7.4. List all appointments of a doctor</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-available-timings-of-a-doctor"><a class="link" href="#list-available-timings-of-a-doctor">3.9.5. List available timings of a doctor</a></h4>
+<h4 id="list-available-timings-of-a-doctor"><a class="link" href="#list-available-timings-of-a-doctor">3.7.5. List available timings of a doctor</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-available-appointments-of-all-doctors"><a class="link" href="#list-available-appointments-of-all-doctors">3.9.6. List available appointments of all doctors</a></h4>
+<h4 id="list-available-appointments-of-all-doctors"><a class="link" href="#list-available-appointments-of-all-doctors">3.7.6. List available appointments of all doctors</a></h4>
 <div class="paragraph">
 <p>{todo}</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="prescriptions"><a class="link" href="#prescriptions">3.10. Prescriptions</a></h3>
+<h3 id="prescriptions"><a class="link" href="#prescriptions">3.8. Prescriptions</a></h3>
 <div class="paragraph">
 <p>Prescriptions are used to keep track of what kind of medicine a doctor suggest a particular patient to take. they
 are useful because sometimes patients may want to know what medicine they took before. There are three functionalities
@@ -1246,7 +1299,7 @@ related to prescriptions, which are add a new prescription, edit an existing pre
 prescription respectively.</p>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-prescription"><a class="link" href="#add-a-new-prescription">3.10.1. Add a New Prescription</a></h4>
+<h4 id="add-a-new-prescription"><a class="link" href="#add-a-new-prescription">3.8.1. Add a New Prescription</a></h4>
 <div class="paragraph">
 <p>Current proposed implementation</p>
 </div>
@@ -1279,7 +1332,7 @@ AddPrescriptionCommandParser will invoke AddPrescriptionCommand with the newly c
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-existing-prescription"><a class="link" href="#edit-an-existing-prescription">3.10.2. Edit an Existing Prescription</a></h4>
+<h4 id="edit-an-existing-prescription"><a class="link" href="#edit-an-existing-prescription">3.8.2. Edit an Existing Prescription</a></h4>
 <div class="paragraph">
 <p>To be updated later</p>
 </div>
@@ -3727,4 +3780,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:57:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:07:20 UTC</div></div></div></body></html>
