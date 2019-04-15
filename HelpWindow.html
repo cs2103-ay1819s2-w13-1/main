@@ -122,6 +122,9 @@ If you can type normal words fast, DocX can get your clinic management tasks don
 </div>
 </li>
 <li>
+<p>Note that for now, docX only supports Command Line Interface (CLI). Clicking on any list is not allowed and will cause unexpected errors.</p>
+</li>
+<li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
@@ -130,16 +133,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>add-p</code></strong>` n/John Doe p/98765432 a/22 g/M adr/Utown College  : adds a patient named <code>John Doe</code> to docX.</p>
+<p><strong><code>add-p</code></strong><code>n/John Doe p/98765432 a/22 g/M adr/Utown College</code> : adds a patient named <code>John Doe</code> to docX.</p>
 </li>
 <li>
-<p><strong><code>delete-d</code></strong><code>3</code> : deletes the 3rd doctor shown in the current list</p>
+<p><strong><code>list-med-hist</code></strong> : lists all medical histories</p>
 </li>
 <li>
-<p><strong>*<code>list-med-hist</code></strong> : lists all medical histories</p>
-</li>
-<li>
-<p><strong><code>add-med-hist</code></strong>` pid/2 did/8 d/2018-12-09 sw/The patient had a cough. I told him to have a good rest : adds a medical history of patient with specified id(pid) and doctor with specified id(did).</p>
+<p><strong><code>add-med-hist</code></strong><code>pid/2 did/8 d/2018-12-09 sw/The patient had a cough. I told him to have a good rest</code> : adds a medical history of patient with specified id(pid) and doctor with specified id(did).</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -215,7 +215,7 @@ Format: <code>add-p [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS] [t/TAG]<
 <p><code>add-p n/Tom Hiddleston g/M a/21 p/98765432 adr/Utown College 2</code></p>
 </li>
 <li>
-<p><code>add-p n/Bettany Sim g/F p/8234567 a/32 adr/RVRC House 12 t/diabetic</code></p>
+<p><code>add-p n/Bettany Sim g/F p/82345672 a/32 adr/RVRC House 12 t/diabetic</code></p>
 </li>
 </ul>
 </div>
@@ -944,7 +944,7 @@ Format: <code>sort-med-hist [ASC/DESC]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>To view the sorted list, execute <code>list-med-hist</code> command.</p>
+<p>If the list of medical history is not yet shown. Before sorting, <code>list-med-hist</code> command should be executed.</p>
 </li>
 <li>
 <p>When a new medical history is added to docX, it will be added to <strong>the end of list</strong>. You can sort again to make the list be in order.</p>
@@ -1725,4 +1725,4 @@ e.g. <code>select-presc 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:41:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:00:56 UTC</div></div></div></body></html>
