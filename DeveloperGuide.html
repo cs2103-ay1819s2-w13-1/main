@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>docX - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>DocX - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">DocX</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-w13-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>docX - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">DocX</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-w13-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>DocX - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team W13-1 and Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -38,7 +38,6 @@
 <li><a href="#crud-of-patients">3.7. CRUD of patients</a></li>
 <li><a href="#medical-history-of-patients">3.8. Medical History of patients</a></li>
 <li><a href="#crud-doctor-features">3.9. CRUD Doctor features</a></li>
-<li><a href="#appointments">3.10. Appointments</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -575,10 +574,14 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 <div class="sect2">
 <h3 id="add-appointment-feature"><a class="link" href="#add-appointment-feature">3.1. Add Appointment Feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The add appointment feature is enabled by the classes: <code>Appointment</code>, <code>FutureAppointment</code>,
+<p>Appointments are created to facilitate future appointments between patients and doctors.
+A patient can have none or multiple appointments, a doctor can have none or multiple appointments.
+An appointment cannot overlap with a patient&#8217;s or doctor&#8217;s existing appointments.
+This is determined if the date and time overlaps.
+An appointment must specify a patient ID, doctor ID, date and time.
+==== Current Implementation
+The add appointment feature is enabled by the classes: <code>Appointment</code>, <code>FutureAppointment</code>,
 <code>AddAppointmentCommandParser</code>, <code>AddAppointmentCommand</code> and <code>JsonAdaptedAppointment</code>.</p>
 </div>
 <div class="ulist">
@@ -639,11 +642,10 @@ The next time the application is opened, the Storage layer will use <code>JsonAd
 </ol>
 </div>
 </div>
-</div>
 <div class="sect2">
 <h3 id="sort-medical-history-features"><a class="link" href="#sort-medical-history-features">3.2. Sort Medical History Features</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort medical history feature is enable bt the classes: <code>MedicalHistory</code>, <code>ValidDate</code>, <code>SortMedHistCommand</code>, <code>SortMedHistCommandParser</code></p>
 </div>
@@ -1129,88 +1131,6 @@ The following features are implemented or will be implemented for doctors of doc
 <div class="paragraph">
 <p>Step7. Then, execute() will get the filtered list of appointments and the desired specialisation. DoctorHasAppointmentPredicate will be created.
         execute() calls updateFilteredDoctorList(DoctorHasAppointmentPredicate) to filter the list of doctors whose specialisation matches and are available on the date and timing inputted.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="appointments"><a class="link" href="#appointments">3.10. Appointments</a></h3>
-<div class="paragraph">
-<p>Appointments are created to facilitate future appointments between patients and doctors. A patient can have none or multiple appointments, a doctor can have none or multiple appointments. An appointment cannot overlap with a patient&#8217;s or doctor&#8217;s existing appointments. This is determined if the date and time overlaps. An appointment must specify a date, time, patient, doctor, and short write-up.</p>
-</div>
-<div class="paragraph">
-<p>The following features are implemented or will be implemented:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Add appointment</p>
-</li>
-<li>
-<p>Complete appointment</p>
-</li>
-<li>
-<p>Cancel appointment</p>
-</li>
-<li>
-<p>List all appointments of a doctor</p>
-</li>
-<li>
-<p>List available timings of a doctor</p>
-</li>
-<li>
-<p>List available appointments of all doctors</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="add-appointment"><a class="link" href="#add-appointment">3.10.1. Add Appointment</a></h4>
-<div class="sect4">
-<h5 id="current-partial-implementation"><a class="link" href="#current-partial-implementation">Current (partial) Implementation</a></h5>
-<div class="paragraph">
-<p>The user types 'add-appt p/patientID d/doctorID t/dateAndTime /w writeUp'</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The command is parsed by AddAppointmentCommandParser and a AddAppointmentCommand is returned.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The AddAppointmentCommand contains an appointment object. The appointment object is an entity object that holds the details for that particular appointment. i.e. patient, doctor, dateAndTime, writeUp.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. Within execute(), the actual logic of the AddAppointment operation is being performed. Firstly, it will retrieve the list of existing appointments of the patient and the doctor. Secondly, it will create a new appointment object, check if the dateAndTime overlaps with the patient&#8217;s existing appointments, and check if the dateAndTime overlaps with the doctor&#8217;s existing appointments. If the appointment is not overlapping, the appointment object will be added to the list of appointments in both the patient and doctor object.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. Once the above logic is successfully executed, the UI is updated by the UI layer and the save file is updated by the Storage layer. The storage layer will convert the appointments in the patient and doctor objects into JSON and saves it to file. (to be further explained when implemented)</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="complete-appointment"><a class="link" href="#complete-appointment">3.10.2. Complete Appointment</a></h4>
-<div class="paragraph">
-<p>{todo}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="cancel-appointment"><a class="link" href="#cancel-appointment">3.10.3. Cancel Appointment</a></h4>
-<div class="paragraph">
-<p>{todo}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-all-appointments-of-a-doctor"><a class="link" href="#list-all-appointments-of-a-doctor">3.10.4. List all appointments of a doctor</a></h4>
-<div class="paragraph">
-<p>{todo}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-available-timings-of-a-doctor"><a class="link" href="#list-available-timings-of-a-doctor">3.10.5. List available timings of a doctor</a></h4>
-<div class="paragraph">
-<p>{todo}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-available-appointments-of-all-doctors"><a class="link" href="#list-available-appointments-of-all-doctors">3.10.6. List available appointments of all doctors</a></h4>
-<div class="paragraph">
-<p>{todo}</p>
 </div>
 </div>
 </div>
@@ -3626,4 +3546,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:02:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 08:53:33 UTC</div></div></div></body></html>
