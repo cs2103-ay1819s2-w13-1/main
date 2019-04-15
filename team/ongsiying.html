@@ -3,7 +3,12 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">DocX</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-w13-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ong Si Ying - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-docx"><a class="link" href="#project-docx">PROJECT: docX</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="paragraph">
+<p>This portfolio aims to document my contribution to the project <strong><em>docX</em></strong>.</p>
+</div>
+<div class="paragraph">
+<p>Github: <a href="https://github.com/cs2103-ay1819s2-w13-1/main" class="bare">https://github.com/cs2103-ay1819s2-w13-1/main</a></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -20,44 +25,44 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to find relevant and available doctors based on specialisation and available date and time</strong></p>
+<p><strong>Major enhancement</strong>: added the ability to <strong>find relevant and available doctors based on specialisation and the desired date and time</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to find doctors who are relevant to the illness of the patient based on user&#8217;s judgement, and those who are available at the desired date and time for an appointment.</p>
+<p>What it does: Allows the user to find doctors whose specialisation matches the input and are available at the desired date and time for an appointment.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can now find available doctors that match with the required specialisation with just one line of command, instead of having to scroll through the list of doctors to find them manually.</p>
+<p>Justification: This feature improves the product significantly because the user can now find available doctor(s) that match(es) the required specialisation with just one command, instead of the traditional method, where the user has to scroll through the list of doctors to find them manually.</p>
 </li>
 <li>
-<p>Highlights: This enhancement required an in-depth analysis of design alternatives. The implementation too was challenging as it required access to another class' information and temporary changes made to the model during implementation.</p>
-</li>
-<li>
-<p>Credits: originally done by siyingpoof.</p>
+<p>Highlights: This enhancement required an in-depth analysis of design alternatives. The implementation too was challenging as it required access to another class' information (Appointment list under ModelManager) and temporary changes made to the Appointment Filtered List under Model Manager during implementation.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Minor enhancement</strong>: making searching of doctors by keywords more convenient with the usage of just 1 command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to find doctors whose fields matches the keyword(s) inputted.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: This feature allows the user to intuitively use the same command word for different functions. <code>list-d</code> now can be used to list the full original list of doctors and <code>list-d 10</code> will list doctors whose field(s) contains '10'. Hence, the user just needs to remember 1 command word for listing and searching of the doctors.</p>
+</li>
+<li>
+<p>Highlights: This enhancement although minor, proved to be a challenge because the parser for this command has to accept any number of keywords (0 to infinitely many). Hence, the parser must be prepared to take in null arguments and many arguments too.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: Find my code contributed <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=siyingpoof">here</a>.</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
 <li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
@@ -66,36 +71,27 @@
 <p>Allowing the display of doctors' information on the browser panel. (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from <em>% to </em>% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote additional tests for existing features to increase coverage by 8%. (Pull requests <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/198">#198</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/202">#202</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/205">#205</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Documentation:</p>
+<p>Community:
+As of 15 April 2019,</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
+<p><a href="https://github.com/cs2103-ay1819s2-w13-1/main/pulls?q=is%3Apr+is%3Aclosed+author%3Asiyingpoof)">Pull Requests (PRs)</a> on <strong><em>docX</em></strong>'s GitHub = 25</p>
 </li>
 <li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p><a href="https://github.com/cs2103-ay1819s2-w13-1/main/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Asiyingpoof">PRs reviewed</a> with non-trivial review comments = 3 (<a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/212">#212</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/113">#113</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/93">#93</a>)</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p><a href="https://github.com/cs2103-ay1819s2-w13-1/main/issues?q=is%3Aissue+is%3Aclosed+author%3Asiyingpoof">Issues</a> raised on <strong><em>docX</em></strong>'s GitHub = 5</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p><a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/created_by/siyingpoof">Reported bugs and suggestions</a> for other teams in the class (examples: <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/311">1</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/809">2</a>,  <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/265">3</a>)</p>
 </li>
 </ul>
 </div>
@@ -104,9 +100,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -123,6 +116,249 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="adding-a-doctor-code-add-d-code"><a class="link" href="#adding-a-doctor-code-add-d-code">Adding a doctor: <code>add-d</code></a></h3>
+<div class="paragraph">
+<p>Adds a doctor to docX<br>
+Format: <code>add-d n/NAME g/GENDER y/YEAR_OF_EXPERIENCE p/PHONE_NUMBER s/SPECIALISATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A doctor must have at least 1 specialisation.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-d n/John Doe g/M y/5 p/98765432 s/acupuncture s/general</code></p>
+</li>
+<li>
+<p><code>add-d n/Betsy Crowe g/f p/1234567 y/22 s/general</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-doctors-code-list-d-code"><a class="link" href="#listing-all-doctors-code-list-d-code">Listing all doctors : <code>list-d</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all doctors in docX.<br>
+Format: <code>list-d</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-doctor-code-select-d-code"><a class="link" href="#selecting-a-doctor-code-select-d-code">Selecting a doctor : <code>select-d</code></a></h3>
+<div class="paragraph">
+<p>Selects an existing doctor in docX to display all the information about this doctor in the browser panel.<br>
+Format: <code>select-doctor INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>There has to be an initial <code>select-d INDEX</code> command executed, before the user can use the mouse to click on the other doctors to display their information.</p>
+</li>
+<li>
+<p>Selects the doctor at the specified <code>INDEX</code>. The index refers to the relative ID of the doctor. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select-d 1</code><br>
+Selects the doctor with ID of '1'.</p>
+</li>
+<li>
+<p><code>select-d 5</code><br>
+Selects the doctor with ID of '5'.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-doctor-code-edit-d-code"><a class="link" href="#editing-a-doctor-code-edit-d-code">Editing a doctor : <code>edit-d</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing doctor in docX.<br>
+Format: <code>edit-d INDEX [n/NAME] [g/GENDER] [y/YEAR_OF_EXPERIENCE] [p/PHONE] [s/SPECIALISATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the doctor at the specified <code>INDEX</code>. The index refers to the relative ID of the doctor. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing specialisation, the existing specialisations of the doctor will be removed i.e adding of specialisation(s) is not cumulative.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit-d 1 p/91234567</code><br>
+Edits the phone number of the doctor with ID of '1' to be <code>91234567</code>.</p>
+</li>
+<li>
+<p><code>edit-d 2 s/acupuncture s/general</code><br>
+Edits the specialisations of the doctor with ID of '2' to be <code>acupuncture</code> and 'general'.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-doctor-by-keywords-code-list-d-code"><a class="link" href="#locating-doctor-by-keywords-code-list-d-code">Locating doctor by keywords: <code>list-d</code></a></h3>
+<div class="paragraph">
+<p>Finds doctor(s) whose names contain any of the given keywords.<br>
+Format: <code>list-d [KEYWORD] [KEYWORD]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Partial or full words will be matched e.g. <code>Han</code> will match <code>Hanry</code> and <code>Han</code></p>
+</li>
+<li>
+<p>Doctors matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+<li>
+<p>If no keywords are given, you will list all the existing doctors in docX. (Section 3.12)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-d John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>list-d 1</code><br>
+Returns doctor with doctor ID of <code>1</code>, phone number containing <code>1</code> or year of specialisation containing <code>1</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-existing-doctor-code-delete-d-code"><a class="link" href="#deleting-an-existing-doctor-code-delete-d-code">Deleting an existing doctor : <code>delete-d</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified doctor from docX.<br>
+Format: <code>delete-d INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the doctor of the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the relative ID of the doctor.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-d</code><br>
+<code>delete-d 1</code><br>
+Deletes the doctor with ID of '1' in docX.</p>
+</li>
+<li>
+<p><code>delete-d 2</code><br>
+Deletes the doctor with ID of '2' in docX.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-a-doctor-for-appointment-code-match-d-code"><a class="link" href="#finding-a-doctor-for-appointment-code-match-d-code">Finding a doctor for appointment : <code>match-d</code></a></h3>
+<div class="paragraph">
+<p>Lists the doctors whose specialisations match and are free for an appointment at the stated date and time.<br>
+Format: <code>match-d s/SPECIALISATION d/DESIRED_DATE_OF_APPT t/DESIRED_START_TIME_OF_APPT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Search can only be done with 1 specialisation.</p>
+</li>
+<li>
+<p>Only full words are matched. e.g. <code>acupun</code> will not match <code>acupuncture</code></p>
+</li>
+<li>
+<p><code>DESIRED_DATE_OF_APPT</code> is in the format <code>YYYY-MM-DD</code>.</p>
+</li>
+<li>
+<p><code>DESIRED_START_TIME_OF_APPT</code> is in the 24-hour format as <code>HH:mm</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>match-d s/acupuncture d/2019-06-02 t/10:00</code><br>
+Lists the doctors who has the specialisation of <code>acupuncture</code> and is free on 2nd June 2019 at 10am.</p>
+</li>
+<li>
+<p><code>match-d s/general d/2019-10-04 t/15:00</code><br>
+Lists the doctors who has the specialisation of <code>general</code> and is free on 4th October 2019 at 3pm.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -138,14 +374,180 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="crud-of-doctors"><a class="link" href="#crud-of-doctors">CRUD of Doctors</a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Doctor is one of the two valid types of Persons to be stored in the docX record.
+The following features are implemented or will be implemented for doctors of docX:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add doctor <code>add-d</code></p>
+</li>
+<li>
+<p>List all doctors and search for doctors by keywords <code>list-d</code></p>
+</li>
+<li>
+<p>Edit existing doctors <code>edit-d</code></p>
+</li>
+<li>
+<p>Select a doctor to display the full details <code>select-d</code></p>
+</li>
+<li>
+<p>Delete existing doctors <code>delete-d</code></p>
+</li>
+<li>
+<p>Finding relevant and available doctors for upcoming appointments <code>match-d</code></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">Add Doctor feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>add-d n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("add-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new AddDoctorCommandParser() and calls function parse(arguments) of AddDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. AddDoctorCommandParser parses the argument and get doctor&#8217;s name, gender, year of experience, phone and his/her specialisations. AddDoctorCommandParser calls constructors of Name, Year, Gender, Phone, Specialisation and then calls the constructor of Doctor.
+	   Then, AddDoctorCommandParser calls AddDoctorCommand(Doctor).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of AddDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls hasDoctor() of Model. If doctor does not exist, call addDoctor() of Model.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:55:31 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">List Doctor feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>list-doctor acupu</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("list-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new ListDoctorCommandParser() and calls function parse(arguments) of ListDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. ListDoctorCommandParser parses the argument. If no argument is present, then ListDoctorCommandParser calls ListDoctorCommand(). If there are argument(s) present, DoctorContainsKeywordsPredicate("acupu") will be created.
+        Then, ListDoctorCommandParser calls ListDoctorCommand(DoctorContainsKeywordsPredicate).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of ListDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() checks if the DoctorContainsPredicate equals to null. If it equals to null, it calls updateFilteredDoctorList() of Model to show all doctors.
+        If it is not null, it calls updateFilteredDoctorList() of ModelManager.</p>
+</div>
+<div class="paragraph">
+<p>Step6. test(Doctor) of DoctorContainsKeywordsPredicate will be called. It will check if any of the field matches "acupu" in full or part. If it matches, the doctor will be shown.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-doctor-feature"><a class="link" href="#edit-doctor-feature">Edit Doctor feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>edit-d 1 n/Betty Veronica</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("edit-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new EditDoctorCommandParser() and calls function parse(arguments) of EditDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. EditDoctorCommandParser parses the argument and get the relative index of the doctor to be changed and the respective field(s) to be changed.
+        It will call EditDoctorDescriptor() and change the field(s) accordingly.
+        Then, EditDoctorCommandParser calls EditDoctorCommand(index, EditDoctorDescriptor).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of EditDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be edited. After creating the edited doctor, EditDoctorCommand calls setDoctor(DoctorToEdit, EditedDoctor) of ModelManager.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-doctor-feature"><a class="link" href="#select-doctor-feature">Select Doctor feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>select-d 1</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("select-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new SelectDoctorCommandParser() and calls function parse("1") of SelectDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. SelectDoctorCommandParser parses the argument and get the relative index of the doctor to be selected.
+        Then SelectDoctorCommandParser calls SelectDoctorCommand(index).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of SelectDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be selected.
+        SelectDoctorCommand calls setSelectedDoctor(selectedDoctor) and calls DOCTOR_BROWSER to be showed in the browser panel in the UI with the CommandResult.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">Delete Doctor feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>delete-d 1</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("delete-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new DeleteDoctorCommandParser() and call function parse("1") of DeleteDoctorCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. DeleteDoctorCommandParser parses the argument and get the relative index of the doctor to be deleted.
+        Then, DeleteDoctorCommandParser calls DeleteDoctorCommand(index).</p>
+</div>
+<div class="paragraph">
+<p>Step4. LogicManager calls execute() of DeleteDoctorCommand.</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be deleted. DeleteDoctorCommand calls deleteDoctor(doctorToDelete) of ModelManager.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="doctor-match-feature"><a class="link" href="#doctor-match-feature">Doctor Match feature</a></h4>
+<div class="paragraph">
+<p>When a user executes <code>match-d s/general d/2019-06-20 t/09:00</code></p>
+</div>
+<div class="paragraph">
+<p>Step1. LogicManager calls parseCommand("match-d") in docXParser.</p>
+</div>
+<div class="paragraph">
+<p>Step2. Based on the COMMAND_WORD, docXParser builds a new DoctorMatchCommandParser() and call function parse(arguments) of DoctorMatchCommandParser.</p>
+</div>
+<div class="paragraph">
+<p>Step3. DoctorMatchCommandParser parses the argument and get the desired specialisation, date and time of the appointment. DoctorMatchCommandParser calls constructors of Specialisation, AppointmentDate, AppointmentTime and then calls the constructor of DoctorMatch.
+        Then, DoctorSpecialisationMatchesPredicate(DoctorMatch) will be created.</p>
+</div>
+<div class="paragraph">
+<p>Step4. Then, DoctorMatchCommandParser calls DoctorMatchCommand(DoctorSpecialisationMatchesPredicate).</p>
+</div>
+<div class="paragraph">
+<p>Step5. execute() calls updateFilteredDoctorList(DoctorSpecialisationMatchesPredicate) of ModelManager to filter the list of doctors whose specialisation matches the user&#8217;s input.</p>
+</div>
+<div class="paragraph">
+<p>Step6. Then, execute() will call the constructor of DoctorsMatch with the filtered list of doctors, the desired appointment date and time. AppointmentContainsDoctorPredicate(DoctorsMatch) will be created.
+        execute() calls updateAppointmentList(AppointmentContainsDoctorPredicate) of ModelManager to filter the list of appointments who are occupied during the desired date and time of appointment.</p>
+</div>
+<div class="paragraph">
+<p>Step7. Then, execute() will get the filtered list of appointments and the desired specialisation. DoctorHasAppointmentPredicate will be created.
+        execute() calls updateFilteredDoctorList(DoctorHasAppointmentPredicate) to filter the list of doctors whose specialisation matches and are available on the date and timing inputted.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:57:23 UTC</div></div></div></body></html>
