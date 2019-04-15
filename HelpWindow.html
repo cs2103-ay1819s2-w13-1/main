@@ -38,12 +38,12 @@
 <li><a href="#adding-an-appointment-code-add-appt-code">3.23. Adding an appointment: <code>add-appt</code></a></li>
 <li><a href="#listing-appointments-code-list-appt-code">3.24. Listing appointments : <code>list-appt</code></a></li>
 <li><a href="#changing-an-appointment-status-code-mark-appt-code">3.25. Changing an appointment status : <code>mark-appt</code></a></li>
-<li><a href="#adding-a-medicine-code-add-med-code">3.26. Adding a medicine: <code>add-med</code></a></li>
-<li><a href="#listing-all-medicines-code-list-med-code">3.27. Listing all medicines : <code>list-med</code></a></li>
-<li><a href="#adding-a-prescription-code-add-presc-code">3.28. Adding a prescription: <code>add-presc</code></a></li>
-<li><a href="#listing-prescriptions-code-list-presc-code">3.29. Listing prescriptions: <code>list-presc</code></a></li>
-<li><a href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.30. Viewing a prescription of a patient: <code>view-presc</code></a></li>
-<li><a href="#locating-prescription-code-search-presc-code">3.31. Locating prescription : <code>search-presc</code></a></li>
+<li><a href="#adding-a-prescription-code-add-presc-code">3.26. Adding a prescription: <code>add-presc</code></a></li>
+<li><a href="#listing-prescriptions-code-list-presc-code">3.27. Listing prescriptions: <code>list-presc</code></a></li>
+<li><a href="#editing-description-of-a-prescription-code-edit-presc-code">3.28. Editing description of a prescription: <code>edit-presc</code></a></li>
+<li><a href="#searching-prescriptions-code-search-presc-code">3.29. Searching prescriptions : <code>search-presc</code></a></li>
+<li><a href="#viewing-prescriptions-code-select-presc-code">3.30. Viewing prescriptions: <code>select-presc</code></a></li>
+<li><a href="#sorting-medical-history-by-date-code-sort-med-hist-code-2">3.31. Sorting medical history by date: <code>sort-med-hist</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.32. Listing entered commands : <code>history</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.33. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.34. Exiting the program : <code>exit</code></a></li>
@@ -1205,58 +1205,23 @@ The appointment with INDEX 3 was missed. Note that this can only be done to elap
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-medicine-code-add-med-code"><a class="link" href="#adding-a-medicine-code-add-med-code">3.26. Adding a medicine: <code>add-med</code></a></h3>
-<div class="paragraph">
-<p>Adds a medicine in docX database.<br>
-Format: <code>add-med MEDICINE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>A unique identification number (ID) will be generated for the new medicine.</p>
-</li>
-<li>
-<p>Adding a pre-existing medicine will result in an error.</p>
-</li>
-<li>
-<p>Medicines must be quoted in quotation marks.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:
-* <code>add-med 'coughing tablets'</code><br>
-Adds 'coughing syrup' into docX&#8217;s available lists of medicines.
-* <code>add-med 'muscle patch'</code><br>
-Adds 'muscle patch' into docX&#8217;s available lists of medicines.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-medicines-code-list-med-code"><a class="link" href="#listing-all-medicines-code-list-med-code">3.27. Listing all medicines : <code>list-med</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all medicines in docX.<br>
-Format: <code>list-med</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-prescription-code-add-presc-code"><a class="link" href="#adding-a-prescription-code-add-presc-code">3.28. Adding a prescription: <code>add-presc</code></a></h3>
+<h3 id="adding-a-prescription-code-add-presc-code"><a class="link" href="#adding-a-prescription-code-add-presc-code">3.26. Adding a prescription: <code>add-presc</code></a></h3>
 <div class="paragraph">
 <p>Adds a prescription and the prescribing doctor under the patient involved.<br>
-Format: <code>add-presc pid/PATIENT_ID did/DOCTOR_ID rid/MED_ID w/SHORT_WRITEUP</code></p>
+Format: <code>add-presc pid/PATIENT_ID did/DOCTOR_ID dp/DATE rid/MED_ID w/SHORT_WRITEUP</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Prescription with corresponding patient, doctor, medicine and a short description written by the doctor will be added to docX.</p>
+<p>Prescription with corresponding patient, doctor, date, medicine and a short description written by the doctor will be added to docX.</p>
 </li>
 <li>
-<p>PATIENT_ID and DOCTOR_ID must be ids that correspond to existing patient and doctor.</p>
+<p><strong>PATIENT_ID and DOCTOR_ID</strong> must be ids that correspond to existing patient and doctor.</p>
+</li>
+<li>
+<p><strong>DATE</strong> must be a valid date in calendar and must be a past day or today.</p>
 </li>
 <li>
 <p>Duplicate prescription cannot be added to the list.</p>
@@ -1274,20 +1239,20 @@ Format: <code>add-presc pid/PATIENT_ID did/DOCTOR_ID rid/MED_ID w/SHORT_WRITEUP<
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-presc pid/1 did/2 mn/Acetaminophen d/500 mg for relieving pain</code><br>
+<p><code>add-presc pid/1 did/2 dp/2018-05-13 mn/Acetaminophen d/500 mg for relieving pain</code><br>
 Adds the prescribing doctor with ID of '2', the medicine with name of 'Acetaminophen',
-and a short description of '500 mg for relieving pain' under the patient with ID of '1'.</p>
+and a short description of '500 mg for relieving pain' under the patient with ID of '1' on the date May 13rd 2018.</p>
 </li>
 <li>
-<p><code>add-presc pid/5 did/3 mn/Aspirin d/2g for curing fever</code><br>
+<p><code>add-presc pid/5 did/3 dp/2018-05-13 mn/Aspirin d/2g for curing fever</code><br>
 Adds the prescribing doctor with ID of '3', the medicine with name of 'Aspirin',
-and a short description of '2g for curing fever' under the patient with ID of '5'.</p>
+and a short description of '2g for curing fever' under the patient with ID of '5' on the date May 13rd 2018.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-prescriptions-code-list-presc-code"><a class="link" href="#listing-prescriptions-code-list-presc-code">3.29. Listing prescriptions: <code>list-presc</code></a></h3>
+<h3 id="listing-prescriptions-code-list-presc-code"><a class="link" href="#listing-prescriptions-code-list-presc-code">3.27. Listing prescriptions: <code>list-presc</code></a></h3>
 <div class="paragraph">
 <p>Show a list of all prescriptions with the specified requirements.<br>
 Format: <code>list-presc [pid/PATIENT_ID] [did/DOCTOR_ID]</code></p>
@@ -1297,13 +1262,19 @@ Format: <code>list-presc [pid/PATIENT_ID] [did/DOCTOR_ID]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>PATIENT_ID and DOCTOR_ID must be existing id in patient and doctor list.</p>
+<p>PATIENT_ID and DOCTOR_ID are <strong>optional</strong>. list-presc wioutout specifying PATIENT_ID and DOCTOR_ID will list out all prescriptions.</p>
+</li>
+<li>
+<p><strong>PATIENT_ID and DOCTOR_ID</strong> must be existing id in patient and doctor list.</p>
 </li>
 <li>
 <p>If there is no prescription satisfying all specified requirements, an empty list will be shown.</p>
 </li>
 <li>
 <p>Description of prescription may not be shown fully in the list. Can view more details of a particular prescription by using "select-presc" command.</p>
+</li>
+<li>
+<p>If presriptions in the list have <strong>deleted patient or deleted doctor</strong>, "Patient Deleted" or "Doctor Deleted" will replace the previous shown id in patientId or doctorId field.</p>
 </li>
 </ul>
 </div>
@@ -1320,27 +1291,36 @@ Lists all past prescriptions.</p>
 </li>
 <li>
 <p><code>list-presc pid/3</code><br>
-Lists all past prescriptions whose patient id is '3'.</p>
+Lists all past prescriptions whose patientId is '3'.</p>
 </li>
 <li>
 <p><code>list-presc pid/3 did/5</code><br>
-Lists all past prescriptions whose patient id is '3' and doctor id is '5'.</p>
+Lists all past prescriptions whose patientId is '3' and doctor id is '5'.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-prescription-of-a-patient-code-view-presc-code"><a class="link" href="#viewing-a-prescription-of-a-patient-code-view-presc-code">3.30. Viewing a prescription of a patient: <code>view-presc</code></a></h3>
+<h3 id="editing-description-of-a-prescription-code-edit-presc-code"><a class="link" href="#editing-description-of-a-prescription-code-edit-presc-code">3.28. Editing description of a prescription: <code>edit-presc</code></a></h3>
 <div class="paragraph">
-<p>View the full specified prescription of the specified patient.<br>
-Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
+<p>Edit the description of the prescription with specified index in prescription list.<br>
+Format: <code>edit-presc INDEX d/EDITED_DESCRIPTION</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Display the full prescription of the specified <code>PRESCRIPTION_ID</code> of the specified patient <code>PATIENT_ID</code>. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Please <strong>execute <code>list-presc</code></strong> to find the index of the prescription you want to edit before execute <code>edit-presc</code> command.</p>
+</li>
+<li>
+<p><strong>INDEX</strong> should be a valid existing index in the displayed list.</p>
+</li>
+<li>
+<p>Users can <strong>only edit the description</strong> of a prescription. Patient id, doctor id, the date of a prescription and the medicine are immutable.</p>
+</li>
+<li>
+<p>To view the edited prescription, please execute <code>select-presc</code> command to view more details.</p>
 </li>
 </ul>
 </div>
@@ -1352,36 +1332,41 @@ Format: <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>view-presc pid/2 prescid/2</code><br>
-Returns full write up of the prescription with ID of '2' of the patient with ID of '2'.</p>
+<p><code>edit-presc 1 d/For curing fever</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-prescription-code-search-presc-code"><a class="link" href="#locating-prescription-code-search-presc-code">3.31. Locating prescription : <code>search-presc</code></a></h3>
+<h3 id="searching-prescriptions-code-search-presc-code"><a class="link" href="#searching-prescriptions-code-search-presc-code">3.29. Searching prescriptions : <code>search-presc</code></a></h3>
 <div class="paragraph">
-<p>Finds prescription(s) whose write up contain any of the given keywords.<br>
-Format: <code>search-presc KEYWORD</code></p>
+<p>Finds prescriptions whose description contains any one of the specified keywords.<br>
+Format: <code>search-presc KEYWORDS</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>flu</code> will match <code>Flu</code></p>
+<p>If the list of prescription is not yet shown. Before searching, <code>list-presc</code> command <strong>must be executed</strong> to view the searching result.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>heaty cough</code> will match <code>cough heaty</code></p>
+<p>The search is case insensitive. e.g <code>fever</code> will match <code>Fever</code></p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>cough</code> will not match <code>coughs</code></p>
+<p>The order of the keywords does not matter. e.g. <code>fever cold</code> will have the same effect as <code>cold fever</code>.</p>
 </li>
 <li>
-<p>Write ups of the prescription matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>cough</code> will return <code>dry cough</code>, <code>heaty cough</code></p>
+<p>Only full words will be matched e.g. <code>fever</code> will not match <code>fevers</code></p>
 </li>
 <li>
-<p>Each keyword is to be quoted in quotation marks.</p>
+<p>Prescriptions with descriptions matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. Prescriptions with the descriptions being <code>fever</code> or <code>cold</code> will all be returned with searching keywords <code>fever cold</code>.</p>
+</li>
+<li>
+<p>If there is no prescription whose description contains any of the keywords, an empty list will be shown.</p>
+</li>
+<li>
+<p>There should be one space between two keywords.</p>
 </li>
 </ul>
 </div>
@@ -1393,12 +1378,89 @@ Format: <code>search-presc KEYWORD</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>search-presc 'flu'</code><br>
-Returns all prescriptions with the write up containing the keyword <code>flu</code></p>
+<p><code>search-presc fever</code><br>
+All prescriptions with descriptions containing the keyword <code>fever</code> will be listed.</p>
 </li>
 <li>
-<p><code>search-presc 'stomach flu' 'sorethroat'</code><br>
-Returns all prescriptions with the write up containing either 'stomach flu' or 'sorethroat' or both keywords.</p>
+<p><code>search-presc fever cold</code><br>
+All prescriptions with descriptions containing the keyword <code>fever</code> or <code>cold</code> will be listed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-prescriptions-code-select-presc-code"><a class="link" href="#viewing-prescriptions-code-select-presc-code">3.30. Viewing prescriptions: <code>select-presc</code></a></h3>
+<div class="paragraph">
+<p>View details of the specified prescription with index in the displayed list.<br>
+Format: <code>select-presc INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Display details of the prescription with the specified index, including patient information, doctor information, medicine name, date and the full description.</p>
+</li>
+<li>
+<p><strong>INDEX</strong> should be a valid existing index in the displayed list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select-presc 1</code><br>
+List details of the prescription with index 1 in displayed prescription list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-medical-history-by-date-code-sort-med-hist-code-2"><a class="link" href="#sorting-medical-history-by-date-code-sort-med-hist-code-2">3.31. Sorting medical history by date: <code>sort-med-hist</code></a></h3>
+<div class="paragraph">
+<p>Sort prescriptions by date in ascending order or descending order.<br>
+Format: <code>sort-presc [ASC/DESC]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To view the sorted list, execute <code>list-presc</code> command.</p>
+</li>
+<li>
+<p>When a new prescription is added to docX, it will be added to <strong>the end of list</strong>. You can sort again to make the list be in order.</p>
+</li>
+<li>
+<p>If "ASC" or "DESC" is not specified in the command, the default order will be descending order(DESC). Prescriptions will be listed from newest date to oldest date.</p>
+</li>
+<li>
+<p>If "DESC" is specified, the order will be descending order. Prescriptions will be listed from newest date to oldest date.</p>
+</li>
+<li>
+<p>If "ASC" is specified, the order will be ascending order. Prescriptions will be listed from oldest date or newest date.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort-presc</code><br>
+Prescriptions will be listed from newest date to oldest date</p>
+</li>
+<li>
+<p><code>sort-presc ASC</code><br>
+Prescriptions will be listed from oldest date or newest date.</p>
 </li>
 </ul>
 </div>
@@ -1588,26 +1650,28 @@ e.g. <code>mark-appt 1 s/CANCELLED</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add a new remedy</strong> <code>add-remedy MEDICINE</code>
-e.g. <code>add-remedy 'coughing tablets'</code></p>
+<p><strong>Add a new prescription</strong> <code>add-presc pid/PATIENT-ID did/DOCTOR-ID dp/DATE mn/MEDICINE NAME d/SHORT DESCRIPTION</code><br>
+e.g. <code>add-presc pid/1 did/2 dp/2018-05-13 mn/Acetaminophen d/500 mg for relieving pain</code></p>
 </li>
 <li>
-<p><strong>List existing remedies</strong> : <code>list-remedy</code></p>
+<p><strong>List prescriptions</strong> : <code>list-presc  [pid/PATIENT-ID ] [did/DOCTOR-ID ]</code><br>
+e.g. <code>list-presc pid/1 did/2</code></p>
 </li>
 <li>
-<p><strong>Add a new prescription</strong> <code>add-presc pid/PATIENT_ID did/DOCTOR_ID rid/REMEDY_ID w/SHORT_WRITEUP</code><br>
-e.g. <code>add-presc pid/1 did/1 rid/1 w/heaty cough</code></p>
+<p><strong>Edit description of an existing prescription</strong> <code>edit-presc INDEX (must be a positive integer) d/EDITED-DESCRIPTION</code><br>
+e.g. <code>edit-presc 1 d/For curing fever</code></p>
 </li>
 <li>
-<p><strong>List prescriptions of a patient</strong> : <code>list-presc PATIENT_ID</code></p>
+<p><strong>Sort prescriptions by date</strong> : <code>sort-presc [ASC/DESC]</code><br>
+e.g. <code>sort-presc ASC</code></p>
 </li>
 <li>
-<p><strong>View a prescription</strong> : <code>view-presc pid/PATIENT_ID prescid/PRESCRIPTION_ID</code><br>
-e.g. <code>view-presc pid/2 prescid/2</code></p>
+<p><strong>Search a prescription</strong> : <code>search-presc KEYWORDS</code><br>
+e.g. <code>search-presc fever</code></p>
 </li>
 <li>
-<p><strong>Locating a prescription</strong> : <code>search-presc KEYWORD</code>
-e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
+<p><strong>Select a prescription</strong> : <code>select-presc INDEX</code><br>
+e.g. <code>select-presc 1</code></p>
 </li>
 </ul>
 </div>
@@ -1625,4 +1689,4 @@ e.g. <code>search-presc 'stomach flu' 'sorethroat'</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 09:53:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:55:31 UTC</div></div></div></body></html>
