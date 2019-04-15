@@ -17,12 +17,12 @@
 <li><a href="#adding-a-patient-code-add-p-code">3.2. Adding a patient: <code>add-p</code></a></li>
 <li><a href="#listing-all-patients-code-list-p-code">3.3. Listing all patients : <code>list-p</code></a></li>
 <li><a href="#editing-a-patient-code-edit-p-code">3.4. Editing a patient : <code>edit-p</code></a></li>
-<li><a href="#search-patient-by-name-code-search-p-name-code">3.5. Search patient by name: <code>search-p-name</code></a></li>
-<li><a href="#search-patient-by-pid-code-search-pid-code">3.6. Search patient by pid: <code>search-pid</code></a></li>
-<li><a href="#search-patient-by-appt-status-code-search-p-status-code">3.7. Search patient by appt status: <code>search-p-status</code></a></li>
-<li><a href="#advanced-search-patient-by-any-info-code-search-p-advanced-code">3.8. Advanced search patient by any info: <code>search-p-advanced</code></a></li>
-<li><a href="#selecting-an-existing-patient-code-select-p-code">3.9. Selecting an existing patient : <code>select-p</code></a></li>
-<li><a href="#deleting-an-existing-patient-code-delete-p-code">3.10. Deleting an existing patient : <code>delete-p</code></a></li>
+<li><a href="#deleting-a-patient-code-delete-p-code">3.5. Deleting a patient : <code>delete-p</code></a></li>
+<li><a href="#search-patient-by-name-code-search-p-name-code">3.6. Search patient by name: <code>search-p-name</code></a></li>
+<li><a href="#search-patient-by-pid-code-search-pid-code">3.7. Search patient by pid: <code>search-pid</code></a></li>
+<li><a href="#search-patient-by-appointment-status-code-search-p-status-code">3.8. Search patient by appointment status: <code>search-p-status</code></a></li>
+<li><a href="#advanced-search-patient-by-any-info-code-search-p-advanced-code">3.9. Advanced search patient by any info: <code>search-p-advanced</code></a></li>
+<li><a href="#selecting-a-patient-code-select-p-code">3.10. Selecting a patient : <code>select-p</code></a></li>
 <li><a href="#adding-a-doctor-code-add-d-code">3.11. Adding a doctor: <code>add-d</code></a></li>
 <li><a href="#listing-all-doctors-code-list-d-code">3.12. Listing all doctors : <code>list-d</code></a></li>
 <li><a href="#selecting-a-doctor-code-select-d-code">3.13. Selecting a doctor : <code>select-d</code></a></li>
@@ -140,7 +140,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[s/SPECIALISATION]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>s/acupuncture</code>, <code>s/acupuncture s/general</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE</code>, <code>p/PHONE n/NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -166,7 +166,7 @@ Format: <code>add-p [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS] [t/TAG]<
 <p>A patient can have any number of tags (including 0)<br></p>
 </li>
 <li>
-<p>If there are multiple entries for each parameters input, the last input will be stored</p>
+<p>If there are multiple input for each parameter field, the last input will be stored</p>
 </li>
 </ul>
 </div>
@@ -192,7 +192,7 @@ Format: <code>add-p [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS] [t/TAG]<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-For constraints of name, gender, age, phone, address and tags, please refer to the section below.
+For constraints of name, gender, age, phone, address and tags, please refer to the table below.
 </td>
 </tr>
 </table>
@@ -228,6 +228,9 @@ Format: <code>edit-p [INDEX] [n/NAME] [g/GENDER] [a/AGE] [p/PHONE] [adr/ADDRESS]
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
+<p>If there are multiple input for each parameter field, the last input will be stored</p>
+</li>
+<li>
 <p>Existing values will be updated to the input values.</p>
 </li>
 </ul>
@@ -259,9 +262,46 @@ An empty tag field removes all the current tags of the patient with ID of '1'.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-patient-by-name-code-search-p-name-code"><a class="link" href="#search-patient-by-name-code-search-p-name-code">3.5. Search patient by name: <code>search-p-name</code></a></h3>
+<h3 id="deleting-a-patient-code-delete-p-code"><a class="link" href="#deleting-a-patient-code-delete-p-code">3.5. Deleting a patient : <code>delete-p</code></a></h3>
 <div class="paragraph">
-<p>Search and return patient(s) whose names contain any of the given keywords.<br>
+<p>Deletes the specified patient from docX.<br>
+Format: <code>delete-p [INDEX]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the patient of the specified list index.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-p</code><br>
+<code>delete-p 3</code><br>
+Deletes the patient with current list index of '3' in the docX.</p>
+</li>
+<li>
+<p><code>delete-p 2</code><br>
+Deletes the patient with current list index of '2' in the docX.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="search-patient-by-name-code-search-p-name-code"><a class="link" href="#search-patient-by-name-code-search-p-name-code">3.6. Search patient by name: <code>search-p-name</code></a></h3>
+<div class="paragraph">
+<p>Search and return patient(s) whose names contain any of the input keywords.<br>
 Format: <code>search-p-name [NAME] [NAME2]</code></p>
 </div>
 <div class="sidebarblock">
@@ -307,7 +347,7 @@ Returns all patients having names containing <code>Betsy</code>, <code>Tim</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-patient-by-pid-code-search-pid-code"><a class="link" href="#search-patient-by-pid-code-search-pid-code">3.6. Search patient by pid: <code>search-pid</code></a></h3>
+<h3 id="search-patient-by-pid-code-search-pid-code"><a class="link" href="#search-patient-by-pid-code-search-pid-code">3.7. Search patient by pid: <code>search-pid</code></a></h3>
 <div class="paragraph">
 <p>Search and return patient(s) whose pid matches the input pid.<br>
 Format: <code>search-pid [pid]</code></p>
@@ -339,9 +379,9 @@ Returns <code>Alex Martin</code> who has pid of <code>1</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-patient-by-appt-status-code-search-p-status-code"><a class="link" href="#search-patient-by-appt-status-code-search-p-status-code">3.7. Search patient by appt status: <code>search-p-status</code></a></h3>
+<h3 id="search-patient-by-appointment-status-code-search-p-status-code"><a class="link" href="#search-patient-by-appointment-status-code-search-p-status-code">3.8. Search patient by appointment status: <code>search-p-status</code></a></h3>
 <div class="paragraph">
-<p>Search and return patient(s) whose appointment status matches the specified keyword.<br>
+<p>Search and return patient(s) whose appointment status matches the input status.<br>
 Format: <code>search-p-status [STATUS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -375,9 +415,9 @@ Returns <code>Alex Martin</code> and <code>Tom Hiddleston</code> who has appoint
 </div>
 </div>
 <div class="sect2">
-<h3 id="advanced-search-patient-by-any-info-code-search-p-advanced-code"><a class="link" href="#advanced-search-patient-by-any-info-code-search-p-advanced-code">3.8. Advanced search patient by any info: <code>search-p-advanced</code></a></h3>
+<h3 id="advanced-search-patient-by-any-info-code-search-p-advanced-code"><a class="link" href="#advanced-search-patient-by-any-info-code-search-p-advanced-code">3.9. Advanced search patient by any info: <code>search-p-advanced</code></a></h3>
 <div class="paragraph">
-<p>Search and return patient(s) whose detail contains all of the given keywords,
+<p>Search and return patient(s) whose detail contains all of the input keywords,
 even if the keyword is only a subword of the patient&#8217;s info<br>
 Use a "quoted_keyword" to enforce fullword match to the patient&#8217;s info<br>
 Format: <code>search-p-advanced [keyword] ["quoted_keyword"]&#8230;&#8203;</code></p>
@@ -390,7 +430,7 @@ Format: <code>search-p-advanced [keyword] ["quoted_keyword"]&#8230;&#8203;</code
 <p>The search is case insensitive. e.g <code>aLeX</code> will match <code>Alex</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>stroke cancer</code> will match <code>cancer stroke</code></p>
+<p>The order of the input keywords does not matter. e.g. <code>stroke cancer</code> will match <code>cancer stroke</code></p>
 </li>
 <li>
 <p>With "unquoted_keyword", subwords will be matched<br>
@@ -445,7 +485,7 @@ nor <code>Alexander Fleming</code> who has a <code>highbloodpressure</code> tag<
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-an-existing-patient-code-select-p-code"><a class="link" href="#selecting-an-existing-patient-code-select-p-code">3.9. Selecting an existing patient : <code>select-p</code></a></h3>
+<h3 id="selecting-a-patient-code-select-p-code"><a class="link" href="#selecting-a-patient-code-select-p-code">3.10. Selecting a patient : <code>select-p</code></a></h3>
 <div class="paragraph">
 <p>Select the specified patient from docX.<br>
 Displays his/her full information on the browser panel.
@@ -475,43 +515,6 @@ Format: <code>select-p [INDEX]</code></p>
 <code>select-p 3</code><br>
 Selects the patient with current list index of '3' in the docX<br>
 The patient&#8217;s full detail can be easily viewed in the browser panel.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-an-existing-patient-code-delete-p-code"><a class="link" href="#deleting-an-existing-patient-code-delete-p-code">3.10. Deleting an existing patient : <code>delete-p</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified patient from docX.<br>
-Format: <code>delete-p [INDEX]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the patient of the specified list index.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list-p</code><br>
-<code>delete-p 3</code><br>
-Deletes the patient with current list index of '3' in the docX.</p>
-</li>
-<li>
-<p><code>delete-p 2</code><br>
-Deletes the patient with current list index of '2' in the docX.</p>
 </li>
 </ul>
 </div>
@@ -1688,4 +1691,4 @@ e.g. <code>select-presc 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:36:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:21:38 UTC</div></div></div></body></html>

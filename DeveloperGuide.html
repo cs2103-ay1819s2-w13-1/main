@@ -496,7 +496,7 @@ UI or Model is omitted or simplified for clarity.</p>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="paragraph">
-<p>Due to space constraint and aid visibility, we will only include patient and doctor to illustrate our model.</p>
+<p>Due to space constraint and to aid visibility, we will only include patient and doctor to illustrate our model.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -516,10 +516,10 @@ UI or Model is omitted or simplified for clarity.</p>
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the DocX data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Patient&gt;</code> and ObeservableList&lt;Doctor&gt;` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -533,7 +533,7 @@ UI or Model is omitted or simplified for clarity.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>DocX</code>, which <code>Patient</code> can reference. This would allow <code>DocX</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Patient</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
 </td>
@@ -644,16 +644,16 @@ The following features are implemented for patients of docX:</p>
 <p>Add patient</p>
 </li>
 <li>
-<p>List all patients</p>
-</li>
-<li>
 <p>Edit existing patients</p>
 </li>
 <li>
-<p>Various search patients by keywords</p>
+<p>Delete patients</p>
 </li>
 <li>
-<p>Delete patients</p>
+<p>List all patients</p>
+</li>
+<li>
+<p>Various search functions for patients</p>
 </li>
 <li>
 <p>Select patient</p>
@@ -700,26 +700,11 @@ The following features are implemented for patients of docX:</p>
 <div class="content">
 <img src="images/AddPatientSdForLogic.png" alt="AddPatientSdForLogic" width="700">
 </div>
+<div class="title">Figure 9. Sequence diagram where patient is successfully added</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-patient-feature"><a class="link" href="#list-patient-feature">4.1.2. List Patient feature</a></h4>
-<div class="paragraph">
-<p>When a user executes 'list-p', the full patient list will be displayed.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>LogicManager</code> calls execute() of <code>ListPatientCommand</code>.</p>
-</li>
-<li>
-<p>execute() will call <code>Model</code> to <code>updateFilterPatientList</code> by setting the predicate to show all the patients in the DocX currently.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-patient-feature"><a class="link" href="#edit-patient-feature">4.1.3. Edit Patient feature</a></h4>
+<h4 id="edit-patient-feature"><a class="link" href="#edit-patient-feature">4.1.2. Edit Patient feature</a></h4>
 <div class="paragraph">
 <p>When a user executes edit-p 1 n/Betty Sim</p>
 </div>
@@ -757,25 +742,9 @@ and the respective field(s) to be changed. It will call <code>EditPatientDescrip
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-patient-feature"><a class="link" href="#search-patient-feature">4.1.4. Search Patient feature</a></h4>
-<div class="paragraph">
-<p>There are various search commands available for patients. The internal workings of the search commands can be described under this section.
-Search commands: <code>search-p-name, search-pid, search-p-status, search-p-advanced</code>.</p>
-</div>
-<div class="paragraph">
-<p>When a user executes <code>search-p-name</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-patient-feature"><a class="link" href="#delete-patient-feature">4.1.5. Delete Patient feature</a></h4>
+<h4 id="delete-patient-feature"><a class="link" href="#delete-patient-feature">4.1.3. Delete Patient feature</a></h4>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete")</code> API call.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeletePatientSdForLogic.png" alt="DeletePatientSdForLogic" width="700">
-</div>
-<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>delete-p</code> Command</div>
 </div>
 <div class="paragraph">
 <p>When a user executes <code>delete-p 1</code></p>
@@ -807,9 +776,71 @@ DeletePatientCommand calls deletePatient(patientToDelete) of <code>ModelManager<
 </li>
 </ol>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeletePatientSdForLogic.png" alt="DeletePatientSdForLogic" width="700">
+</div>
+<div class="title">Figure 10. Interactions Inside the Logic Component for the <code>delete-p</code> Command</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="appointment-status-display-feature"><a class="link" href="#appointment-status-display-feature">4.1.6. Appointment Status Display feature</a></h4>
+<h4 id="list-patient-feature"><a class="link" href="#list-patient-feature">4.1.4. List Patient feature</a></h4>
+<div class="paragraph">
+<p>When a user executes 'list-p', the full patient list will be displayed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>LogicManager</code> calls execute() of <code>ListPatientCommand</code>.</p>
+</li>
+<li>
+<p>execute() will call <code>Model</code> to <code>updateFilterPatientList</code> by setting the predicate to show all the patients in the DocX currently.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="search-patient-feature"><a class="link" href="#search-patient-feature">4.1.5. Search Patient feature</a></h4>
+<div class="paragraph">
+<p>There are various search commands available for patients. The internal workings of the search commands can be described under this section.
+Search commands: <code>search-p-name, search-pid, search-p-status, search-p-advanced</code>.</p>
+</div>
+<div class="paragraph">
+<p>When a user executes <code>search-p-name</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-patient-feature"><a class="link" href="#select-patient-feature">4.1.6. Select Patient feature</a></h4>
+<div class="paragraph">
+<p>When a user executes 'select-p [INDEX]', the full patient info will be displayed on the browser panel.</p>
+</div>
+<div class="paragraph">
+<p>Steps:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>LogicManager calls parseCommand("select-p") in <code>DocXParser</code>.</p>
+</li>
+<li>
+<p>Based on the COMMAND_WORD, <code>DocXParser</code> builds a new SelectPatientCommandParser() and calls function parse("1") of SelectPatientCommandParser.</p>
+</li>
+<li>
+<p>SelectPatientCommandParser parses the argument and get the relative list index of the patient to be selected.
+Then SelectPatientCommandParser calls SelectPatientCommand(index).</p>
+</li>
+<li>
+<p>LogicManager calls execute() of SelectPatientCommand.</p>
+</li>
+<li>
+<p>execute() calls getFilteredPatientList() of ModelManager and gets the patient to be selected.
+SelectPatientCommand calls setSelectedPatient(selectedPatient) and then return a new <code>CommandResult</code> that will trigger browser panel display.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="appointment-status-display-feature"><a class="link" href="#appointment-status-display-feature">4.1.7. Appointment Status Display feature</a></h4>
 <div class="paragraph">
 <p>The patient card will show the appointment status of a patient. It will display any one of the four enum values: <code>ACTIVE, COMPLETED, CANCELLED, MISSED</code>.
 When an appointment is added, or marked, the execution of the command will cascade and alter the status display of the patient.
@@ -878,13 +909,13 @@ The following features are implemented or will be implemented for doctors of doc
 <div class="content">
 <img src="images/ListDoctorCreationSequenceDiagram.png" alt="ListDoctorCreationSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 10. The Sequence Diagram of the creation of the list doctor command.</div>
+<div class="title">Figure 11. The Sequence Diagram of the creation of the list doctor command.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListDoctorExecutionSequenceDiagram.png" alt="ListDoctorExecutionSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 11. The Sequence Diagram of the execution of the list doctor command.</div>
+<div class="title">Figure 12. The Sequence Diagram of the execution of the list doctor command.</div>
 </div>
 <div class="paragraph">
 <p>When a user executes <code>list-doctor acupu</code></p>
@@ -1305,7 +1336,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3609,4 +3640,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:36:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:21:38 UTC</div></div></div></body></html>
