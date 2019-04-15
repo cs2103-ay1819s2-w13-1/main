@@ -32,10 +32,10 @@
 <p>What it does: Allows the user to find doctors whose specialisation matches the input and are available at the desired date and time for an appointment.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because the user can now find available doctor(s) that match(es) the required specialisation with just one command, instead of the traditional method, where the user has to scroll through the list of doctors to find them manually.</p>
+<p>Justification: This feature improves the product significantly because the user can now find available doctor(s) that match(es) the required specialisation with just one command, instead of the traditional method, where the user has to scroll through the list of doctors to find them manually. This would save the user a huge amount of time and resources spent on finding the right doctor for the patient and would result in reduced manhours of the front desk.</p>
 </li>
 <li>
-<p>Highlights: This enhancement required an in-depth analysis of design alternatives. The implementation too was challenging as it required access to another class' information (Appointment list under ModelManager) and temporary changes made to the Appointment Filtered List under Model Manager during implementation.</p>
+<p>Highlights: This enhancement required an in-depth analysis of design alternatives. The implementation too was challenging as it required access to another class' information (Appointment list under ModelManager) and temporary changes made to the Appointment Filtered List under Model Manager during implementation. Additionally, the filtering of the doctors' list can only be done with one predicate, which means the list will always be filtered from the full original list. Hence, I had to create 3 different predicates to filter the doctor list to get the relevant doctors to check against the appointment list, then filter the doctor list again based on the above results.</p>
 </li>
 </ul>
 </div>
@@ -48,10 +48,10 @@
 <p>What it does: Allows the user to find doctors whose fields matches the keyword(s) inputted.</p>
 </li>
 <li>
-<p>Justification: This feature allows the user to intuitively use the same command word for different functions. <code>list-d</code> now can be used to list the full original list of doctors and <code>list-d 10</code> will list doctors whose field(s) contains '10'. Hence, the user just needs to remember 1 command word for listing and searching of the doctors.</p>
+<p>Justification: This feature allows the user to intuitively use the same command word for different functions. <code>list-d</code> now can be used to list the full original list of doctors and <code>list-d 10</code> will list doctors whose field(s) contains '10'. Hence, the user just needs to remember 1 command word for listing and searching of the doctors. This is particularly useful because a receptionist new to our application will be able to get used to the application as soon as possible, which is our objective of this application - to make the jobs of receptionist faster and easier.</p>
 </li>
 <li>
-<p>Highlights: This enhancement although minor, proved to be a challenge because the parser for this command has to accept any number of keywords (0 to infinitely many). Hence, the parser must be prepared to take in null arguments and many arguments too.</p>
+<p>Highlights: This enhancement although minor, proved to be a challenge because the parser for this command has to accept any number of keywords (0 to infinitely many). As the parser must be prepared to take in null arguments and many arguments, there had to be checks to ensure the right results is shown to the user.</p>
 </li>
 </ul>
 </div>
@@ -68,10 +68,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Allowing the display of doctors' information on the browser panel. (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Allowing the display of doctors' information on the browser panel. (Pull request <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/178">#178</a>)</p>
 </li>
 <li>
 <p>Wrote additional tests for existing features to increase coverage by 8%. (Pull requests <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/198">#198</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/202">#202</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/205">#205</a>)</p>
+</li>
+<li>
+<p>Change Patient and Doctor to inherit from Person class (OOP)</p>
+</li>
+<li>
+<p>Structured the initial User Guide for the team (Pull request <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/99">#99</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/66">#66</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/65">#65</a>)</p>
 </li>
 </ul>
 </div>
@@ -82,7 +88,7 @@ As of 15 April 2019,</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/cs2103-ay1819s2-w13-1/main/pulls?q=is%3Apr+is%3Aclosed+author%3Asiyingpoof)">Pull Requests (PRs)</a> on <strong><em>docX</em></strong>'s GitHub = 25</p>
+<p><a href="https://github.com/cs2103-ay1819s2-w13-1/main/pulls?q=is%3Apr+is%3Aclosed+author%3Asiyingpoof)">Pull Requests (PRs)</a> on <strong><em>docX</em></strong>'s GitHub &gt; 30</p>
 </li>
 <li>
 <p><a href="https://github.com/cs2103-ay1819s2-w13-1/main/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Asiyingpoof">PRs reviewed</a> with non-trivial review comments = 3 (<a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/212">#212</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/113">#113</a>, <a href="https://github.com/cs2103-ay1819s2-w13-1/main/pull/93">#93</a>)</p>
@@ -129,6 +135,9 @@ Format: <code>add-d n/NAME g/GENDER y/YEAR_OF_EXPERIENCE p/PHONE_NUMBER s/SPECIA
 <li>
 <p>A doctor must have at least 1 specialisation.</p>
 </li>
+<li>
+<p>Year of specialisation should be within 0 to 100.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -142,7 +151,7 @@ Format: <code>add-d n/NAME g/GENDER y/YEAR_OF_EXPERIENCE p/PHONE_NUMBER s/SPECIA
 <p><code>add-d n/John Doe g/M y/5 p/98765432 s/acupuncture s/general</code></p>
 </li>
 <li>
-<p><code>add-d n/Betsy Crowe g/f p/1234567 y/22 s/general</code></p>
+<p><code>add-d n/Betsy Crowe g/f p/81234567 y/22 s/surgery</code></p>
 </li>
 </ul>
 </div>
@@ -158,7 +167,7 @@ Format: <code>list-d</code></p>
 <h3 id="selecting-a-doctor-code-select-d-code"><a class="link" href="#selecting-a-doctor-code-select-d-code">Selecting a doctor : <code>select-d</code></a></h3>
 <div class="paragraph">
 <p>Selects an existing doctor in docX to display all the information about this doctor in the browser panel.<br>
-Format: <code>select-doctor INDEX</code></p>
+Format: <code>select-d INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -375,6 +384,37 @@ Lists the doctors who has the specialisation of <code>general</code> and is free
 </tbody>
 </table>
 <div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram_edited.png" alt="UiClassDiagram edited" width="800">
+</div>
+<div class="title">Figure 1. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="crud-of-doctors"><a class="link" href="#crud-of-doctors">CRUD of Doctors</a></h3>
 <div class="paragraph">
 <p>Doctor is one of the two valid types of Persons to be stored in the docX record.
@@ -404,6 +444,8 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 <div class="sect3">
 <h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">Add Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation"><a class="link" href="#implementation">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>add-d n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
 </div>
@@ -424,8 +466,27 @@ The following features are implemented or will be implemented for doctors of doc
 <p>Step5. execute() calls hasDoctor() of Model. If doctor does not exist, call addDoctor() of Model.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h5>
+<div class="paragraph">
+<p>Aspect 1: Definition of 'duplicates' in Doctor List of docX.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 1 (current choice): Phone number that is the same as any existing doctors would be deemed as a duplicated doctor.
+* Pros: It is intuitive for our users that a doctor can have the same name, same specialisations, but should have different numbers, as in the real world.
+* Cons: -</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Name and phone number that is the same as any existing doctors would be deemed as a duplicated doctor.
+* Pros: No additional implementation required.
+* Cons: Less flexibility for our users. Not intuitive as anyone can have the same name, but should have different numbers, as in the real world.</p>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">List Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("list-d")</code> API call.</p>
 </div>
@@ -433,13 +494,13 @@ The following features are implemented or will be implemented for doctors of doc
 <div class="content">
 <img src="../images/ListDoctorCreationSequenceDiagram.png" alt="ListDoctorCreationSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 1. The Sequence Diagram of the creation of the list doctor command.</div>
+<div class="title">Figure 2. The Sequence Diagram of the creation of the list doctor command.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ListDoctorExecutionSequenceDiagram.png" alt="ListDoctorExecutionSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 2. The Sequence Diagram of the execution of the list doctor command.</div>
+<div class="title">Figure 3. The Sequence Diagram of the execution of the list doctor command.</div>
 </div>
 <div class="paragraph">
 <p>When a user executes <code>list-doctor acupu</code></p>
@@ -463,6 +524,76 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 <div class="paragraph">
 <p>Step6. test(Doctor) of DoctorContainsKeywordsPredicate will be called. It will check if any of the field matches "acupu" in full or part. If it matches, the doctor will be shown.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="paragraph">
+<p>Aspect 1: Substring matching or full-word matching</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Substring matching of keyword inputted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to view a wider list of doctors after filtering as any phrase that contains the input will be shown. Even when there are accidental typing mistakes, (eg. "genera" instead of "general") substring matching will eliminate the possibility of results being omitted due to human error.</p>
+</li>
+<li>
+<p>Cons: When the search is too general, irrelevant results may be shown. For example, when the user input "s", almost all doctors with 's' in any of its fields will be shown.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Full-word matching of keyword inputted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ensure that only doctors with fields that matches the user&#8217;s input exactly will be returned. This will greatly reduce irrelevant results being shown.</p>
+</li>
+<li>
+<p>Cons: Any accidental mistakes made in typing will not be condoned by the system, and may result in relevant results being omitted due to human error.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Aspect 2: Categorised or non-categorised keywords</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Substring matching for all fields in Doctor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to view a wider list of doctors after filtering as doctors with any of the fields containing the keyword(s) will be shown.</p>
+</li>
+<li>
+<p>Cons: Users will not be able to specify the field he/she wants to check, even when he/she knows which field to look into. This may result in irrelevant results being shown, where the doctor(s) of irrelevant fields that matches the user&#8217;s input will be shown.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Substring matching for specific fields stated in Doctor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to view the most accurate results from the search. For example, if the user wants to search for "Ong" under the Name field only, he/she can specify in the search and narrow down to the relevant results.</p>
+</li>
+<li>
+<p>Cons: Too restrictive if the user is not able to identify the specific field to check or if the user wants to check multiple fields.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -490,6 +621,8 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 <div class="sect3">
 <h4 id="select-doctor-feature"><a class="link" href="#select-doctor-feature">Select Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>select-d 1</code></p>
 </div>
@@ -511,8 +644,11 @@ The following features are implemented or will be implemented for doctors of doc
         SelectDoctorCommand calls setSelectedDoctor(selectedDoctor) and calls DOCTOR_BROWSER to be showed in the browser panel in the UI with the CommandResult.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">Delete Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>delete-d 1</code></p>
 </div>
@@ -533,8 +669,11 @@ The following features are implemented or will be implemented for doctors of doc
 <p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be deleted. DeleteDoctorCommand calls deleteDoctor(doctorToDelete) of ModelManager.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="doctor-match-feature"><a class="link" href="#doctor-match-feature">Doctor Match feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>match-d s/general d/2019-06-20 t/09:00</code></p>
 </div>
@@ -563,6 +702,43 @@ The following features are implemented or will be implemented for doctors of doc
         execute() calls updateFilteredDoctorList(DoctorHasAppointmentPredicate) to filter the list of doctors whose specialisation matches and are available on the date and timing inputted.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="paragraph">
+<p>Aspect 1: Use user&#8217;s input of the doctor&#8217;s specialisation or use patient&#8217;s tags to auto-match.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1: Using patient&#8217;s tags</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users only have to input the patient&#8217;s ID, and the command will generate available doctors who are suitable (according to specialisation match) and available at the date and time.</p>
+</li>
+<li>
+<p>Cons: Restrictions on creation of patients' tags and doctors' specialisations, as there must be a back-end check that categorises the tags under specified specialisations, which results in tags and specialisations having to be in ENUM form and added prior to usage of the application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 (current choice): Using user&#8217;s inputs to match with doctor&#8217;s specialisation(s).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users have the flexibility and autonomy to input the specialisation to check with the doctors' specialisations. Our users are mostly clinic receptionists, who have the ability and knowledge to decide the type of doctor the patient should consult.</p>
+</li>
+<li>
+<p>Cons: Any accidental errors in typing or someone new on the job may not be able to identify the correct doctors for the patient based on his/her illness.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:25:19 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:41:26 UTC</div></div></div></body></html>

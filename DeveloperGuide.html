@@ -519,26 +519,12 @@ UI or Model is omitted or simplified for clarity.</p>
 <p>stores the DocX data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Patient&gt;</code> and ObeservableList&lt;Doctor&gt;` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Patient&gt;</code> and <code>ObeservableList&lt;Doctor&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>DocX</code>, which <code>Patient</code> can reference. This would allow <code>DocX</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Patient</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -635,7 +621,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>DocX</code>, 
 <div class="sect2">
 <h3 id="patient-management-features"><a class="link" href="#patient-management-features">4.1. Patient Management Features</a></h3>
 <div class="paragraph">
-<p>Patients is one of the two valid types of Persons to be stored in the docX record.
+<p>Patient is one of the two valid types of Person to be stored in the docX record.
 The following features are implemented for patients of docX:</p>
 </div>
 <div class="ulist">
@@ -644,16 +630,16 @@ The following features are implemented for patients of docX:</p>
 <p>Add patient</p>
 </li>
 <li>
-<p>Edit existing patients</p>
+<p>Edit existing patient</p>
 </li>
 <li>
-<p>Delete patients</p>
+<p>Delete patient</p>
 </li>
 <li>
 <p>List all patients</p>
 </li>
 <li>
-<p>Various search functions for patients</p>
+<p>Various search functions for patient</p>
 </li>
 <li>
 <p>Select patient</p>
@@ -683,7 +669,7 @@ The following features are implemented for patients of docX:</p>
 <p><code>Patient</code> constructor will invoke the constructor of the parent <code>Person</code> class, which will call <code>PersonIdCounter</code> to generate a new unique Pid for this patient.</p>
 </li>
 <li>
-<p>A new <code>Patient</code> object is thus created with the specified fields with a pid and default appointment status of completed.</p>
+<p>A new <code>Patient</code> object is thus created with the specified fields with a <code>pid</code> and default appointment status of <code>COMPLETED</code>.</p>
 </li>
 <li>
 <p>Then, <code>AddPatientCommandParser</code> calls AddPatientCommand(Patient).</p>
@@ -700,7 +686,7 @@ The following features are implemented for patients of docX:</p>
 <div class="content">
 <img src="images/AddPatientSdForLogic.png" alt="AddPatientSdForLogic" width="700">
 </div>
-<div class="title">Figure 9. Sequence diagram where patient is successfully added</div>
+<div class="title">Figure 9. Simplified sequence diagram showing logic and model interaction when patient is successfully added</div>
 </div>
 </div>
 <div class="sect3">
@@ -736,7 +722,7 @@ and the respective field(s) to be changed. It will call <code>EditPatientDescrip
 <p>Then, the execute() command continues to check if the patientToEdit and the editedPatient are the same, and if <code>model</code> contains the editedPatient.</p>
 </li>
 <li>
-<p>If both are the conditions are false, the <code>model</code> will set the editedPatient to replace the patientToEdit and the patient will be successfully edited.</p>
+<p>If both of the conditions are false, the <code>model</code> will set the editedPatient to replace the patientToEdit and the patient will be successfully edited.</p>
 </li>
 </ol>
 </div>
@@ -794,7 +780,7 @@ DeletePatientCommand calls deletePatient(patientToDelete) of <code>ModelManager<
 <p><code>LogicManager</code> calls execute() of <code>ListPatientCommand</code>.</p>
 </li>
 <li>
-<p>execute() will call <code>Model</code> to <code>updateFilterPatientList</code> by setting the predicate to show all the patients in the DocX currently.</p>
+<p>execute() will call <code>Model</code> to <code>updateFilteredPatientList</code> by setting the predicate to show all the patients in the DocX currently.</p>
 </li>
 </ol>
 </div>
@@ -802,11 +788,36 @@ DeletePatientCommand calls deletePatient(patientToDelete) of <code>ModelManager<
 <div class="sect3">
 <h4 id="search-patient-feature"><a class="link" href="#search-patient-feature">4.1.5. Search Patient feature</a></h4>
 <div class="paragraph">
-<p>There are various search commands available for patients. The internal workings of the search commands can be described under this section.
+<p>There are various search commands available for patients. The internal workings of the search commands are similar and can be described together under this section.
 Search commands: <code>search-p-name, search-pid, search-p-status, search-p-advanced</code>.</p>
 </div>
 <div class="paragraph">
-<p>When a user executes <code>search-p-name</code></p>
+<p>When a user executes <code>search-p-status ACTIVE</code></p>
+</div>
+<div class="paragraph">
+<p>Steps:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>LogicManager calls parseCommand("search-p-status") in <code>DocXParser</code>.</p>
+</li>
+<li>
+<p>Based on the COMMAND_WORD, <code>DocXParser</code> builds a new <code>SearchPatientApptStatusCommandParser</code> and calls function parse("ACTIVE") of <code>SearchPatientApptStatusCommandParser</code>.</p>
+</li>
+<li>
+<p><code>SearchPatientApptStatusCommandParser</code> parses the argument and checks if the entered argument is one of the four enum values: <code>ACTIVE, COMPLETED, CANCELLED, MISSED</code>.</p>
+</li>
+<li>
+<p>If the entered argument is valid, the command proceeds to execute. Otherwise, it will throw a ParseException and display the correct command usage to the user.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/activitydiagramforsearchpatientstatus.png" alt="activitydiagramforsearchpatientstatus" width="800">
+</div>
+<div class="title">Figure 11. Activity Diagram showing search-p-status</div>
 </div>
 </div>
 <div class="sect3">
@@ -880,6 +891,8 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 <div class="sect3">
 <h4 id="add-doctor-feature"><a class="link" href="#add-doctor-feature">4.2.1. Add Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>add-d n/John Doe g/M p/98765432 y/3 s/'acupuncture</code></p>
 </div>
@@ -900,8 +913,27 @@ The following features are implemented or will be implemented for doctors of doc
 <p>Step5. execute() calls hasDoctor() of Model. If doctor does not exist, call addDoctor() of Model.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h5>
+<div class="paragraph">
+<p>Aspect 1: Definition of 'duplicates' in Doctor List of docX.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 1 (current choice): Phone number that is the same as any existing doctors would be deemed as a duplicated doctor.
+* Pros: It is intuitive for our users that a doctor can have the same name, same specialisations, but should have different numbers, as in the real world.
+* Cons: -</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Name and phone number that is the same as any existing doctors would be deemed as a duplicated doctor.
+* Pros: No additional implementation required.
+* Cons: Less flexibility for our users. Not intuitive as anyone can have the same name, but should have different numbers, as in the real world.</p>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="list-doctor-feature"><a class="link" href="#list-doctor-feature">4.2.2. List Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h5>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("list-d")</code> API call.</p>
 </div>
@@ -909,13 +941,13 @@ The following features are implemented or will be implemented for doctors of doc
 <div class="content">
 <img src="images/ListDoctorCreationSequenceDiagram.png" alt="ListDoctorCreationSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 11. The Sequence Diagram of the creation of the list doctor command.</div>
+<div class="title">Figure 12. The Sequence Diagram of the creation of the list doctor command.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListDoctorExecutionSequenceDiagram.png" alt="ListDoctorExecutionSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 12. The Sequence Diagram of the execution of the list doctor command.</div>
+<div class="title">Figure 13. The Sequence Diagram of the execution of the list doctor command.</div>
 </div>
 <div class="paragraph">
 <p>When a user executes <code>list-doctor acupu</code></p>
@@ -939,6 +971,76 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 <div class="paragraph">
 <p>Step6. test(Doctor) of DoctorContainsKeywordsPredicate will be called. It will check if any of the field matches "acupu" in full or part. If it matches, the doctor will be shown.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="paragraph">
+<p>Aspect 1: Substring matching or full-word matching</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Substring matching of keyword inputted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to view a wider list of doctors after filtering as any phrase that contains the input will be shown. Even when there are accidental typing mistakes, (eg. "genera" instead of "general") substring matching will eliminate the possibility of results being omitted due to human error.</p>
+</li>
+<li>
+<p>Cons: When the search is too general, irrelevant results may be shown. For example, when the user input "s", almost all doctors with 's' in any of its fields will be shown.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Full-word matching of keyword inputted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ensure that only doctors with fields that matches the user&#8217;s input exactly will be returned. This will greatly reduce irrelevant results being shown.</p>
+</li>
+<li>
+<p>Cons: Any accidental mistakes made in typing will not be condoned by the system, and may result in relevant results being omitted due to human error.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Aspect 2: Categorised or non-categorised keywords</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Substring matching for all fields in Doctor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to view a wider list of doctors after filtering as doctors with any of the fields containing the keyword(s) will be shown.</p>
+</li>
+<li>
+<p>Cons: Users will not be able to specify the field he/she wants to check, even when he/she knows which field to look into. This may result in irrelevant results being shown, where the doctor(s) of irrelevant fields that matches the user&#8217;s input will be shown.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Substring matching for specific fields stated in Doctor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to view the most accurate results from the search. For example, if the user wants to search for "Ong" under the Name field only, he/she can specify in the search and narrow down to the relevant results.</p>
+</li>
+<li>
+<p>Cons: Too restrictive if the user is not able to identify the specific field to check or if the user wants to check multiple fields.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -966,6 +1068,8 @@ The following features are implemented or will be implemented for doctors of doc
 </div>
 <div class="sect3">
 <h4 id="select-doctor-feature"><a class="link" href="#select-doctor-feature">4.2.4. Select Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>select-d 1</code></p>
 </div>
@@ -987,8 +1091,11 @@ The following features are implemented or will be implemented for doctors of doc
         SelectDoctorCommand calls setSelectedDoctor(selectedDoctor) and calls DOCTOR_BROWSER to be showed in the browser panel in the UI with the CommandResult.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="delete-doctor-feature"><a class="link" href="#delete-doctor-feature">4.2.5. Delete Doctor feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-6"><a class="link" href="#implementation-6">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>delete-d 1</code></p>
 </div>
@@ -1009,8 +1116,11 @@ The following features are implemented or will be implemented for doctors of doc
 <p>Step5. execute() calls getFilteredDoctorList() of ModelManager and gets the doctor to be deleted. DeleteDoctorCommand calls deleteDoctor(doctorToDelete) of ModelManager.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="doctor-match-feature"><a class="link" href="#doctor-match-feature">4.2.6. Doctor Match feature</a></h4>
+<div class="sect4">
+<h5 id="implementation-7"><a class="link" href="#implementation-7">Implementation</a></h5>
 <div class="paragraph">
 <p>When a user executes <code>match-d s/general d/2019-06-20 t/09:00</code></p>
 </div>
@@ -1037,6 +1147,43 @@ The following features are implemented or will be implemented for doctors of doc
 <div class="paragraph">
 <p>Step7. Then, execute() will get the filtered list of appointments and the desired specialisation. DoctorHasAppointmentPredicate will be created.
         execute() calls updateFilteredDoctorList(DoctorHasAppointmentPredicate) to filter the list of doctors whose specialisation matches and are available on the date and timing inputted.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="paragraph">
+<p>Aspect 1: Use user&#8217;s input of the doctor&#8217;s specialisation or use patient&#8217;s tags to auto-match.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1: Using patient&#8217;s tags</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users only have to input the patient&#8217;s ID, and the command will generate available doctors who are suitable (according to specialisation match) and available at the date and time.</p>
+</li>
+<li>
+<p>Cons: Restrictions on creation of patients' tags and doctors' specialisations, as there must be a back-end check that categorises the tags under specified specialisations, which results in tags and specialisations having to be in ENUM form and added prior to usage of the application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 (current choice): Using user&#8217;s inputs to match with doctor&#8217;s specialisation(s).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users have the flexibility and autonomy to input the specialisation to check with the doctors' specialisations. Our users are mostly clinic receptionists, who have the ability and knowledge to decide the type of doctor the patient should consult.</p>
+</li>
+<li>
+<p>Cons: Any accidental errors in typing or someone new on the job may not be able to identify the correct doctors for the patient based on his/her illness.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1346,7 +1493,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 14. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2722,7 +2869,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User searches for patients using name or phone number.</p>
+<p>User searches for patients using name or phone number/doctors using any keywords.</p>
 </li>
 <li>
 <p>docX shows a list of patients/doctors with their full info.</p>
@@ -2797,6 +2944,43 @@ for <code>RemarkCommandParser</code>.</p>
 <ul class="none">
 <li>
 <p>1a1. docX shows an error message and request the user to enter a valid patient/doctor ID.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-finding-a-doctor-that-matches-the-specialisation-at-the-date-and-time-specified" class="discrete">Use case: Finding a doctor that matches the specialisation at the date and time specified.</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the specialisation and desired appointment date and time.</p>
+</li>
+<li>
+<p>docX shows the relevant and available doctors.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The inputs are in the wrong format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. docX shows an error message, prompting user to re-enter the data.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -3605,14 +3789,76 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all patients/doctors using the <code>list-d</code>/<code>list-p</code> command. Multiple patients/doctors in the list.</p>
-</li>
-<li>
-<p>Test case: <code>add-p n/Tan Kah Kee p/90192292 g/F a/54 adr/Blk 312 Tampines St 33 #02-22 t/highbloodpressure</code>/<code>add-d n/Lim Ah Bong p/61235211 y/5 g/M s/surgery s/acupuncture</code>
+<p>Test case: <code>add-p n/Tan Kah Kee p/90192292 g/F a/54 adr/Blk 312 Tampines St 33 #02-22 t/highbloodpressure</code>/<code>add-d n/Lim Ah Bong p/61235211 y/5 g/M s/surgery s/acupuncture</code><br>
 Expected: New patient/doctor is added to the end of the list with a unique ID generated for the contact. Details of the added contact shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case:</p>
+<p>Test case: <code>add-p</code>/<code>add-d</code><br>
+Expected: No patient/doctor is added. All fields must be filled and not left empty. The correct command format is shown.</p>
+</li>
+<li>
+<p>Other incorrect <code>add-d</code>/<code>add-p</code> commands to try: <code>add-p n/Tan Kah Kee p/30192292 g/F a/54 adr/Blk 312 Tampines St 33 #02-22 t/highbloodpressure</code>/<code>add-d n/Lim Ah Bong p/61235211 y/5 g/M</code><br>
+Expected: Type of error is shown. In this case, phone should begin with 6, 8 or 9 only, and specialisations of doctors must not be empty.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing patients/doctors</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>list-p</code>/<code>list-d</code><br>
+Expected: All patients/doctors are listed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Search for doctors with keywords</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>list-d acupu</code><br>
+Expected: Any fields of doctors that match "acupu" will be returned.</p>
+</li>
+<li>
+<p>Test case: <code>list-d</code><br>
+Expected: All doctors will be listed, as no keywords are given. Same result as listing all doctors.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Advanced search for patients</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>search-p-advanced blood</code><br>
+Expected: Any fields of patients that contains "blood" will be returned.</p>
+</li>
+<li>
+<p>Test case: <code>search-p-advanced "blood"</code><br>
+Expected: Any fields of patients that matches "blood" exactly will be returned.</p>
+</li>
+<li>
+<p>Test case: `search-p-advanced "blood pressure"<br>
+Expected: No patients will be found. Quoted keywords cannot have spaces in between.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Finding doctors who have the specified specialisation and available at the specified date and time.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>match-d s/surgery d/2019-06-20 t/09:00</code><br>
+Expected: Doctor List Panel will show the relevant and available doctors.</p>
+</li>
+<li>
+<p>Test case: <code>match-d</code><br>
+Expected: No doctors will be found. All fields must be filled and not left empty. The correct command format is shown.</p>
 </li>
 </ol>
 </div>
@@ -3710,4 +3956,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:25:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:41:26 UTC</div></div></div></body></html>
